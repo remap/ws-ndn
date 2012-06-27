@@ -10,7 +10,7 @@
 #include <openssl/bio.h>
 #include <openssl/buffer.h>
 
-
+/* Function to convert hash into base 64*/
 char *base64(const unsigned char *input, int length);
 
 int main( int argc, char *argv[] )

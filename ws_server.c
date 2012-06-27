@@ -1,3 +1,5 @@
+// To compile this file link to crpto library : gcc ws_server.c -lcrypto
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
