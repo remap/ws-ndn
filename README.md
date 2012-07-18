@@ -43,31 +43,31 @@ To establish a WebSocket connection, the client sends a WebSocket handshake requ
 
 Client request :
 
-GET / HTTP/1.1
-Host: server.example.com
-User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:13.0) Gecko/20100101 Firefox/13.0.1
-Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
-Accept-Language: en-us,en;q=0.5
-Accept-Encoding: gzip, deflate
-Connection: keep-alive, Upgrade
-Sec-WebSocket-Version: 13
-Origin: null
-Sec-WebSocket-Key: fl/GIXZGTVxEOpjTLObP4w==
-X-DNT-OVersion: 2.2.0.515
-X-DNT-Cohort: 5
-X-DNT-Version: 2.2.1.611 FF ffamo 6659
-Pragma: no-cache
-Cache-Control: no-cache
-Upgrade: websocket
+	GET / HTTP/1.1
+	Host: server.example.com
+	User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:13.0) Gecko/20100101 Firefox/13.0.1
+	Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+	Accept-Language: en-us,en;q=0.5
+	Accept-Encoding: gzip, deflate
+	Connection: keep-alive, Upgrade
+	Sec-WebSocket-Version: 13
+	Origin: null
+	Sec-WebSocket-Key: fl/GIXZGTVxEOpjTLObP4w==
+	X-DNT-OVersion: 2.2.0.515
+	X-DNT-Cohort: 5
+	X-DNT-Version: 2.2.1.611 FF ffamo 6659
+	Pragma: no-cache
+	Cache-Control: no-cache
+	Upgrade: websocket
 
 Server response:
 
-HTTP/1.1 101 Web Socket Protocol Handshake
-Upgrade: Websocket
-Connection: Upgrade
-Sec-WebSocket-Accept: HSmrc0sMlYUkAGmm5OPpG2HaGWk=
-WebSocket-Origin: http://example.com
-WebSocket-Location: ws://example.com/bin/demo
+	HTTP/1.1 101 Web Socket Protocol Handshake
+	Upgrade: Websocket
+	Connection: Upgrade
+	Sec-WebSocket-Accept: HSmrc0sMlYUkAGmm5OPpG2HaGWk=
+	WebSocket-Origin: http://example.com
+	WebSocket-Location: ws://example.com/bin/demo
 
 Note that each line ends with an EOL (end of line) sequence, \n or \r\n. There must be a blank line at the end.
 The client sends a Sec-WebSocket-Key which is base64 encoded. To form a response, the magic string 258EAFA5-E914-47DA-95CA-C5AB0DC85B11 is appended to this (undecoded) key. The resulting string is then hashed with SHA-1, then base64 encoded. Finally, the resulting reply occurs in the header Sec-WebSocket-Accept.
