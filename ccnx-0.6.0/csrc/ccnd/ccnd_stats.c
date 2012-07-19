@@ -154,14 +154,12 @@ ccnd_handle_http_websocket_connection_handshake(struct ccnd_handle *h, struct fa
     rbuf[i]='\0';
     printf("\nHTTP Request Header :\n%s",rbuf);
     /* Preparing http request response to establish web socket */
-    //key = (char *) malloc(130);
     for(i=359,j=0;i<383;i++,j++)
     key[j]=rbuf[i];                           // Extracting WebSocket-Key 
     key[j]='\0';
     magic=(char *)"258EAFA5-E914-47DA-95CA-C5AB0DC85B11";
     strcat(key,magic);                          //Appending magic key to WebSocket-Key   
     SHA1(key,strlen(key),hash);                     //String hashing by SHA 1
-    //handshake_part2= (char *) malloc(40);
     handshake_part2= base64(hash, sizeof(hash));        // Encoding the SHA-1 hash by Base64
     strcpy(handshake, "HTTP/1.1 101 Web Socket Protocol Handshake\r\nUpgrade: Websocket\r\nConnection: Upgrade\r\nSec-WebSocket-Accept: ");
     strcat(handshake,handshake_part2);
@@ -172,17 +170,15 @@ ccnd_handle_http_websocket_connection_handshake(struct ccnd_handle *h, struct fa
     /*face->flags |= CCN_FACE_PERMANENT;             // Not sure if this could be used
     if ((face->flags & CCN_FACE_PERMANENT) != 0)
          printf("CCN_FACE_PERMANENT bit set !\n");*/
-    ccnd_send(h, face, handshake, strlen(handshake));
     //face->flags &= ~CCN_FACE_UNDECIDED; 
+    ccnd_send(h, face, handshake, strlen(handshake));
+    face->flags &= ~CCN_FACE_UNDECIDED; 
     if ((face->flags & CCN_FACE_UNDECIDED) == 0){
          printf("CCN_FACE_UNDECIDED bit cleared !\n");
     }     
     //if ((face->flags & CCN_FACE_CLOSING) == 0)
     //     printf("CCN_FACE_CLOSING bit not set !\n");
-    //printf("\n Returning back ! %s", handshake);
     //face->flags |=(CCN_FACE_NOSEND | CCN_FACE_CLOSING);    
-    //free(key);
-    //free(handshake_part2);
     return (0); 	
  }
    
@@ -224,9 +220,6 @@ ccnd_handle_http_websocket_connection_data(struct ccnd_handle *h, struct face *f
      mask[1] = in[3];
      mask[2] = in[4];
      mask[3] = in[5];
-     //buffr=(char *)malloc(200);
-     //if(buffr==NULL)
-     //    printf("Error allocating memory to buffr");
      if(packet_length <= 126)
      {                      
 	/* Unmask the payload. */
@@ -242,10 +235,11 @@ ccnd_handle_http_websocket_connection_data(struct ccnd_handle *h, struct face *f
 	rc = asprintf(&buffr, "%.*s", packet_length, in + 8);
      }
 	
-     printf("Here is the message from client :\n%s\n",buffr);
-     //free(buffr);
+     printf("Here is the message from client :\n%s\n",buffr);     // Not getting executed after this point
+     fflush(stdout);
      strcpy(message,"Hello Client (from server)");                
-     printf("Message :%s",message);
+     
+     printf("Message :%s",message);                           // Does not get printed to stdout
      /* Framing data to be sent to client */
      frame[0] = '\x81';
      frame[1] = 128 + strlen(message);
