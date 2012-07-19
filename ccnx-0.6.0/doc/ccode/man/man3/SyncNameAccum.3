@@ -1,0 +1,45 @@
+.TH "SyncNameAccum" 3 "22 Apr 2012" "Version 0.6.0" "Content-Centric Networking in C" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+SyncNameAccum \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "int \fBlen\fP"
+.br
+.ti -1c
+.RI "int \fBlim\fP"
+.br
+.ti -1c
+.RI "struct \fBSyncNameAccumEntry\fP * \fBents\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 308 of file SyncUtil.h.
+.SH "Field Documentation"
+.PP 
+.SS "struct \fBSyncNameAccumEntry\fP* \fBSyncNameAccum::ents\fP"
+.PP
+Definition at line 311 of file SyncUtil.h.
+.PP
+Referenced by appendExclusions(), canonFilter(), CompareAction(), copyFilter(), MakeNodeFromNames(), putFileList(), sortNames(), SyncAddName(), SyncAllocNameAccum(), SyncFreeNameAccum(), SyncFreeNameAccumAndNames(), SyncNameAccumAppend(), SyncNameAccumCanon(), SyncNameAccumSorter(), SyncRegisterInterests(), SyncRootAppendSlice(), SyncRootLookupName(), SyncTreeMergeNames(), testReadBuilder(), testReader(), TryNodeSplit(), and UpdateAction().
+.SS "int \fBSyncNameAccum::len\fP"
+.PP
+Definition at line 309 of file SyncUtil.h.
+.PP
+Referenced by appendExclusions(), canonFilter(), CompareAction(), copyFilter(), exclusionsFromHashList(), formatStats(), HeartbeatAction(), isRootStableEnough(), MakeNodeFromNames(), readAndAccumNames(), sortNames(), SyncAddName(), SyncAddRoot(), SyncFreeNameAccumAndNames(), SyncInterestArrived(), SyncNameAccumAppend(), SyncNameAccumCanon(), SyncNameAccumSorter(), SyncRegisterInterests(), SyncRootAppendSlice(), SyncRootLookupName(), SyncSendRootAdviseInterest(), SyncUpdateRoot(), testReadBuilder(), testReader(), TryNodeSplit(), and UpdateAction().
+.SS "int \fBSyncNameAccum::lim\fP"
+.PP
+Definition at line 310 of file SyncUtil.h.
+.PP
+Referenced by SyncAllocNameAccum(), and SyncNameAccumAppend().
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Content-Centric Networking in C from the source code.

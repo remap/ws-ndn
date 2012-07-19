@@ -1,0 +1,113 @@
+.TH "sync/SyncBase.h" 3 "22 Apr 2012" "Version 0.6.0" "Content-Centric Networking in C" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+sync/SyncBase.h \- 
+.PP
+Part of CCNx Sync.  
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Data Structures"
+
+.in +1c
+.ti -1c
+.RI "struct \fBSyncBaseStruct\fP"
+.br
+.ti -1c
+.RI "struct \fBSyncErrStruct\fP"
+.br
+.in -1c
+.SS "Enumerations"
+
+.in +1c
+.ti -1c
+.RI "enum \fBSyncErrCode\fP { \fBSyncErrCode_none\fP =  0, \fBSyncErrCode_bug\fP =  1, \fBSyncErrCode_caller\fP =  2 }"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBSyncSetErrInner\fP (struct \fBSyncBaseStruct\fP *base, enum \fBSyncErrCode\fP code, char *file, int line)"
+.br
+.ti -1c
+.RI "void \fBSyncClearErr\fP (struct \fBSyncBaseStruct\fP *base)"
+.br
+.ti -1c
+.RI "struct \fBSyncBaseStruct\fP * \fBSyncNewBase\fP (struct \fBccnr_handle\fP *ccnr, struct ccn *ccn, struct ccn_schedule *sched)"
+.br
+.ti -1c
+.RI "void \fBSyncInit\fP (struct \fBSyncBaseStruct\fP *bp)"
+.br
+.ti -1c
+.RI "void \fBSyncFreeBase\fP (struct \fBSyncBaseStruct\fP **bp)"
+.br
+.ti -1c
+.RI "int \fBSyncNotifyContent\fP (struct \fBSyncBaseStruct\fP *base, int enumeration, \fBccnr_accession\fP item, struct \fBccn_charbuf\fP *name)"
+.br
+.ti -1c
+.RI "void \fBSyncShutdown\fP (struct \fBSyncBaseStruct\fP *bp)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Part of CCNx Sync. 
+
+Copyright (C) 2011 Palo Alto Research Center, Inc.
+.PP
+This library is free software; you can redistribute it and/or modify it under the terms of the GNU Lesser General Public License version 2.1 as published by the Free Software Foundation. This library is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more details. You should have received a copy of the GNU Lesser General Public License along with this library; if not, write to the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA. 
+.PP
+Definition in file \fBSyncBase.h\fP.
+.SH "Enumeration Type Documentation"
+.PP 
+.SS "enum \fBSyncErrCode\fP"
+.PP
+\fBEnumerator: \fP
+.in +1c
+.TP
+\fB\fISyncErrCode_none \fP\fP
+.TP
+\fB\fISyncErrCode_bug \fP\fP
+.TP
+\fB\fISyncErrCode_caller \fP\fP
+
+.PP
+Definition at line 49 of file SyncBase.h.
+.SH "Function Documentation"
+.PP 
+.SS "void SyncClearErr (struct \fBSyncBaseStruct\fP * base)"
+.PP
+Definition at line 55 of file SyncBase.c.
+.PP
+Referenced by SyncFreeBase().
+.SS "void SyncFreeBase (struct \fBSyncBaseStruct\fP ** bp)"
+.PP
+Definition at line 228 of file SyncBase.c.
+.PP
+Referenced by ccns_close(), main(), and r_init_destroy().
+.SS "void SyncInit (struct \fBSyncBaseStruct\fP * bp)"
+.PP
+Definition at line 104 of file SyncBase.c.
+.PP
+Referenced by r_init_create().
+.SS "struct \fBSyncBaseStruct\fP* SyncNewBase (struct \fBccnr_handle\fP * ccnr, struct ccn * ccn, struct ccn_schedule * sched)\fC [read]\fP"
+.PP
+Definition at line 69 of file SyncBase.c.
+.PP
+Referenced by ccns_open(), main(), and r_init_create().
+.SS "int SyncNotifyContent (struct \fBSyncBaseStruct\fP * base, int enumeration, \fBccnr_accession\fP item, struct \fBccn_charbuf\fP * name)"
+.PP
+Definition at line 256 of file SyncBase.c.
+.PP
+Referenced by r_sync_notify_content().
+.SS "void SyncSetErrInner (struct \fBSyncBaseStruct\fP * base, enum \fBSyncErrCode\fP code, char * file, int line)"
+.PP
+Definition at line 37 of file SyncBase.c.
+.SS "void SyncShutdown (struct \fBSyncBaseStruct\fP * bp)"
+.PP
+Definition at line 351 of file SyncBase.c.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Content-Centric Networking in C from the source code.

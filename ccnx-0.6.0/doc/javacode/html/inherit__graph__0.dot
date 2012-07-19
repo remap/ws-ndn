@@ -1,0 +1,22 @@
+digraph G
+{
+  bgcolor="transparent";
+  edge [fontname="FreeSans",fontsize="7",labelfontname="FreeSans",labelfontsize="7"];
+  node [fontname="FreeSans",fontsize="7",shape=record];
+  rankdir=LR;
+  Node1 [label="Exception",height=0.2,width=0.4,color="black",URL="$class_exception.html"];
+  Node1 -> Node2 [dir=back,color="midnightblue",fontsize="7",style="solid",fontname="FreeSans"];
+  Node2 [label="org.ccnx.ccn.CCNException",height=0.2,width=0.4,color="black",URL="$classorg_1_1ccnx_1_1ccn_1_1_c_c_n_exception.html",tooltip="Top-level Exception subclass to mark CCN exceptions."];
+  Node2 -> Node3 [dir=back,color="midnightblue",fontsize="7",style="solid",fontname="FreeSans"];
+  Node3 [label="org.ccnx.ccn.config.ConfigurationException",height=0.2,width=0.4,color="black",URL="$classorg_1_1ccnx_1_1ccn_1_1config_1_1_configuration_exception.html",tooltip="A marker exception thrown to indicate some problem with the user or system configuration..."];
+  Node2 -> Node4 [dir=back,color="midnightblue",fontsize="7",style="solid",fontname="FreeSans"];
+  Node4 [label="org.ccnx.ccn.impl.repo.RepositoryException",height=0.2,width=0.4,color="black",URL="$classorg_1_1ccnx_1_1ccn_1_1impl_1_1repo_1_1_repository_exception.html",tooltip="Exceptions specific to Repositories."];
+  Node2 -> Node5 [dir=back,color="midnightblue",fontsize="7",style="solid",fontname="FreeSans"];
+  Node5 [label="org.ccnx.ccn.profiles.ccnd.CCNDaemonException",height=0.2,width=0.4,color="black",URL="$classorg_1_1ccnx_1_1ccn_1_1profiles_1_1ccnd_1_1_c_c_n_daemon_exception.html",tooltip="A real AccessDeniedException doesn&#39;t appear in Java until 1.7."];
+  Node2 -> Node6 [dir=back,color="midnightblue",fontsize="7",style="solid",fontname="FreeSans"];
+  Node6 [label="org.ccnx.ccn.protocol.MalformedContentNameStringException",height=0.2,width=0.4,color="black",URL="$classorg_1_1ccnx_1_1ccn_1_1protocol_1_1_malformed_content_name_string_exception.html"];
+  Node1 -> Node7 [dir=back,color="midnightblue",fontsize="7",style="solid",fontname="FreeSans"];
+  Node7 [label="org.ccnx.ccn.profiles.VersionMissingException",height=0.2,width=0.4,color="black",URL="$classorg_1_1ccnx_1_1ccn_1_1profiles_1_1_version_missing_exception.html",tooltip="Thrown when a version field is expected and can&#39;t be found."];
+  Node1 -> Node8 [dir=back,color="midnightblue",fontsize="7",style="solid",fontname="FreeSans"];
+  Node8 [label="org.ccnx.ccn.protocol.Component.DotDot",height=0.2,width=0.4,color="black",URL="$classorg_1_1ccnx_1_1ccn_1_1protocol_1_1_component_1_1_dot_dot.html",tooltip="Indicates an attempt to parse a ."];
+}

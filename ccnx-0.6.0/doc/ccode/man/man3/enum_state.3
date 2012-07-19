@@ -1,0 +1,125 @@
+.TH "enum_state" 3 "22 Apr 2012" "Version 0.6.0" "Content-Centric Networking in C" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+enum_state \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "struct \fBccn_charbuf\fP * \fBname\fP"
+.br
+.ti -1c
+.RI "struct \fBcontent_entry\fP * \fBcontent\fP"
+.br
+.ti -1c
+.RI "struct \fBccn_charbuf\fP * \fBreply_body\fP"
+.br
+.ti -1c
+.RI "struct \fBccn_charbuf\fP * \fBinterest\fP"
+.br
+.ti -1c
+.RI "struct \fBccn_indexbuf\fP * \fBinterest_comps\fP"
+.br
+.ti -1c
+.RI "struct \fBccn_charbuf\fP * \fBcob\fP [ENUM_N_COBS]"
+.br
+.ti -1c
+.RI "int \fBcob_deferred\fP [ENUM_N_COBS]"
+.br
+.ti -1c
+.RI "intmax_t \fBnext_segment\fP"
+.br
+.ti -1c
+.RI "\fBccnr_cookie\fP \fBstarting_cookie\fP"
+.br
+.ti -1c
+.RI "enum \fBes_active_state\fP \fBactive\fP"
+.br
+.ti -1c
+.RI "long \fBlifetime\fP"
+.br
+.ti -1c
+.RI "long \fBlastuse_sec\fP"
+.br
+.ti -1c
+.RI "unsigned \fBlastuse_usec\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 426 of file ccnr_private.h.
+.SH "Field Documentation"
+.PP 
+.SS "enum \fBes_active_state\fP \fBenum_state::active\fP"
+.PP
+Definition at line 436 of file ccnr_private.h.
+.PP
+Referenced by r_proto_begin_enumeration(), r_proto_continue_enumeration(), r_proto_dump_enums(), and reap_enumerations().
+.SS "struct \fBccn_charbuf\fP* \fBenum_state::cob\fP[ENUM_N_COBS]"
+.PP
+Definition at line 432 of file ccnr_private.h.
+.PP
+Referenced by r_proto_begin_enumeration(), and r_proto_continue_enumeration().
+.SS "int \fBenum_state::cob_deferred\fP[ENUM_N_COBS]"
+.PP
+Definition at line 433 of file ccnr_private.h.
+.PP
+Referenced by r_proto_begin_enumeration(), and r_proto_continue_enumeration().
+.SS "struct \fBcontent_entry\fP* \fBenum_state::content\fP"
+.PP
+Definition at line 428 of file ccnr_private.h.
+.PP
+Referenced by r_proto_begin_enumeration(), and r_proto_continue_enumeration().
+.SS "struct \fBccn_charbuf\fP* \fBenum_state::interest\fP"
+.PP
+Definition at line 430 of file ccnr_private.h.
+.PP
+Referenced by r_proto_begin_enumeration(), and r_proto_continue_enumeration().
+.SS "struct \fBccn_indexbuf\fP* \fBenum_state::interest_comps\fP"
+.PP
+Definition at line 431 of file ccnr_private.h.
+.PP
+Referenced by r_proto_begin_enumeration(), and r_proto_continue_enumeration().
+.SS "long \fBenum_state::lastuse_sec\fP"
+.PP
+Definition at line 438 of file ccnr_private.h.
+.PP
+Referenced by r_proto_begin_enumeration(), r_proto_continue_enumeration(), and reap_enumerations().
+.SS "unsigned \fBenum_state::lastuse_usec\fP"
+.PP
+Definition at line 439 of file ccnr_private.h.
+.PP
+Referenced by r_proto_begin_enumeration(), r_proto_continue_enumeration(), and reap_enumerations().
+.SS "long \fBenum_state::lifetime\fP"
+.PP
+Definition at line 437 of file ccnr_private.h.
+.PP
+Referenced by r_proto_begin_enumeration(), and reap_enumerations().
+.SS "struct \fBccn_charbuf\fP* \fBenum_state::name\fP"
+.PP
+Definition at line 427 of file ccnr_private.h.
+.PP
+Referenced by r_proto_begin_enumeration(), r_proto_continue_enumeration(), r_proto_dump_enums(), and reap_enumerations().
+.SS "intmax_t \fBenum_state::next_segment\fP"
+.PP
+Definition at line 434 of file ccnr_private.h.
+.PP
+Referenced by r_proto_begin_enumeration(), r_proto_continue_enumeration(), and r_proto_dump_enums().
+.SS "struct \fBccn_charbuf\fP* \fBenum_state::reply_body\fP"
+.PP
+Definition at line 429 of file ccnr_private.h.
+.PP
+Referenced by r_proto_begin_enumeration(), and r_proto_continue_enumeration().
+.SS "\fBccnr_cookie\fP \fBenum_state::starting_cookie\fP"
+.PP
+Definition at line 435 of file ccnr_private.h.
+.PP
+Referenced by r_proto_begin_enumeration(), and r_proto_dump_enums().
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Content-Centric Networking in C from the source code.

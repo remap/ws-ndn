@@ -1,0 +1,85 @@
+.TH "SyncBaseStruct" 3 "22 Apr 2012" "Version 0.6.0" "Content-Centric Networking in C" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+SyncBaseStruct \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "struct \fBSyncErrStruct\fP * \fBerrList\fP"
+.br
+.ti -1c
+.RI "struct \fBSyncPrivate\fP * \fBpriv\fP"
+.br
+.ti -1c
+.RI "void * \fBclient_handle\fP"
+.br
+.ti -1c
+.RI "struct \fBccn\fP * \fBccn\fP"
+.br
+.ti -1c
+.RI "struct ccn_schedule * \fBsched\fP"
+.br
+.ti -1c
+.RI "int \fBdebug\fP"
+.br
+.ti -1c
+.RI "unsigned \fBlastRootId\fP"
+.br
+.ti -1c
+.RI "\fBccnr_hwm\fP \fBhighWater\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 36 of file SyncBase.h.
+.SH "Field Documentation"
+.PP 
+.SS "struct \fBccn\fP* \fBSyncBaseStruct::ccn\fP"
+.PP
+Definition at line 40 of file SyncBase.h.
+.PP
+Referenced by ccns_send_root_advise_interest(), SendDeltasReply(), storeStablePoint(), SyncCacheEntryStore(), SyncInit(), SyncLocalRepoFetch(), SyncNewBase(), SyncRegisterInterest(), SyncRegisterInterests(), SyncSendRootAdviseInterest(), SyncSignBuf(), SyncStartContentFetch(), and SyncStartNodeFetch().
+.SS "void* \fBSyncBaseStruct::client_handle\fP"
+.PP
+Definition at line 39 of file SyncBase.h.
+.PP
+Referenced by abortCompare(), addNameFromCompare(), CompareAction(), fetchStablePoint(), findAndDeleteRoot(), HeartbeatAction(), linkActionData(), newNodeCommon(), nodeFromNodes(), noteHash(), noteRemoteHash(), storeStablePoint(), SyncAddName(), SyncHandleSlice(), SyncInit(), SyncLocalRepoFetch(), SyncLocalRepoStore(), SyncNewBase(), SyncNoteFailed(), SyncNoteSimple(), SyncNoteSimple2(), SyncNoteSimple3(), SyncNoteUri(), SyncNoteUriBase(), SyncNotifyContent(), SyncRegisterInterests(), SyncRootLookupName(), SyncShutdown(), SyncStartCompareAction(), SyncStartContentFetch(), SyncStartHeartbeat(), SyncStartSliceEnum(), and SyncUpdateRoot().
+.SS "int \fBSyncBaseStruct::debug\fP"
+.PP
+Definition at line 42 of file SyncBase.h.
+.PP
+Referenced by abortCompare(), addNameFromCompare(), AddUpdateName(), ccns_root_advise_response(), ccns_send_root_advise_interest(), CompareAction(), findAndDeleteRoot(), HeartbeatAction(), main(), MakeNodeFromNames(), newNodeCommon(), nodeFromNodes(), noteHash(), noteRemoteHash(), purgeOldEntries(), SendDeltasReply(), setCovered(), SyncAddName(), SyncCacheEntryFetch(), SyncHandleSlice(), SyncInit(), SyncInterestArrived(), SyncLocalRepoFetch(), SyncLocalRepoStore(), SyncNoteFailed(), SyncNotifyContent(), SyncRegisterInterest(), SyncRegisterInterests(), SyncRemoteFetchResponse(), SyncRootAdviseResponse(), SyncRootLookupName(), SyncSendRootAdviseInterest(), SyncShutdown(), SyncStartCompareAction(), SyncStartContentFetch(), SyncStartHeartbeat(), SyncStartNodeFetch(), SyncStartSliceEnum(), SyncTreeMergeNames(), SyncUpdateRoot(), and TryNodeSplit().
+.SS "struct \fBSyncErrStruct\fP* \fBSyncBaseStruct::errList\fP"
+.PP
+Definition at line 37 of file SyncBase.h.
+.PP
+Referenced by SyncClearErr(), and SyncSetErrInner().
+.SS "\fBccnr_hwm\fP \fBSyncBaseStruct::highWater\fP"
+.PP
+Definition at line 44 of file SyncBase.h.
+.PP
+Referenced by SyncAddName().
+.SS "unsigned \fBSyncBaseStruct::lastRootId\fP"
+.PP
+Definition at line 43 of file SyncBase.h.
+.PP
+Referenced by SyncAddRoot().
+.SS "struct \fBSyncPrivate\fP* \fBSyncBaseStruct::priv\fP"
+.PP
+Definition at line 38 of file SyncBase.h.
+.PP
+Referenced by AddUpdateName(), canonFilter(), ccns_send_root_advise_interest(), chooseRemoteHash(), CompareAction(), destroyCompareData(), doPreload(), fauxError(), fetchStablePoint(), findAndDeleteRoot(), HeartbeatAction(), newNodeCommon(), SendDeltasReply(), storeStablePoint(), SyncAddName(), SyncAddRoot(), SyncFreeBase(), SyncHandleSlice(), SyncInit(), SyncInterestArrived(), SyncNewBase(), SyncNotifyContent(), SyncRemRoot(), SyncRootDecodeAndAdd(), SyncSendRootAdviseInterest(), SyncStartCompareAction(), SyncStartContentFetch(), SyncStartHeartbeat(), SyncStartNodeFetch(), SyncStartSliceEnum(), and SyncUpdateRoot().
+.SS "struct ccn_schedule* \fBSyncBaseStruct::sched\fP"
+.PP
+Definition at line 41 of file SyncBase.h.
+.PP
+Referenced by destroyCompareData(), kickHeartBeat(), SyncNewBase(), SyncStartHeartbeat(), and SyncUpdateRoot().
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Content-Centric Networking in C from the source code.

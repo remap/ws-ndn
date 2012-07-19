@@ -1,0 +1,159 @@
+.TH "ccnr/ccnr_msg.h" 3 "22 Apr 2012" "Version 0.6.0" "Content-Centric Networking in C" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ccnr/ccnr_msg.h \- 
+.PP
+Part of ccnr - CCNx Repository Daemon.  
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Defines"
+
+.in +1c
+.ti -1c
+.RI "#define \fBCCNL_NONE\fP   0"
+.br
+.RI "\fILevels for deciding whether or not to log. \fP"
+.ti -1c
+.RI "#define \fBCCNL_SEVERE\fP   3"
+.br
+.RI "\fISevere errors. \fP"
+.ti -1c
+.RI "#define \fBCCNL_ERROR\fP   5"
+.br
+.RI "\fIConfiguration errors. \fP"
+.ti -1c
+.RI "#define \fBCCNL_WARNING\fP   7"
+.br
+.RI "\fISomething might be wrong. \fP"
+.ti -1c
+.RI "#define \fBCCNL_INFO\fP   9"
+.br
+.RI "\fILow-volume informational. \fP"
+.ti -1c
+.RI "#define \fBCCNL_FINE\fP   11"
+.br
+.RI "\fIDebugging. \fP"
+.ti -1c
+.RI "#define \fBCCNL_FINER\fP   13"
+.br
+.RI "\fIMore debugging. \fP"
+.ti -1c
+.RI "#define \fBCCNL_FINEST\fP   15"
+.br
+.RI "\fIMORE DEBUGGING YET. \fP"
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "int \fBccnr_msg_level_from_string\fP (const char *s)"
+.br
+.ti -1c
+.RI "void \fBccnr_debug_ccnb\fP (struct \fBccnr_handle\fP *h, int lineno, const char *msg, struct \fBfdholder\fP *\fBfdholder\fP, const unsigned char *ccnb, size_t ccnb_size)"
+.br
+.RI "\fIProduce a ccnr debug trace entry. \fP"
+.ti -1c
+.RI "void \fBccnr_msg\fP (struct \fBccnr_handle\fP *h, const char *fmt,...)"
+.br
+.RI "\fIProduce ccnr debug output. \fP"
+.in -1c
+.SH "Detailed Description"
+.PP 
+Part of ccnr - CCNx Repository Daemon. 
+
+
+.PP
+Definition in file \fBccnr_msg.h\fP.
+.SH "Define Documentation"
+.PP 
+.SS "#define CCNL_ERROR   5"
+.PP
+Configuration errors. 
+.PP
+Definition at line 33 of file ccnr_msg.h.
+.SS "#define CCNL_FINE   11"
+.PP
+Debugging. 
+.PP
+Definition at line 36 of file ccnr_msg.h.
+.SS "#define CCNL_FINER   13"
+.PP
+More debugging. 
+.PP
+Definition at line 37 of file ccnr_msg.h.
+.SS "#define CCNL_FINEST   15"
+.PP
+MORE DEBUGGING YET. 
+.PP
+Definition at line 38 of file ccnr_msg.h.
+.SS "#define CCNL_INFO   9"
+.PP
+Low-volume informational. 
+.PP
+Definition at line 35 of file ccnr_msg.h.
+.SS "#define CCNL_NONE   0"
+.PP
+Levels for deciding whether or not to log. No logging at all 
+.PP
+Definition at line 31 of file ccnr_msg.h.
+.SS "#define CCNL_SEVERE   3"
+.PP
+Severe errors. 
+.PP
+Definition at line 32 of file ccnr_msg.h.
+.SS "#define CCNL_WARNING   7"
+.PP
+Something might be wrong. 
+.PP
+Definition at line 34 of file ccnr_msg.h.
+.SH "Function Documentation"
+.PP 
+.SS "void ccnr_debug_ccnb (struct \fBccnr_handle\fP * h, int lineno, const char * msg, struct \fBfdholder\fP * fdholder, const unsigned char * ccnb, size_t ccnb_size)"
+.PP
+Produce a ccnr debug trace entry. Output is produced by calling ccnr_msg. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIh\fP the ccnr handle 
+.br
+\fIlineno\fP caller's source line number (usually __LINE__) 
+.br
+\fImsg\fP a short text tag to identify the entry 
+.br
+\fIfdholder\fP handle of associated fdholder; may be NULL 
+.br
+\fIccnb\fP points to ccnb-encoded Interest or ContentObject 
+.br
+\fIccnb_size\fP is in bytes 
+.RE
+.PP
+
+.PP
+Definition at line 129 of file ccnr_msg.c.
+.PP
+Referenced by ccnr_answer_req(), load_policy(), r_match_consume_matching_interests(), r_proto_answer_req(), r_proto_begin_enumeration(), r_proto_bulk_import(), r_proto_continue_enumeration(), r_proto_dump_enums(), r_proto_expect_content(), r_proto_initiate_key_fetch(), r_proto_policy_complete(), r_proto_policy_update(), r_proto_start_write(), r_proto_start_write_checked(), r_store_find_first_match_candidate(), r_store_lookup(), r_store_next_child_at_level(), r_sync_enumerate(), and reap_enumerations().
+.SS "void ccnr_msg (struct \fBccnr_handle\fP * h, const char * fmt,  ...)"
+.PP
+Produce ccnr debug output. Output is produced via h->logger under the control of h->debug; prepends decimal timestamp and process identification. Caller should not supply newlines. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIh\fP the ccnr handle 
+.br
+\fIfmt\fP printf-like format string 
+.RE
+.PP
+
+.PP
+Definition at line 86 of file ccnr_msg.c.
+.SS "int ccnr_msg_level_from_string (const char * s)"
+.PP
+Definition at line 48 of file ccnr_msg.c.
+.PP
+Referenced by main(), and r_init_debug_getenv().
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Content-Centric Networking in C from the source code.

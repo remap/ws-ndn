@@ -1,0 +1,106 @@
+.TH "ccnr/ccnr_sync.h" 3 "22 Apr 2012" "Version 0.6.0" "Content-Centric Networking in C" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ccnr/ccnr_sync.h \- 
+.PP
+Part of ccnr - CCNx Repository Daemon.  
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBr_sync_notify_after\fP (struct \fBccnr_handle\fP *ccnr, \fBccnr_hwm\fP item)"
+.br
+.RI "\fINotify repo of starting point for new names to be passed to sync. \fP"
+.ti -1c
+.RI "int \fBr_sync_enumerate\fP (struct \fBccnr_handle\fP *ccnr, struct \fBccn_charbuf\fP *interest)"
+.br
+.RI "\fIRequest that a SyncNotifyContent call is made for each content object matching the interest. \fP"
+.ti -1c
+.RI "int \fBr_sync_lookup\fP (struct \fBccnr_handle\fP *ccnr, struct \fBccn_charbuf\fP *interest, struct \fBccn_charbuf\fP *content_ccnb)"
+.br
+.RI "\fILook up a content object that is stored locally in the repository based on the supplied interest. \fP"
+.ti -1c
+.RI "enum \fBccn_upcall_res\fP \fBr_sync_upcall_store\fP (struct \fBccnr_handle\fP *ccnr, enum \fBccn_upcall_kind\fP kind, struct \fBccn_upcall_info\fP *info)"
+.br
+.RI "\fICalled when a content object is received by sync and needs to be committed to stable storage by the repo. \fP"
+.ti -1c
+.RI "int \fBr_sync_local_store\fP (struct \fBccnr_handle\fP *ccnr, struct \fBccn_charbuf\fP *content_cb)"
+.br
+.RI "\fICalled when a content object has been constructed locally by sync and needs to be committed to stable storage by the repo. \fP"
+.ti -1c
+.RI "int \fBr_sync_notify_content\fP (struct \fBccnr_handle\fP *ccnr, int e, struct \fBcontent_entry\fP *content)"
+.br
+.RI "\fIA wrapper for SyncNotifyContent that takes a content entry. \fP"
+.in -1c
+.SH "Detailed Description"
+.PP 
+Part of ccnr - CCNx Repository Daemon. 
+
+Copyright (C) 2011 Palo Alto Research Center, Inc.
+.PP
+This work is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License version 2 as published by the Free Software Foundation. This work is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details. You should have received a copy of the GNU General Public License along with this program; if not, write to the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA. 
+.PP
+Definition in file \fBccnr_sync.h\fP.
+.SH "Function Documentation"
+.PP 
+.SS "int r_sync_enumerate (struct \fBccnr_handle\fP * ccnr, struct \fBccn_charbuf\fP * interest)"
+.PP
+Request that a SyncNotifyContent call is made for each content object matching the interest. returns -1 for error, or an enumeration number which will also be passed in the SyncNotifyContent
+.PP
+Request that a SyncNotifyContent call is made for each content object matching the interest.
+.PP
+If SyncNotifyContent returns -1 the active enumeration will be cancelled.
+.PP
+When there are no more matching objects, SyncNotifyContent will be called passing NULL for name.
+.PP
+Content objects that arrive during an enumeration may or may not be included in that enumeration.
+.PP
+\fBReturns:\fP
+.RS 4
+-1 for error, or an enumeration number which will also be passed in the SyncNotifyContent 
+.RE
+.PP
+
+.PP
+Definition at line 298 of file ccnr_sync.c.
+.PP
+Referenced by r_sync_enumerate(), SyncStartHeartbeat(), and SyncStartSliceEnum().
+.SS "int r_sync_local_store (struct \fBccnr_handle\fP * ccnr, struct \fBccn_charbuf\fP * content)"
+.PP
+Called when a content object has been constructed locally by sync and needs to be committed to stable storage by the repo. returns 0 for success, -1 for error. 
+.PP
+Definition at line 458 of file ccnr_sync.c.
+.SS "int r_sync_lookup (struct \fBccnr_handle\fP * ccnr, struct \fBccn_charbuf\fP * interest, struct \fBccn_charbuf\fP * content_ccnb)"
+.PP
+Look up a content object that is stored locally in the repository based on the supplied interest. appends the content object to the content_ccnb. returns 0 for success, -1 for error. 
+.PP
+Definition at line 385 of file ccnr_sync.c.
+.SS "void r_sync_notify_after (struct \fBccnr_handle\fP * ccnr, \fBccnr_hwm\fP item)"
+.PP
+Notify repo of starting point for new names to be passed to sync. Use item = 0 as the initial value. Following a call to r_sync_notify_after, the repository will call SyncNotifyContent(struct \fBSyncBaseStruct\fP *, int enumeration, ccnr_accession item, struct \fBccn_charbuf\fP *name); periodically while there are no un-notified objects. enumeration is 0 for 'time-based' notifications, or the value passed in when the enumeration was started. This may not end up an int. if the call is for an explicit enumeration, and there are no more objects, name and content_comps will be NULL. If SyncNotifyContent returns -1 then the active enumeration, or the \fBr_sync_notify_after()\fP will be cancelled. 
+.PP
+Definition at line 117 of file ccnr_sync.c.
+.PP
+Referenced by r_sync_notify_content(), and SyncStartHeartbeat().
+.SS "int r_sync_notify_content (struct \fBccnr_handle\fP * ccnr, int e, struct \fBcontent_entry\fP * content)"
+.PP
+A wrapper for SyncNotifyContent that takes a content entry. 
+.PP
+Definition at line 129 of file ccnr_sync.c.
+.PP
+Referenced by r_store_set_accession_from_offset(), r_sync_enumerate_action(), and r_sync_notify_content().
+.SS "enum \fBccn_upcall_res\fP r_sync_upcall_store (struct \fBccnr_handle\fP * ccnr, enum \fBccn_upcall_kind\fP kind, struct \fBccn_upcall_info\fP * info)"
+.PP
+Called when a content object is received by sync and needs to be committed to stable storage by the repo. 
+.PP
+Definition at line 416 of file ccnr_sync.c.
+.PP
+Referenced by r_sync_upcall_store(), and SyncRemoteFetchResponse().
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Content-Centric Networking in C from the source code.

@@ -1,0 +1,948 @@
+.TH "lib/ccn_sync.c" 3 "22 Apr 2012" "Version 0.6.0" "Content-Centric Networking in C" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+lib/ccn_sync.c \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Defines"
+
+.in +1c
+.ti -1c
+.RI "#define \fBCCNL_NONE\fP   0"
+.br
+.RI "\fINo logging at all. \fP"
+.ti -1c
+.RI "#define \fBCCNL_SEVERE\fP   3"
+.br
+.RI "\fISevere errors. \fP"
+.ti -1c
+.RI "#define \fBCCNL_ERROR\fP   5"
+.br
+.RI "\fIConfiguration errors. \fP"
+.ti -1c
+.RI "#define \fBCCNL_WARNING\fP   7"
+.br
+.RI "\fISomething might be wrong. \fP"
+.ti -1c
+.RI "#define \fBCCNL_INFO\fP   9"
+.br
+.RI "\fILow-volume informational. \fP"
+.ti -1c
+.RI "#define \fBCCNL_FINE\fP   11"
+.br
+.RI "\fIDebugging. \fP"
+.ti -1c
+.RI "#define \fBCCNL_FINER\fP   13"
+.br
+.RI "\fIMore debugging. \fP"
+.ti -1c
+.RI "#define \fBCCNL_FINEST\fP   15"
+.br
+.RI "\fIMORE DEBUGGING YET. \fP"
+.ti -1c
+.RI "#define \fBCACHE_PURGE_TRIGGER\fP   60"
+.br
+.ti -1c
+.RI "#define \fBCACHE_CLEAN_BATCH\fP   16"
+.br
+.ti -1c
+.RI "#define \fBCACHE_CLEAN_DELTA\fP   8"
+.br
+.ti -1c
+.RI "#define \fBADVISE_NEED_RESET\fP   1"
+.br
+.ti -1c
+.RI "#define \fBUPDATE_STALL_DELTA\fP   15"
+.br
+.ti -1c
+.RI "#define \fBUPDATE_NEED_DELTA\fP   6"
+.br
+.ti -1c
+.RI "#define \fBSHORT_DELAY_MICROS\fP   500"
+.br
+.ti -1c
+.RI "#define \fBCOMPARE_ASSUME_BAD\fP   20"
+.br
+.ti -1c
+.RI "#define \fBNODE_SPLIT_TRIGGER\fP   400"
+.br
+.ti -1c
+.RI "#define \fBEXCLUSION_LIMIT\fP   1000"
+.br
+.ti -1c
+.RI "#define \fBEXCLUSION_TRIG\fP   5"
+.br
+.ti -1c
+.RI "#define \fBSTABLE_TIME_TRIG\fP   10"
+.br
+.ti -1c
+.RI "#define \fBHASH_SPLIT_TRIGGER\fP   17"
+.br
+.ti -1c
+.RI "#define \fBNAMES_YIELD_INC\fP   100"
+.br
+.ti -1c
+.RI "#define \fBNAMES_YIELD_MICROS\fP   20*1000"
+.br
+.ti -1c
+.RI "#define \fBCCNS_FLAGS_SC\fP   1"
+.br
+.ti -1c
+.RI "#define \fBextern\fP"
+.br
+.ti -1c
+.RI "#define \fBSYNCLIBRARY\fP"
+.br
+.ti -1c
+.RI "#define \fBccnr_msg\fP   ccns_msg"
+.br
+.ti -1c
+.RI "#define \fBccnr_hwm_update\fP   ccns_hwm_update"
+.br
+.in -1c
+.SS "Enumerations"
+
+.in +1c
+.ti -1c
+.RI "enum \fBSyncCompareState\fP { \fBSyncCompare_init\fP, \fBSyncCompare_preload\fP, \fBSyncCompare_busy\fP, \fBSyncCompare_waiting\fP, \fBSyncCompare_done\fP, \fBSyncCompare_init\fP, \fBSyncCompare_preload\fP, \fBSyncCompare_busy\fP, \fBSyncCompare_waiting\fP, \fBSyncCompare_done\fP }"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "static \fBccnr_hwm\fP \fBccns_hwm_update\fP (struct \fBccnr_handle\fP *ccnr, \fBccnr_hwm\fP hwm, \fBccnr_accession\fP a)"
+.br
+.ti -1c
+.RI "static uintmax_t \fBccns_accession_encode\fP (struct \fBccnr_handle\fP *ccnr, \fBccnr_accession\fP a)"
+.br
+.ti -1c
+.RI "struct ccns_slice * \fBccns_slice_create\fP ()"
+.br
+.RI "\fIAllocate a ccns_slice structure. \fP"
+.ti -1c
+.RI "void \fBccns_slice_destroy\fP (struct ccns_slice **sp)"
+.br
+.RI "\fIDeallocate a ccns_slice structure. \fP"
+.ti -1c
+.RI "int \fBccns_slice_add_clause\fP (struct ccns_slice *s, struct \fBccn_charbuf\fP *c)"
+.br
+.RI "\fIAdd a (filter) clause to a ccns_slice structure. \fP"
+.ti -1c
+.RI "int \fBccns_slice_set_topo_prefix\fP (struct ccns_slice *s, struct \fBccn_charbuf\fP *t, struct \fBccn_charbuf\fP *p)"
+.br
+.ti -1c
+.RI "static int \fBappend_slice\fP (struct \fBccn_charbuf\fP *c, struct ccns_slice *s)"
+.br
+.ti -1c
+.RI "static int \fBslice_parse\fP (struct ccns_slice *s, const unsigned char *p, size_t size)"
+.br
+.ti -1c
+.RI "int \fBccns_slice_name\fP (struct \fBccn_charbuf\fP *nm, struct ccns_slice *s)"
+.br
+.RI "\fIConstruct the name of a Sync configuration slice based on the parameters. \fP"
+.ti -1c
+.RI "int \fBccns_read_slice\fP (struct ccn *h, struct \fBccn_charbuf\fP *name, struct ccns_slice *slice)"
+.br
+.RI "\fIRead a slice (from a repository) given the name. \fP"
+.ti -1c
+.RI "struct \fBccn_charbuf\fP * \fBmake_scope1_template\fP (void)"
+.br
+.ti -1c
+.RI "static enum \fBccn_upcall_res\fP \fBwrite_interest_handler\fP (struct \fBccn_closure\fP *selfp, enum \fBccn_upcall_kind\fP kind, struct \fBccn_upcall_info\fP *info)"
+.br
+.ti -1c
+.RI "static int \fBwrite_slice\fP (struct ccn *h, struct ccns_slice *slice, struct \fBccn_charbuf\fP *name)"
+.br
+.ti -1c
+.RI "int \fBccns_write_slice\fP (struct ccn *h, struct ccns_slice *slice, struct \fBccn_charbuf\fP *name)"
+.br
+.RI "\fIWrite a ccns_slice object to a repository. \fP"
+.ti -1c
+.RI "int \fBccns_delete_slice\fP (struct ccn *h, struct \fBccn_charbuf\fP *name)"
+.br
+.RI "\fIDelete a ccns_slice object from a repository. \fP"
+.ti -1c
+.RI "static void \fBgettime\fP (const struct \fBccn_gettime\fP *self, struct \fBccn_timeval\fP *result)"
+.br
+.ti -1c
+.RI "static int \fBHeartbeatAction\fP (struct ccn_schedule *sched, void *clienth, struct \fBccn_scheduled_event\fP *ev, int flags)"
+.br
+.ti -1c
+.RI "static int \fBccns_send_root_advise_interest\fP (struct \fBSyncRootStruct\fP *root)"
+.br
+.ti -1c
+.RI "struct ccns_handle * \fBccns_open\fP (struct ccn *h, struct ccns_slice *slice, \fBccns_callback\fP callback, struct \fBccn_charbuf\fP *rhash, struct \fBccn_charbuf\fP *pname)"
+.br
+.RI "\fIStart notification of addition of names to a sync slice. \fP"
+.ti -1c
+.RI "void \fBccns_close\fP (struct ccns_handle **ccnsp, struct \fBccn_charbuf\fP *rhash, struct \fBccn_charbuf\fP *pname)"
+.br
+.RI "\fIStop notification of changes of names in a sync slice and free the handle. \fP"
+.ti -1c
+.RI "void \fBccns_msg\fP (struct \fBccnr_handle\fP *h, const char *fmt,...)"
+.br
+.ti -1c
+.RI "static void \fBdelinkActionData\fP (struct \fBSyncActionData\fP *data)"
+.br
+.ti -1c
+.RI "static int \fBmoveActionData\fP (struct \fBSyncActionData\fP *data, enum \fBSyncActionState\fP dstState)"
+.br
+.ti -1c
+.RI "static struct \fBSyncActionData\fP * \fBdestroyActionData\fP (struct \fBSyncActionData\fP *data)"
+.br
+.ti -1c
+.RI "static struct \fBSyncActionData\fP * \fBnewActionData\fP (enum \fBSyncRegisterActionKind\fP kind)"
+.br
+.ti -1c
+.RI "static void \fBlinkActionData\fP (struct \fBSyncRootStruct\fP *root, struct \fBSyncActionData\fP *data)"
+.br
+.ti -1c
+.RI "static void \fBsetCovered\fP (struct \fBSyncHashCacheEntry\fP *ce)"
+.br
+.ti -1c
+.RI "static int \fBisCovered\fP (struct \fBSyncHashCacheEntry\fP *ce)"
+.br
+.ti -1c
+.RI "static int \fBcompareHash\fP (struct \fBccn_charbuf\fP *hashX, struct \fBccn_charbuf\fP *hashY)"
+.br
+.ti -1c
+.RI "static struct \fBSyncActionData\fP * \fBSyncFindAction\fP (struct \fBSyncRootStruct\fP *root, enum \fBSyncRegisterActionKind\fP kind)"
+.br
+.ti -1c
+.RI "int \fBSyncAddName\fP (struct \fBSyncBaseStruct\fP *base, struct \fBccn_charbuf\fP *name, \fBccnr_accession\fP item)"
+.br
+.RI "\fIAdds the given name to any applicable roots. \fP"
+.ti -1c
+.RI "static struct \fBSyncNodeComposite\fP * \fBextractNode\fP (struct \fBSyncRootStruct\fP *root, struct \fBccn_upcall_info\fP *info)"
+.br
+.ti -1c
+.RI "static int \fBnoteRemoteHash\fP (struct \fBSyncRootStruct\fP *root, struct \fBSyncHashCacheEntry\fP *ce, int add)"
+.br
+.ti -1c
+.RI "static char * \fBgetCmdStr\fP (enum \fBSyncRegisterActionKind\fP kind)"
+.br
+.ti -1c
+.RI "static struct \fBSyncNameAccum\fP * \fBsortNames\fP (struct \fBSyncRootStruct\fP *root, struct \fBSyncNameAccum\fP *src)"
+.br
+.ti -1c
+.RI "static struct \fBSyncNameAccum\fP * \fBexclusionsFromHashList\fP (struct \fBSyncRootStruct\fP *root, struct \fBSyncHashInfoList\fP *list)"
+.br
+.ti -1c
+.RI "static struct \fBccn_charbuf\fP * \fBconstructCommandPrefix\fP (struct \fBSyncRootStruct\fP *root, enum \fBSyncRegisterActionKind\fP kind)"
+.br
+.ti -1c
+.RI "enum \fBccn_upcall_res\fP \fBccns_root_advise_response\fP (struct \fBccn_closure\fP *selfp, enum \fBccn_upcall_kind\fP kind, struct \fBccn_upcall_info\fP *info)"
+.br
+.ti -1c
+.RI "static int \fBCompareAction\fP (struct ccn_schedule *sched, void *clienth, struct \fBccn_scheduled_event\fP *ev, int flags)"
+.br
+.ti -1c
+.RI "static struct \fBSyncHashInfoList\fP * \fBchooseRemoteHash\fP (struct \fBSyncRootStruct\fP *root)"
+.br
+.ti -1c
+.RI "static void \fBdestroyCompareData\fP (struct SyncCompareData *data)"
+.br
+.ti -1c
+.RI "static void \fBabortCompare\fP (struct SyncCompareData *data, char *why)"
+.br
+.ti -1c
+.RI "static int \fBcomparisonFailed\fP (struct SyncCompareData *data, char *why, int line)"
+.br
+.ti -1c
+.RI "static int \fBextractBuf\fP (struct \fBccn_charbuf\fP *cb, struct \fBSyncNodeComposite\fP *nc, struct \fBSyncNodeElem\fP *ne)"
+.br
+.ti -1c
+.RI "static struct \fBSyncHashCacheEntry\fP * \fBensureRemoteEntry\fP (struct SyncCompareData *data, const unsigned char *xp, ssize_t xs)"
+.br
+.ti -1c
+.RI "static struct \fBSyncHashCacheEntry\fP * \fBcacheEntryForElem\fP (struct SyncCompareData *data, struct \fBSyncNodeComposite\fP *nc, struct \fBSyncNodeElem\fP *ne, int remote)"
+.br
+.ti -1c
+.RI "static void \fBkickCompare\fP (struct SyncCompareData *scd, struct \fBSyncActionData\fP *action)"
+.br
+.ti -1c
+.RI "enum \fBccn_upcall_res\fP \fBSyncRemoteFetchResponse\fP (struct \fBccn_closure\fP *selfp, enum \fBccn_upcall_kind\fP kind, struct \fBccn_upcall_info\fP *info)"
+.br
+.ti -1c
+.RI "int \fBSyncStartNodeFetch\fP (struct \fBSyncRootStruct\fP *root, struct \fBSyncHashCacheEntry\fP *ce, struct SyncCompareData *comp)"
+.br
+.RI "\fIstarts a remote fetch of the given node, based on the hash comp may be NULL if this is not for a compare \fP"
+.ti -1c
+.RI "static int \fBdoPreload\fP (struct SyncCompareData *data, struct \fBSyncTreeWorkerHead\fP *twHead)"
+.br
+.ti -1c
+.RI "static int \fBaddNameFromCompare\fP (struct SyncCompareData *data)"
+.br
+.ti -1c
+.RI "static int \fBdoComparison\fP (struct SyncCompareData *data)"
+.br
+.ti -1c
+.RI "int \fBSyncStartCompareAction\fP (struct \fBSyncRootStruct\fP *root, struct \fBccn_charbuf\fP *hashR)"
+.br
+.RI "\fIinitiates a compare action with the given remote hash \fP"
+.ti -1c
+.RI "enum \fBccn_upcall_res\fP \fBSyncInterestArrived\fP (struct \fBccn_closure\fP *selfp, enum \fBccn_upcall_kind\fP kind, struct \fBccn_upcall_info\fP *info)"
+.br
+.ti -1c
+.RI "int \fBSyncRegisterInterests\fP (struct \fBSyncRootStruct\fP *root)"
+.br
+.RI "\fIregisters interests associated with the given root these include C1.S.RA (Root Advise) and C1.S.NF (Node Fetch) interests additional interests may be registered as the protocol evolves \fP"
+.ti -1c
+.RI "int \fBSyncHandleSlice\fP (struct \fBSyncBaseStruct\fP *base, struct \fBccn_charbuf\fP *name)"
+.br
+.RI "\fICreates a new slice from a full name. \fP"
+.ti -1c
+.RI "int \fBSyncStartSliceEnum\fP (struct \fBSyncRootStruct\fP *root)"
+.br
+.RI "\fIstarts a slice enumeration for the root \fP"
+.ti -1c
+.RI "int \fBSyncStartHeartbeat\fP (struct \fBSyncBaseStruct\fP *base)"
+.br
+.RI "\fIstarts a periodic wakeup that maintains state across all roots \fP"
+.ti -1c
+.RI "static int \fBr_sync_lookup\fP (struct \fBccnr_handle\fP *ccnr, struct \fBccn_charbuf\fP *interest, struct \fBccn_charbuf\fP *content_ccnb)"
+.br
+.ti -1c
+.RI "static int \fBr_sync_local_store\fP (struct \fBccnr_handle\fP *ccnr, struct \fBccn_charbuf\fP *content)"
+.br
+.RI "\fICalled when a content object has been constructed locally by sync and needs to be committed to stable storage by the repo. \fP"
+.in -1c
+.SH "Define Documentation"
+.PP 
+.SS "#define ADVISE_NEED_RESET   1"
+.PP
+Definition at line 51 of file ccn_sync.c.
+.PP
+Referenced by SyncInterestArrived().
+.SS "#define CACHE_CLEAN_BATCH   16"
+.PP
+Definition at line 49 of file ccn_sync.c.
+.SS "#define CACHE_CLEAN_DELTA   8"
+.PP
+Definition at line 50 of file ccn_sync.c.
+.SS "#define CACHE_PURGE_TRIGGER   60"
+.PP
+Definition at line 48 of file ccn_sync.c.
+.SS "#define CCNL_ERROR   5"
+.PP
+Configuration errors. 
+.PP
+Definition at line 41 of file ccn_sync.c.
+.PP
+Referenced by ccnr_msg_level_from_string(), ccns_send_root_advise_interest(), r_init_config_msg(), SyncCacheEntryFetch(), SyncLocalRepoFetch(), SyncLocalRepoStore(), SyncRemoteFetchResponse(), and SyncSendRootAdviseInterest().
+.SS "#define CCNL_FINE   11"
+.PP
+Debugging. 
+.PP
+Definition at line 44 of file ccn_sync.c.
+.PP
+Referenced by addNameFromCompare(), AddUpdateName(), ccnr_answer_req(), ccnr_close_fd(), ccnr_msg(), ccnr_msg_level_from_string(), ccns_send_root_advise_interest(), CompareAction(), findAndDeleteRoot(), MakeNodeFromNames(), newNodeCommon(), nodeFromNodes(), noteHash(), noteRemoteHash(), process_incoming_content(), purgeOldEntries(), r_io_open_repo_data_file(), r_link_do_deferred_write(), r_match_consume_matching_interests(), r_net_listen_on_address(), r_proto_answer_req(), r_proto_begin_enumeration(), r_proto_bulk_import(), r_proto_check_exclude(), r_proto_continue_enumeration(), r_proto_expect_content(), r_proto_initiate_key_fetch(), r_proto_start_write(), r_proto_start_write_checked(), r_store_index_cleaner(), r_store_mark_stale(), r_store_send_content(), r_sync_enumerate(), r_sync_local_store(), r_sync_upcall_store(), SyncAddName(), SyncHandleSlice(), SyncInterestArrived(), SyncNotifyContent(), SyncRemoteFetchResponse(), SyncSendRootAdviseInterest(), SyncTreeMergeNames(), TryNodeSplit(), and UpdateAction().
+.SS "#define CCNL_FINER   13"
+.PP
+More debugging. 
+.PP
+Definition at line 45 of file ccn_sync.c.
+.PP
+Referenced by ccnr_msg_level_from_string(), content_sender(), process_incoming_content(), r_proto_answer_req(), r_proto_begin_enumeration(), r_proto_continue_enumeration(), r_sendq_face_send_queue_insert(), r_store_find_first_match_candidate(), r_store_forget_content(), r_store_index_cleaner(), r_store_index_needs_cleaning(), r_store_lookup(), r_store_next_child_at_level(), r_store_trim(), reap_enumerations(), setCovered(), and SyncInterestArrived().
+.SS "#define CCNL_FINEST   15"
+.PP
+MORE DEBUGGING YET. 
+.PP
+Definition at line 46 of file ccn_sync.c.
+.PP
+Referenced by ccnr_direct_client_refresh(), ccnr_msg_level_from_string(), cleanup_se(), r_init_confval(), r_init_debug_getenv(), r_init_parse_config(), r_io_prepare_poll_fds(), r_io_send(), r_proto_begin_enumeration(), r_proto_policy_complete(), r_store_content_base(), r_store_content_from_accession(), r_store_index_cleaner(), r_store_init(), r_sync_enumerate(), r_sync_enumerate_action(), and r_sync_notify_content().
+.SS "#define CCNL_INFO   9"
+.PP
+Low-volume informational. 
+.PP
+Definition at line 43 of file ccn_sync.c.
+.PP
+Referenced by abortCompare(), ccnr_msg_level_from_string(), ccns_root_advise_response(), ccns_send_root_advise_interest(), CompareAction(), establish_min_send_bufsize(), findAndDeleteRoot(), HeartbeatAction(), merge_files(), newNodeCommon(), r_io_accept_connection(), r_io_open_repo_data_file(), r_io_shutdown_client_fd(), r_net_listen_on_address(), r_net_listen_on_wildcards(), r_proto_activate_policy(), r_proto_deactivate_policy(), r_proto_policy_complete(), r_proto_start_write(), r_proto_start_write_checked(), r_store_init(), r_store_read_stable_point(), r_store_write_stable_point(), SendDeltasReply(), SyncHandleSlice(), SyncInit(), SyncInterestArrived(), SyncNotifyContent(), SyncRegisterInterest(), SyncRegisterInterests(), SyncRemoteFetchResponse(), SyncRootAdviseResponse(), SyncSendRootAdviseInterest(), SyncShutdown(), SyncStartCompareAction(), SyncStartContentFetch(), SyncStartHeartbeat(), SyncStartNodeFetch(), SyncStartSliceEnum(), SyncUpdateRoot(), and UpdateAction().
+.SS "#define CCNL_NONE   0"
+.PP
+No logging at all. 
+.PP
+Definition at line 39 of file ccn_sync.c.
+.PP
+Referenced by ccnr_msg_level_from_string().
+.SS "#define CCNL_SEVERE   3"
+.PP
+Severe errors. 
+.PP
+Definition at line 40 of file ccn_sync.c.
+.PP
+Referenced by ccnr_msg_level_from_string(), ccns_root_advise_response(), SendDeltasReply(), SyncHandleSlice(), SyncInterestArrived(), SyncNoteFailed(), SyncNotifyContent(), SyncRegisterInterest(), SyncRegisterInterests(), SyncRemoteFetchResponse(), SyncRootAdviseResponse(), SyncStartContentFetch(), SyncStartHeartbeat(), SyncStartNodeFetch(), SyncStartSliceEnum(), and SyncUpdateRoot().
+.SS "#define CCNL_WARNING   7"
+.PP
+Something might be wrong. 
+.PP
+Definition at line 42 of file ccn_sync.c.
+.PP
+Referenced by abortCompare(), ccnr_init_repo_keystore(), ccnr_msg_level_from_string(), ccns_open(), CompareAction(), HeartbeatAction(), r_init_config_msg(), r_init_debug_getenv(), r_io_send(), r_store_init(), r_sync_enumerate(), SyncHandleSlice(), SyncNotifyContent(), SyncRootAdviseResponse(), and SyncStartHeartbeat().
+.SS "#define ccnr_hwm_update   ccns_hwm_update"
+.PP
+Definition at line 2537 of file ccn_sync.c.
+.PP
+Referenced by SyncAddName(), and SyncNotifyContent().
+.SS "#define ccnr_msg   ccns_msg"
+.PP
+Definition at line 2536 of file ccn_sync.c.
+.PP
+Referenced by abortCompare(), ccnr_close_fd(), ccnr_collect_stats(), ccnr_debug_ccnb(), ccnr_debug_content(), ccnr_direct_client_refresh(), ccnr_init_repo_keystore(), ccnr_stats_http_set_debug(), cleanup_se(), CompareAction(), content_sender(), establish_min_send_bufsize(), findAndDeleteRoot(), handle_send_error(), HeartbeatAction(), load_policy(), main(), merge_files(), newNodeCommon(), nodeFromNodes(), noteHash(), process_input_buffer(), process_input_message(), r_dispatch_process_input(), r_dispatch_run(), r_init_config_msg(), r_init_confval(), r_init_create(), r_init_debug_getenv(), r_init_fail(), r_init_map_and_process_file(), r_init_parse_config(), r_io_accept_connection(), r_io_open_repo_data_file(), r_io_prepare_poll_fds(), r_io_record_fd(), r_io_send(), r_io_shutdown_client_fd(), r_link_do_deferred_write(), r_net_listen_on_address(), r_net_listen_on_wildcards(), r_net_setsockopt_v6only(), r_proto_activate_policy(), r_proto_begin_enumeration(), r_proto_bulk_import(), r_proto_check_exclude(), r_proto_continue_enumeration(), r_proto_deactivate_policy(), r_proto_dump_enums(), r_proto_expect_content(), r_proto_policy_complete(), r_proto_policy_update(), r_proto_start_write(), r_proto_start_write_checked(), r_sendq_face_send_queue_insert(), r_store_content_base(), r_store_content_from_accession(), r_store_content_read(), r_store_fatal(), r_store_final(), r_store_forget_content(), r_store_index_cleaner(), r_store_index_needs_cleaning(), r_store_init(), r_store_read_stable_point(), r_store_reindexing(), r_store_set_flatname(), r_store_trim(), r_store_write_stable_point(), r_sync_enumerate(), r_sync_local_store(), r_sync_notify_content(), r_sync_upcall_store(), start_ccnr(), SyncHandleSlice(), SyncInit(), SyncNoteFailed(), SyncNoteSimple(), SyncNoteSimple2(), SyncNoteSimple3(), SyncNoteUri(), SyncNoteUriBase(), SyncNotifyContent(), SyncRegisterInterests(), SyncRootLookupName(), SyncShutdown(), SyncStartCompareAction(), SyncStartHeartbeat(), SyncUpdateRoot(), and UpdateAction().
+.SS "#define CCNS_FLAGS_SC   1"
+.PP
+Definition at line 75 of file ccn_sync.c.
+.PP
+Referenced by ccns_open(), and CompareAction().
+.SS "#define COMPARE_ASSUME_BAD   20"
+.PP
+Definition at line 55 of file ccn_sync.c.
+.SS "#define EXCLUSION_LIMIT   1000"
+.PP
+Definition at line 57 of file ccn_sync.c.
+.SS "#define EXCLUSION_TRIG   5"
+.PP
+Definition at line 58 of file ccn_sync.c.
+.SS "#define extern"
+.PP
+Definition at line 2534 of file ccn_sync.c.
+.SS "#define HASH_SPLIT_TRIGGER   17"
+.PP
+Definition at line 60 of file ccn_sync.c.
+.SS "#define NAMES_YIELD_INC   100"
+.PP
+Definition at line 61 of file ccn_sync.c.
+.SS "#define NAMES_YIELD_MICROS   20*1000"
+.PP
+Definition at line 62 of file ccn_sync.c.
+.SS "#define NODE_SPLIT_TRIGGER   400"
+.PP
+Definition at line 56 of file ccn_sync.c.
+.SS "#define SHORT_DELAY_MICROS   500"
+.PP
+Definition at line 54 of file ccn_sync.c.
+.SS "#define STABLE_TIME_TRIG   10"
+.PP
+Definition at line 59 of file ccn_sync.c.
+.SS "#define SYNCLIBRARY"
+.PP
+Definition at line 2535 of file ccn_sync.c.
+.SS "#define UPDATE_NEED_DELTA   6"
+.PP
+Definition at line 53 of file ccn_sync.c.
+.SS "#define UPDATE_STALL_DELTA   15"
+.PP
+Definition at line 52 of file ccn_sync.c.
+.SH "Enumeration Type Documentation"
+.PP 
+.SS "enum \fBSyncCompareState\fP"
+.PP
+\fBEnumerator: \fP
+.in +1c
+.TP
+\fB\fISyncCompare_init \fP\fP
+.TP
+\fB\fISyncCompare_preload \fP\fP
+.TP
+\fB\fISyncCompare_busy \fP\fP
+.TP
+\fB\fISyncCompare_waiting \fP\fP
+.TP
+\fB\fISyncCompare_done \fP\fP
+.TP
+\fB\fISyncCompare_init \fP\fP
+.TP
+\fB\fISyncCompare_preload \fP\fP
+.TP
+\fB\fISyncCompare_busy \fP\fP
+.TP
+\fB\fISyncCompare_waiting \fP\fP
+.TP
+\fB\fISyncCompare_done \fP\fP
+
+.PP
+Definition at line 663 of file ccn_sync.c.
+.SH "Function Documentation"
+.PP 
+.SS "static void abortCompare (struct SyncCompareData * data, char * why)\fC [static]\fP"
+.PP
+Definition at line 1372 of file ccn_sync.c.
+.PP
+Referenced by CompareAction(), and HeartbeatAction().
+.SS "static int addNameFromCompare (struct SyncCompareData * data)\fC [static]\fP"
+.PP
+Definition at line 1789 of file ccn_sync.c.
+.PP
+Referenced by doComparison().
+.SS "static int append_slice (struct \fBccn_charbuf\fP * c, struct ccns_slice * s)\fC [static]\fP"
+.PP
+Definition at line 178 of file ccn_sync.c.
+.PP
+Referenced by ccns_slice_name(), and write_slice().
+.SS "static struct \fBSyncHashCacheEntry\fP* cacheEntryForElem (struct SyncCompareData * data, struct \fBSyncNodeComposite\fP * nc, struct \fBSyncNodeElem\fP * ne, int remote)\fC [static, read]\fP"
+.PP
+Definition at line 1449 of file ccn_sync.c.
+.PP
+Referenced by doComparison(), and doPreload().
+.SS "static uintmax_t ccns_accession_encode (struct \fBccnr_handle\fP * ccnr, \fBccnr_accession\fP a)\fC [static]\fP"
+.PP
+Definition at line 2524 of file ccn_sync.c.
+.PP
+Referenced by SyncAddName().
+.SS "void ccns_close (struct ccns_handle ** ccnsp, struct \fBccn_charbuf\fP * rhash, struct \fBccn_charbuf\fP * pname)"
+.PP
+Stop notification of changes of names in a sync slice and free the handle. \fBParameters:\fP
+.RS 4
+\fIsh\fP is a pointer (to a pointer) to the sync handle returned by ccns_open, which will be freed and set to NULL. 
+.br
+\fIrhash\fP if non-NULL will be filled in with the current root hash. 
+.br
+\fIpname\fP if non-NULL will be filled in with the starting name for enumeration within the sync tree represented by the root hash rhash. 
+.RE
+.PP
+
+.PP
+Definition at line 631 of file ccn_sync.c.
+.PP
+Referenced by main().
+.SS "int ccns_delete_slice (struct ccn * h, struct \fBccn_charbuf\fP * name)"
+.PP
+Delete a ccns_slice object from a repository. \fBParameters:\fP
+.RS 4
+\fIh\fP is the ccn_handle on which to write. 
+.br
+\fIname\fP is a pointer to a charbuf naming the slice to be deleted. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+0 on success, -1 otherwise. 
+.RE
+.PP
+
+.PP
+Definition at line 514 of file ccn_sync.c.
+.PP
+Referenced by main().
+.SS "static \fBccnr_hwm\fP ccns_hwm_update (struct \fBccnr_handle\fP * ccnr, \fBccnr_hwm\fP hwm, \fBccnr_accession\fP a)\fC [static]\fP"
+.PP
+Definition at line 2530 of file ccn_sync.c.
+.PP
+Referenced by SyncAddName().
+.SS "void ccns_msg (struct \fBccnr_handle\fP * h, const char * fmt,  ...)"
+.PP
+Definition at line 647 of file ccn_sync.c.
+.PP
+Referenced by abortCompare(), CompareAction(), noteRemoteHash(), r_sync_local_store(), r_sync_lookup(), and SyncStartCompareAction().
+.SS "struct ccns_handle* ccns_open (struct ccn * h, struct ccns_slice * slice, \fBccns_callback\fP callback, struct \fBccn_charbuf\fP * rhash, struct \fBccn_charbuf\fP * pname)\fC [read]\fP"
+.PP
+Start notification of addition of names to a sync slice. \fBParameters:\fP
+.RS 4
+\fIh\fP is the ccn_handle on which to communicate 
+.br
+\fIslice\fP is the slice to be opened. 
+.br
+\fIcallback\fP is the procedure which will be called for each new name, and returns 0 to continue enumeration, -1 to stop further enumeration. NOTE: It is not safe to call ccns_close from within the callback. 
+.br
+\fIrhash\fP If NULL, indicates that the enumeration should start from the empty set. If non-NULL but empty, indicates that the enumeration should start from the current root. If non-NULL, and not empty, indicates that the enumeration should start from the specified root hash 
+.br
+\fIpname\fP if non-NULL represents the starting name for enumeration within the sync tree represented by the root hash rhash. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+a pointer to a new sync handle, which will be freed at close. 
+.RE
+.PP
+
+.PP
+Definition at line 570 of file ccn_sync.c.
+.PP
+Referenced by main().
+.SS "int ccns_read_slice (struct ccn * h, struct \fBccn_charbuf\fP * name, struct ccns_slice * slice)"
+.PP
+Read a slice (from a repository) given the name. Read a slice given the name.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIh\fP is the ccn_handle on which to read. 
+.br
+\fIname\fP is the charbuf containing the name of the sync slice to be read. 
+.br
+\fIslice\fP is a pointer to a ccns_slice object which will be filled in on successful return. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+0 on success, -1 otherwise. 
+.RE
+.PP
+
+.PP
+Definition at line 313 of file ccn_sync.c.
+.SS "enum \fBccn_upcall_res\fP ccns_root_advise_response (struct \fBccn_closure\fP * selfp, enum \fBccn_upcall_kind\fP kind, struct \fBccn_upcall_info\fP * info)"
+.PP
+Definition at line 1110 of file ccn_sync.c.
+.PP
+Referenced by ccns_send_root_advise_interest().
+.SS "static int ccns_send_root_advise_interest (struct \fBSyncRootStruct\fP * root)\fC [static]\fP"
+.PP
+Definition at line 1236 of file ccn_sync.c.
+.PP
+Referenced by ccns_open().
+.SS "int ccns_slice_add_clause (struct ccns_slice * s, struct \fBccn_charbuf\fP * f)"
+.PP
+Add a (filter) clause to a ccns_slice structure. \fBParameters:\fP
+.RS 4
+\fIslice\fP is the slice to be modified 
+.br
+\fIf\fP is a filter clause ccnb-encoded as a Name 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+0 on success, -1 otherwise. 
+.RE
+.PP
+
+.PP
+Definition at line 129 of file ccn_sync.c.
+.PP
+Referenced by main(), and slice_parse().
+.SS "struct ccns_slice* ccns_slice_create (void)\fC [read]\fP"
+.PP
+Allocate a ccns_slice structure. \fBReturns:\fP
+.RS 4
+a pointer to a new ccns_slice structure 
+.RE
+.PP
+
+.PP
+Definition at line 89 of file ccn_sync.c.
+.PP
+Referenced by main().
+.SS "void ccns_slice_destroy (struct ccns_slice ** sp)"
+.PP
+Deallocate a ccns_slice structure. \fBParameters:\fP
+.RS 4
+\fIa\fP pointer to a pointer to a ccns_slice structure. The pointer will be set to NULL on return. 
+.RE
+.PP
+
+.PP
+Definition at line 108 of file ccn_sync.c.
+.PP
+Referenced by main().
+.SS "int ccns_slice_name (struct \fBccn_charbuf\fP * nm, struct ccns_slice * s)"
+.PP
+Construct the name of a Sync configuration slice based on the parameters. Construct the name of a Sync configuration slice.
+.PP
+\fBParameters:\fP
+.RS 4
+\fInm\fP is the \fBccn_charbuf\fP which will be set to the ccnb encoded Name 
+.br
+\fIs\fP is the definition of the slice for which the name is required. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+a \fBccn_charbuf\fP with the ccnb encoded Name of the slice. 
+.RE
+.PP
+
+.PP
+Definition at line 269 of file ccn_sync.c.
+.PP
+Referenced by ccns_write_slice(), and main().
+.SS "int ccns_slice_set_topo_prefix (struct ccns_slice * s, struct \fBccn_charbuf\fP * t, struct \fBccn_charbuf\fP * p)"
+.PP
+Definition at line 159 of file ccn_sync.c.
+.PP
+Referenced by main().
+.SS "int ccns_write_slice (struct ccn * h, struct ccns_slice * slice, struct \fBccn_charbuf\fP * name)"
+.PP
+Write a ccns_slice object to a repository. \fBParameters:\fP
+.RS 4
+\fIh\fP is the ccn_handle on which to write. 
+.br
+\fIslice\fP is a pointer to a ccns_slice object to be written. 
+.br
+\fIname,if\fP non-NULL, is a pointer to a charbuf which will be filled in with the name of the slice that was written. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+0 on success, -1 otherwise. 
+.RE
+.PP
+
+.PP
+Definition at line 481 of file ccn_sync.c.
+.PP
+Referenced by main().
+.SS "static struct \fBSyncHashInfoList\fP* chooseRemoteHash (struct \fBSyncRootStruct\fP * root)\fC [static, read]\fP"
+.PP
+Definition at line 1309 of file ccn_sync.c.
+.PP
+Referenced by HeartbeatAction().
+.SS "static int CompareAction (struct ccn_schedule * sched, void * clienth, struct \fBccn_scheduled_event\fP * ev, int flags)\fC [static]\fP"
+.PP
+Definition at line 2044 of file ccn_sync.c.
+.PP
+Referenced by kickCompare().
+.SS "static int compareHash (struct \fBccn_charbuf\fP * hashX, struct \fBccn_charbuf\fP * hashY)\fC [static]\fP"
+.PP
+Definition at line 832 of file ccn_sync.c.
+.PP
+Referenced by abortCompare(), and SyncStartNodeFetch().
+.SS "static int comparisonFailed (struct SyncCompareData * data, char * why, int line)\fC [static]\fP"
+.PP
+Definition at line 1417 of file ccn_sync.c.
+.PP
+Referenced by doComparison().
+.SS "static struct \fBccn_charbuf\fP* constructCommandPrefix (struct \fBSyncRootStruct\fP * root, enum \fBSyncRegisterActionKind\fP kind)\fC [static, read]\fP"
+.PP
+Definition at line 1089 of file ccn_sync.c.
+.PP
+Referenced by ccns_send_root_advise_interest(), SyncRegisterInterests(), and SyncStartNodeFetch().
+.SS "static void delinkActionData (struct \fBSyncActionData\fP * data)\fC [static]\fP"
+.PP
+Definition at line 699 of file ccn_sync.c.
+.PP
+Referenced by destroyActionData(), and moveActionData().
+.SS "static struct \fBSyncActionData\fP* destroyActionData (struct \fBSyncActionData\fP * data)\fC [static, read]\fP"
+.PP
+Definition at line 770 of file ccn_sync.c.
+.PP
+Referenced by ccns_root_advise_response(), ccns_send_root_advise_interest(), destroyCompareData(), doPreload(), SyncInterestArrived(), SyncRegisterInterests(), SyncRemoteFetchResponse(), and SyncStartNodeFetch().
+.SS "static void destroyCompareData (struct SyncCompareData * data)\fC [static]\fP"
+.PP
+Definition at line 1338 of file ccn_sync.c.
+.PP
+Referenced by abortCompare(), and CompareAction().
+.SS "static int doComparison (struct SyncCompareData * data)\fC [static]\fP"
+.PP
+Definition at line 1820 of file ccn_sync.c.
+.PP
+Referenced by CompareAction().
+.SS "static int doPreload (struct SyncCompareData * data, struct \fBSyncTreeWorkerHead\fP * twHead)\fC [static]\fP"
+.PP
+Definition at line 1728 of file ccn_sync.c.
+.PP
+Referenced by CompareAction().
+.SS "static struct \fBSyncHashCacheEntry\fP* ensureRemoteEntry (struct SyncCompareData * data, const unsigned char * xp, ssize_t xs)\fC [static, read]\fP"
+.PP
+Definition at line 1433 of file ccn_sync.c.
+.PP
+Referenced by cacheEntryForElem().
+.SS "static struct \fBSyncNameAccum\fP* exclusionsFromHashList (struct \fBSyncRootStruct\fP * root, struct \fBSyncHashInfoList\fP * list)\fC [static, read]\fP"
+.PP
+Definition at line 1037 of file ccn_sync.c.
+.PP
+Referenced by ccns_send_root_advise_interest().
+.SS "static int extractBuf (struct \fBccn_charbuf\fP * cb, struct \fBSyncNodeComposite\fP * nc, struct \fBSyncNodeElem\fP * ne)\fC [static]\fP"
+.PP
+Definition at line 1424 of file ccn_sync.c.
+.PP
+Referenced by doComparison().
+.SS "static struct \fBSyncNodeComposite\fP* extractNode (struct \fBSyncRootStruct\fP * root, struct \fBccn_upcall_info\fP * info)\fC [static, read]\fP"
+.PP
+Definition at line 903 of file ccn_sync.c.
+.PP
+Referenced by ccns_root_advise_response(), and SyncRemoteFetchResponse().
+.SS "static char* getCmdStr (enum \fBSyncRegisterActionKind\fP kind)\fC [static]\fP"
+.PP
+Definition at line 982 of file ccn_sync.c.
+.PP
+Referenced by constructCommandPrefix().
+.SS "static void gettime (const struct \fBccn_gettime\fP * self, struct \fBccn_timeval\fP * result)\fC [static]\fP"
+.PP
+Definition at line 537 of file ccn_sync.c.
+.PP
+Referenced by ccns_open().
+.SS "static int HeartbeatAction (struct ccn_schedule * sched, void * clienth, struct \fBccn_scheduled_event\fP * ev, int flags)\fC [static]\fP"
+.PP
+Definition at line 2271 of file ccn_sync.c.
+.PP
+Referenced by ccns_open().
+.SS "static int isCovered (struct \fBSyncHashCacheEntry\fP * ce)\fC [static]\fP"
+.PP
+Definition at line 822 of file ccn_sync.c.
+.PP
+Referenced by ccns_root_advise_response(), doComparison(), and SyncRemoteFetchResponse().
+.SS "static void kickCompare (struct SyncCompareData * scd, struct \fBSyncActionData\fP * action)\fC [static]\fP"
+.PP
+Definition at line 1489 of file ccn_sync.c.
+.PP
+Referenced by SyncRemoteFetchResponse(), and SyncStartCompareAction().
+.SS "static void linkActionData (struct \fBSyncRootStruct\fP * root, struct \fBSyncActionData\fP * data)\fC [static]\fP"
+.PP
+Definition at line 796 of file ccn_sync.c.
+.PP
+Referenced by ccns_send_root_advise_interest(), SyncRegisterInterests(), and SyncStartNodeFetch().
+.SS "struct \fBccn_charbuf\fP* make_scope1_template (void)\fC [read]\fP"
+.PP
+Definition at line 354 of file ccn_sync.c.
+.PP
+Referenced by write_slice().
+.SS "static int moveActionData (struct \fBSyncActionData\fP * data, enum \fBSyncActionState\fP dstState)\fC [static]\fP"
+.PP
+Definition at line 744 of file ccn_sync.c.
+.PP
+Referenced by SyncRemoteFetchResponse().
+.SS "static struct \fBSyncActionData\fP* newActionData (enum \fBSyncRegisterActionKind\fP kind)\fC [static, read]\fP"
+.PP
+Definition at line 787 of file ccn_sync.c.
+.PP
+Referenced by ccns_send_root_advise_interest(), SyncRegisterInterests(), and SyncStartNodeFetch().
+.SS "static int noteRemoteHash (struct \fBSyncRootStruct\fP * root, struct \fBSyncHashCacheEntry\fP * ce, int add)\fC [static]\fP"
+.PP
+Definition at line 932 of file ccn_sync.c.
+.PP
+Referenced by ccns_root_advise_response(), and SyncInterestArrived().
+.SS "static int r_sync_local_store (struct \fBccnr_handle\fP * ccnr, struct \fBccn_charbuf\fP * content)\fC [static]\fP"
+.PP
+Called when a content object has been constructed locally by sync and needs to be committed to stable storage by the repo. returns 0 for success, -1 for error. 
+.PP
+Definition at line 2515 of file ccn_sync.c.
+.PP
+Referenced by load_policy(), r_sync_local_store(), storeStablePoint(), and SyncLocalRepoStore().
+.SS "static int r_sync_lookup (struct \fBccnr_handle\fP * ccnr, struct \fBccn_charbuf\fP * interest, struct \fBccn_charbuf\fP * content_ccnb)\fC [static]\fP"
+.PP
+Definition at line 2499 of file ccn_sync.c.
+.PP
+Referenced by fetchStablePoint(), r_proto_initiate_key_fetch(), SyncHandleSlice(), SyncLocalRepoFetch(), and SyncStartContentFetch().
+.SS "static void setCovered (struct \fBSyncHashCacheEntry\fP * ce)\fC [static]\fP"
+.PP
+Definition at line 805 of file ccn_sync.c.
+.PP
+Referenced by doComparison(), ensureRemoteEntry(), isCovered(), and noteRemoteHash().
+.SS "static int slice_parse (struct ccns_slice * s, const unsigned char * p, size_t size)\fC [static]\fP"
+.PP
+Definition at line 201 of file ccn_sync.c.
+.PP
+Referenced by ccns_read_slice().
+.SS "static struct \fBSyncNameAccum\fP* sortNames (struct \fBSyncRootStruct\fP * root, struct \fBSyncNameAccum\fP * src)\fC [static, read]\fP"
+.PP
+Definition at line 1000 of file ccn_sync.c.
+.PP
+Referenced by exclusionsFromHashList().
+.SS "int SyncAddName (struct \fBSyncBaseStruct\fP * base, struct \fBccn_charbuf\fP * name, \fBccnr_accession\fP item)"
+.PP
+Adds the given name to any applicable roots. Use item == 0 to ignore accession number. 
+.PP
+\fBReturns:\fP
+.RS 4
+< 0 for failure, number of additions to roots for success. 
+.RE
+.PP
+
+.PP
+Definition at line 854 of file ccn_sync.c.
+.PP
+Referenced by SyncNotifyContent(), and SyncStartContentFetch().
+.SS "static struct \fBSyncActionData\fP* SyncFindAction (struct \fBSyncRootStruct\fP * root, enum \fBSyncRegisterActionKind\fP kind)\fC [static, read]\fP"
+.PP
+Definition at line 844 of file ccn_sync.c.
+.PP
+Referenced by ccns_send_root_advise_interest(), and SyncInterestArrived().
+.SS "int SyncHandleSlice (struct \fBSyncBaseStruct\fP * base, struct \fBccn_charbuf\fP * name)"
+.PP
+Creates a new slice from a full name. The name must start with base->priv->sliceCmdPrefix. 
+.PP
+\fBReturns:\fP
+.RS 4
+< 0 if an error occurred, otherwise the new root number. 
+.RE
+.PP
+
+.PP
+Definition at line 2480 of file ccn_sync.c.
+.PP
+Referenced by SyncNotifyContent().
+.SS "enum \fBccn_upcall_res\fP SyncInterestArrived (struct \fBccn_closure\fP * selfp, enum \fBccn_upcall_kind\fP kind, struct \fBccn_upcall_info\fP * info)"
+.PP
+Definition at line 2316 of file ccn_sync.c.
+.PP
+Referenced by SyncRegisterInterest(), and SyncRegisterInterests().
+.SS "int SyncRegisterInterests (struct \fBSyncRootStruct\fP * root)"
+.PP
+registers interests associated with the given root these include C1.S.RA (Root Advise) and C1.S.NF (Node Fetch) interests additional interests may be registered as the protocol evolves \fBReturns:\fP
+.RS 4
+< 0 for error, >= 0 for success 
+.RE
+.PP
+
+.PP
+Definition at line 2444 of file ccn_sync.c.
+.PP
+Referenced by SyncAddRoot().
+.SS "enum \fBccn_upcall_res\fP SyncRemoteFetchResponse (struct \fBccn_closure\fP * selfp, enum \fBccn_upcall_kind\fP kind, struct \fBccn_upcall_info\fP * info)"
+.PP
+Definition at line 1506 of file ccn_sync.c.
+.PP
+Referenced by SyncStartContentFetch(), and SyncStartNodeFetch().
+.SS "int SyncStartCompareAction (struct \fBSyncRootStruct\fP * root, struct \fBccn_charbuf\fP * hashR)"
+.PP
+initiates a compare action with the given remote hash \fBReturns:\fP
+.RS 4
+< 0 for error, >= 0 for OK 
+.RE
+.PP
+
+.PP
+Definition at line 2205 of file ccn_sync.c.
+.PP
+Referenced by HeartbeatAction(), and SyncRootAdviseResponse().
+.SS "int SyncStartHeartbeat (struct \fBSyncBaseStruct\fP * base)"
+.PP
+starts a periodic wakeup that maintains state across all roots \fBReturns:\fP
+.RS 4
+< 0 for error, >= 0 for success 
+.RE
+.PP
+
+.PP
+Definition at line 2490 of file ccn_sync.c.
+.PP
+Referenced by SyncInit().
+.SS "int SyncStartNodeFetch (struct \fBSyncRootStruct\fP * root, struct \fBSyncHashCacheEntry\fP * ce, struct SyncCompareData * comp)"
+.PP
+starts a remote fetch of the given node, based on the hash comp may be NULL if this is not for a compare \fBReturns:\fP
+.RS 4
+< 0 for error, >= 0 for success 
+.RE
+.PP
+
+.PP
+Definition at line 1645 of file ccn_sync.c.
+.PP
+Referenced by doComparison(), and doPreload().
+.SS "int SyncStartSliceEnum (struct \fBSyncRootStruct\fP * root)"
+.PP
+starts a slice enumeration for the root \fBReturns:\fP
+.RS 4
+< 0 for error, 0 if some enumeration is busy, 1 for success 
+.RE
+.PP
+
+.PP
+Definition at line 2485 of file ccn_sync.c.
+.PP
+Referenced by HeartbeatAction(), and SyncNotifyContent().
+.SS "static enum \fBccn_upcall_res\fP write_interest_handler (struct \fBccn_closure\fP * selfp, enum \fBccn_upcall_kind\fP kind, struct \fBccn_upcall_info\fP * info)\fC [static]\fP"
+.PP
+Definition at line 367 of file ccn_sync.c.
+.PP
+Referenced by write_slice().
+.SS "static int write_slice (struct ccn * h, struct ccns_slice * slice, struct \fBccn_charbuf\fP * name)\fC [static]\fP"
+.PP
+Definition at line 389 of file ccn_sync.c.
+.PP
+Referenced by ccns_delete_slice(), and ccns_write_slice().
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Content-Centric Networking in C from the source code.

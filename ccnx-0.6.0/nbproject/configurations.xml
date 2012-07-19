@@ -1,0 +1,2920 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configurationDescriptor version="79">
+  <logicalFolder name="root" displayName="root" projectFiles="true" kind="ROOT">
+    <df name="ccnx-0.6.0" root=".">
+      <df name="android">
+        <df name="apps">
+          <df name="CCNx-Android-Chat">
+            <df name="hashes">
+            </df>
+            <df name="icons">
+            </df>
+            <df name="res">
+              <df name="drawable-hdpi">
+              </df>
+              <df name="drawable-ldpi">
+              </df>
+              <df name="drawable-mdpi">
+              </df>
+              <df name="layout">
+              </df>
+              <df name="values">
+              </df>
+            </df>
+            <df name="src">
+              <df name="org">
+                <df name="ccnx">
+                  <df name="android">
+                    <df name="apps">
+                      <df name="chat">
+                      </df>
+                    </df>
+                  </df>
+                </df>
+              </df>
+            </df>
+          </df>
+          <df name="CCNx-Android-StartupExamples">
+            <df name="hashes">
+            </df>
+            <df name="res">
+              <df name="drawable-hdpi">
+              </df>
+              <df name="drawable-ldpi">
+              </df>
+              <df name="drawable-mdpi">
+              </df>
+              <df name="layout">
+              </df>
+              <df name="values">
+              </df>
+            </df>
+            <df name="src">
+              <df name="org">
+                <df name="ccnx">
+                  <df name="android">
+                    <df name="examples">
+                      <df name="startup">
+                      </df>
+                    </df>
+                  </df>
+                </df>
+              </df>
+            </df>
+          </df>
+        </df>
+        <df name="CCNx-Android-Lib">
+          <df name="res">
+            <df name="drawable-hdpi">
+            </df>
+            <df name="drawable-ldpi">
+            </df>
+            <df name="drawable-mdpi">
+            </df>
+            <df name="layout">
+            </df>
+            <df name="values">
+            </df>
+          </df>
+          <df name="src">
+            <df name="org">
+              <df name="ccnx">
+                <df name="android">
+                  <df name="ccnlib">
+                  </df>
+                </df>
+              </df>
+            </df>
+          </df>
+        </df>
+        <df name="CCNx-Android-Services">
+          <df name="hashes">
+          </df>
+          <df name="icons">
+          </df>
+          <df name="jni">
+            <df name="controller">
+              <in>ctl_ccnd.c</in>
+              <in>ctl_ccnr.c</in>
+            </df>
+            <df name="csrc">
+              <df name="ccnd">
+                <in>android_main.c</in>
+                <in>ccnd.c</in>
+                <in>ccnd_internal_client.c</in>
+                <in>ccnd_main.c</in>
+                <in>ccnd_msg.c</in>
+                <in>ccnd_private.h</in>
+                <in>ccnd_stats.c</in>
+                <in>ccndsmoketest.c</in>
+              </df>
+              <df name="ccnr">
+                <in>android_main.c</in>
+                <in>ccnr_dispatch.c</in>
+                <in>ccnr_dispatch.h</in>
+                <in>ccnr_forwarding.c</in>
+                <in>ccnr_forwarding.h</in>
+                <in>ccnr_init.c</in>
+                <in>ccnr_init.h</in>
+                <in>ccnr_internal_client.c</in>
+                <in>ccnr_internal_client.h</in>
+                <in>ccnr_io.c</in>
+                <in>ccnr_io.h</in>
+                <in>ccnr_link.c</in>
+                <in>ccnr_link.h</in>
+                <in>ccnr_main.c</in>
+                <in>ccnr_match.c</in>
+                <in>ccnr_match.h</in>
+                <in>ccnr_msg.c</in>
+                <in>ccnr_msg.h</in>
+                <in>ccnr_net.c</in>
+                <in>ccnr_net.h</in>
+                <in>ccnr_private.h</in>
+                <in>ccnr_proto.c</in>
+                <in>ccnr_proto.h</in>
+                <in>ccnr_sendq.c</in>
+                <in>ccnr_sendq.h</in>
+                <in>ccnr_stats.c</in>
+                <in>ccnr_stats.h</in>
+                <in>ccnr_store.c</in>
+                <in>ccnr_store.h</in>
+                <in>ccnr_sync.c</in>
+                <in>ccnr_sync.h</in>
+                <in>ccnr_util.c</in>
+                <in>ccnr_util.h</in>
+              </df>
+              <df name="cmd">
+                <in>ccn_ccnbtoxml.c</in>
+                <in>ccn_fetch_test.c</in>
+                <in>ccn_splitccnb.c</in>
+                <in>ccn_xmltoccnb.c</in>
+                <in>ccnbasicconfig.c</in>
+                <in>ccnbuzz.c</in>
+                <in>ccnbx.c</in>
+                <in>ccncat.c</in>
+                <in>ccncatchunks.c</in>
+                <in>ccncatchunks2.c</in>
+                <in>ccndumpnames.c</in>
+                <in>ccndumppcap.c</in>
+                <in>ccnfilewatch.c</in>
+                <in>ccnhexdumpdata.c</in>
+                <in>ccninitkeystore.c</in>
+                <in>ccnlibtest.c</in>
+                <in>ccnls.c</in>
+                <in>ccnnamelist.c</in>
+                <in>ccnpeek.c</in>
+                <in>ccnpoke.c</in>
+                <in>ccnrm.c</in>
+                <in>ccnsendchunks.c</in>
+                <in>ccnseqwriter.c</in>
+                <in>ccnsimplecat.c</in>
+                <in>ccnslurp.c</in>
+                <in>ccnsyncslice.c</in>
+                <in>ccnsyncwatch.c</in>
+                <in>ccntimefromdatetime.c</in>
+                <in>dataresponsetest.c</in>
+              </df>
+              <df name="conf">
+              </df>
+              <df name="contrib">
+              </df>
+              <df name="exttests">
+                <df name="stubs">
+                </df>
+              </df>
+              <df name="include">
+                <df name="ccn">
+                  <in>bloom.h</in>
+                  <in>btree.h</in>
+                  <in>btree_content.h</in>
+                  <in>ccn.h</in>
+                  <in>ccn_private.h</in>
+                  <in>ccnd.h</in>
+                  <in>charbuf.h</in>
+                  <in>coding.h</in>
+                  <in>digest.h</in>
+                  <in>extend_dict.h</in>
+                  <in>face_mgmt.h</in>
+                  <in>fetch.h</in>
+                  <in>hashtb.h</in>
+                  <in>header.h</in>
+                  <in>indexbuf.h</in>
+                  <in>keystore.h</in>
+                  <in>matrix.h</in>
+                  <in>merklepathasn1.h</in>
+                  <in>random.h</in>
+                  <in>reg_mgmt.h</in>
+                  <in>schedule.h</in>
+                  <in>seqwriter.h</in>
+                  <in>signing.h</in>
+                  <in>sockaddrutil.h</in>
+                  <in>sockcreate.h</in>
+                  <in>sync.h</in>
+                  <in>uri.h</in>
+                </df>
+              </df>
+              <df name="lib">
+                <in>basicparsetest.c</in>
+                <in>ccn_bloom.c</in>
+                <in>ccn_btree.c</in>
+                <in>ccn_btree_content.c</in>
+                <in>ccn_btree_store.c</in>
+                <in>ccn_buf_decoder.c</in>
+                <in>ccn_buf_encoder.c</in>
+                <in>ccn_bulkdata.c</in>
+                <in>ccn_charbuf.c</in>
+                <in>ccn_client.c</in>
+                <in>ccn_coding.c</in>
+                <in>ccn_digest.c</in>
+                <in>ccn_dtag_table.c</in>
+                <in>ccn_extend_dict.c</in>
+                <in>ccn_face_mgmt.c</in>
+                <in>ccn_fetch.c</in>
+                <in>ccn_header.c</in>
+                <in>ccn_indexbuf.c</in>
+                <in>ccn_interest.c</in>
+                <in>ccn_keystore.c</in>
+                <in>ccn_match.c</in>
+                <in>ccn_merkle_path_asn1.c</in>
+                <in>ccn_name_util.c</in>
+                <in>ccn_reg_mgmt.c</in>
+                <in>ccn_schedule.c</in>
+                <in>ccn_seqwriter.c</in>
+                <in>ccn_setup_sockaddr_un.c</in>
+                <in>ccn_signing.c</in>
+                <in>ccn_sockaddrutil.c</in>
+                <in>ccn_sockcreate.c</in>
+                <in>ccn_sync.c</in>
+                <in>ccn_traverse.c</in>
+                <in>ccn_uri.c</in>
+                <in>ccn_verifysig.c</in>
+                <in>ccn_versioning.c</in>
+                <in>ccnbtreetest.c</in>
+                <in>encodedecodetest.c</in>
+                <in>hashtb.c</in>
+                <in>hashtbtest.c</in>
+                <in>signbenchtest.c</in>
+                <in>skel_decode_test.c</in>
+              </df>
+              <df name="libexec">
+                <in>ccndc.c</in>
+                <in>udplink.c</in>
+              </df>
+              <df name="sync">
+                <in>IndexSorter.c</in>
+                <in>IndexSorter.h</in>
+                <in>SyncActions.c</in>
+                <in>SyncActions.h</in>
+                <in>SyncBase.c</in>
+                <in>SyncBase.h</in>
+                <in>SyncHashCache.c</in>
+                <in>SyncHashCache.h</in>
+                <in>SyncMacros.h</in>
+                <in>SyncNode.c</in>
+                <in>SyncNode.h</in>
+                <in>SyncPrivate.h</in>
+                <in>SyncRoot.c</in>
+                <in>SyncRoot.h</in>
+                <in>SyncTest.c</in>
+                <in>SyncTreeWorker.c</in>
+                <in>SyncTreeWorker.h</in>
+                <in>SyncUtil.c</in>
+                <in>SyncUtil.h</in>
+              </df>
+              <df name="tests">
+                <df name="stubs">
+                </df>
+              </df>
+              <df name="util">
+              </df>
+            </df>
+            <df name="openssl">
+            </df>
+          </df>
+          <df name="res">
+            <df name="drawable">
+            </df>
+            <df name="drawable-hdpi">
+            </df>
+            <df name="drawable-ldpi">
+            </df>
+            <df name="drawable-mdpi">
+            </df>
+            <df name="layout">
+            </df>
+            <df name="values">
+            </df>
+          </df>
+          <df name="src">
+            <df name="org">
+              <df name="ccnx">
+                <df name="android">
+                  <df name="services">
+                    <df name="ccnd">
+                    </df>
+                    <df name="repo">
+                    </df>
+                  </df>
+                </df>
+              </df>
+            </df>
+          </df>
+        </df>
+        <df name="external">
+          <df name="hashes">
+          </df>
+          <df name="openssl_android_mks">
+            <df name="crypto">
+            </df>
+            <df name="ssl">
+            </df>
+          </df>
+        </df>
+      </df>
+      <df name="apps">
+        <df name="ccnChat">
+          <df name="build">
+            <df name="org">
+              <df name="ccnx">
+                <df name="ccn">
+                  <df name="apps">
+                    <df name="ccnchat">
+                    </df>
+                  </df>
+                </df>
+              </df>
+            </df>
+            <df name="org">
+              <df name="ccnx">
+                <df name="ccn">
+                  <df name="apps">
+                    <df name="ccnchat">
+                      <in>CCNChat$1.class</in>
+                      <in>CCNChat.class</in>
+                      <in>CCNChatNet$CCNChatCallback.class</in>
+                      <in>CCNChatNet.class</in>
+                      <in>CCNChatText$1.class</in>
+                      <in>CCNChatText$Mode.class</in>
+                      <in>CCNChatText.class</in>
+                    </df>
+                  </df>
+                </df>
+              </df>
+            </df>
+          </df>
+          <df name="build">
+            <df name="org">
+              <df name="ccnx">
+                <df name="ccn">
+                  <df name="apps">
+                    <df name="ccnchat">
+                    </df>
+                  </df>
+                </df>
+              </df>
+            </df>
+          </df>
+          <df name="src">
+            <df name="org">
+              <df name="ccnx">
+                <df name="ccn">
+                  <df name="apps">
+                    <df name="ccnchat">
+                    </df>
+                  </df>
+                </df>
+              </df>
+            </df>
+          </df>
+          <df name="tools">
+          </df>
+        </df>
+        <df name="ccnFileProxy">
+          <df name="build">
+            <df name="org">
+              <df name="ccnx">
+                <df name="ccn">
+                  <df name="apps">
+                    <df name="ccnfileproxy">
+                    </df>
+                  </df>
+                </df>
+              </df>
+            </df>
+            <df name="org">
+              <df name="ccnx">
+                <df name="ccn">
+                  <df name="apps">
+                    <df name="ccnfileproxy">
+                      <in>CCNFileProxy.class</in>
+                    </df>
+                  </df>
+                </df>
+              </df>
+            </df>
+          </df>
+          <df name="build">
+            <df name="org">
+              <df name="ccnx">
+                <df name="ccn">
+                  <df name="apps">
+                    <df name="ccnfileproxy">
+                    </df>
+                  </df>
+                </df>
+              </df>
+            </df>
+          </df>
+          <df name="src">
+            <df name="org">
+              <df name="ccnx">
+                <df name="ccn">
+                  <df name="apps">
+                    <df name="ccnfileproxy">
+                    </df>
+                  </df>
+                </df>
+              </df>
+            </df>
+          </df>
+          <df name="tools">
+          </df>
+        </df>
+        <df name="examples">
+          <df name="ccnb-Java">
+            <df name="schema">
+            </df>
+            <df name="src">
+              <df name="org">
+                <df name="ccnx">
+                  <df name="ccn">
+                    <df name="apps">
+                      <df name="examples">
+                        <df name="ccnb">
+                          <df name="test">
+                          </df>
+                        </df>
+                      </df>
+                    </df>
+                  </df>
+                </df>
+              </df>
+            </df>
+          </df>
+          <df name="ExpandedCryptoTests">
+            <df name="src">
+              <df name="org">
+                <df name="ccnx">
+                  <df name="ccn">
+                    <df name="test">
+                      <df name="io">
+                        <df name="content">
+                        </df>
+                      </df>
+                    </df>
+                  </df>
+                </df>
+              </df>
+            </df>
+          </df>
+        </df>
+        <df name="HttpProxy">
+          <in>HttpProxy.c</in>
+          <in>NetFetch.c</in>
+          <in>ProxyUtil.c</in>
+          <in>ProxyUtil.h</in>
+          <in>SockHop.c</in>
+          <in>SockHop.h</in>
+        </df>
+        <df name="vlc">
+          <in>ccn.c</in>
+        </df>
+        <df name="wireshark">
+          <df name="ccn">
+            <in>moduleinfo.h</in>
+            <in>packet-ccn.c</in>
+          </df>
+        </df>
+      </df>
+      <df name="bin">
+      </df>
+      <df name="csrc">
+        <df name="ccnd">
+          <in>Android.mk</in>
+          <in>Makefile</in>
+          <in>README</in>
+          <in>android_main.c</in>
+          <in>anything.out</in>
+          <in>anything.ref</in>
+          <in>ccnd</in>
+          <in>ccnd-init-keystore-helper</in>
+          <in>ccnd-init-keystore-helper.sh</in>
+          <in>ccnd.c</in>
+          <in>ccnd_built.sh</in>
+          <in>ccnd_built.sh.sample</in>
+          <in>ccnd_internal_client.c</in>
+          <in>ccnd_main.c</in>
+          <in>ccnd_msg.c</in>
+          <in>ccnd_private.h</in>
+          <in>ccnd_stats.c</in>
+          <in>ccndbloomstats</in>
+          <in>ccndsmoketest</in>
+          <in>ccndsmoketest.c</in>
+          <in>contentobjecthash.out</in>
+          <in>contentobjecthash.ref</in>
+          <in>dir.mk</in>
+          <in>fortunes.ccnb</in>
+          <in>genfortunes</in>
+          <in>minsuffix.ccnb</in>
+          <in>minsuffix.out</in>
+          <in>minsuffix.ref</in>
+          <in>testbasics</in>
+        </df>
+        <df name="ccnr">
+          <in>Android.mk</in>
+          <in>Makefile</in>
+          <in>android_main.c</in>
+          <in>ccnr</in>
+          <in>ccnr_dispatch.c</in>
+          <in>ccnr_dispatch.h</in>
+          <in>ccnr_forwarding.c</in>
+          <in>ccnr_forwarding.h</in>
+          <in>ccnr_init.c</in>
+          <in>ccnr_init.h</in>
+          <in>ccnr_internal_client.c</in>
+          <in>ccnr_internal_client.h</in>
+          <in>ccnr_io.c</in>
+          <in>ccnr_io.h</in>
+          <in>ccnr_link.c</in>
+          <in>ccnr_link.h</in>
+          <in>ccnr_main.c</in>
+          <in>ccnr_match.c</in>
+          <in>ccnr_match.h</in>
+          <in>ccnr_msg.c</in>
+          <in>ccnr_msg.h</in>
+          <in>ccnr_net.c</in>
+          <in>ccnr_net.h</in>
+          <in>ccnr_private.h</in>
+          <in>ccnr_proto.c</in>
+          <in>ccnr_proto.h</in>
+          <in>ccnr_sendq.c</in>
+          <in>ccnr_sendq.h</in>
+          <in>ccnr_stats.c</in>
+          <in>ccnr_stats.h</in>
+          <in>ccnr_store.c</in>
+          <in>ccnr_store.h</in>
+          <in>ccnr_sync.c</in>
+          <in>ccnr_sync.h</in>
+          <in>ccnr_util.c</in>
+          <in>ccnr_util.h</in>
+          <in>crib.txt</in>
+          <in>dir.mk</in>
+        </df>
+        <df name="cmd">
+          <in>Makefile</in>
+          <in>ccn_ccnbtoxml</in>
+          <in>ccn_ccnbtoxml.c</in>
+          <in>ccn_fetch_test</in>
+          <in>ccn_fetch_test.c</in>
+          <in>ccn_splitccnb</in>
+          <in>ccn_splitccnb.c</in>
+          <in>ccn_xmltoccnb</in>
+          <in>ccn_xmltoccnb.c</in>
+          <in>ccnbasicconfig</in>
+          <in>ccnbasicconfig.c</in>
+          <in>ccnbuzz</in>
+          <in>ccnbuzz.c</in>
+          <in>ccnbx</in>
+          <in>ccnbx.c</in>
+          <in>ccncat</in>
+          <in>ccncat.c</in>
+          <in>ccncatchunks</in>
+          <in>ccncatchunks.c</in>
+          <in>ccncatchunks2</in>
+          <in>ccncatchunks2.c</in>
+          <in>ccndumpnames</in>
+          <in>ccndumpnames.c</in>
+          <in>ccndumppcap</in>
+          <in>ccndumppcap.c</in>
+          <in>ccnfilewatch</in>
+          <in>ccnfilewatch.c</in>
+          <in>ccnhexdumpdata</in>
+          <in>ccnhexdumpdata.c</in>
+          <in>ccninitkeystore</in>
+          <in>ccninitkeystore.c</in>
+          <in>ccnlibtest</in>
+          <in>ccnlibtest.c</in>
+          <in>ccnls</in>
+          <in>ccnls.c</in>
+          <in>ccnnamelist</in>
+          <in>ccnnamelist.c</in>
+          <in>ccnpeek</in>
+          <in>ccnpeek.c</in>
+          <in>ccnpoke</in>
+          <in>ccnpoke.c</in>
+          <in>ccnrm</in>
+          <in>ccnrm.c</in>
+          <in>ccnsendchunks</in>
+          <in>ccnsendchunks.c</in>
+          <in>ccnseqwriter</in>
+          <in>ccnseqwriter.c</in>
+          <in>ccnsimplecat</in>
+          <in>ccnsimplecat.c</in>
+          <in>ccnslurp</in>
+          <in>ccnslurp.c</in>
+          <in>ccnsyncslice</in>
+          <in>ccnsyncslice.c</in>
+          <in>ccnsyncwatch</in>
+          <in>ccnsyncwatch.c</in>
+          <in>ccntimefromdatetime.c</in>
+          <in>dataresponsetest</in>
+          <in>dataresponsetest.c</in>
+          <in>dir.mk</in>
+        </df>
+        <df name="conf">
+          <in>CYGWIN_NT-5.1.mk</in>
+          <in>CYGWIN_NT-5.1.sh</in>
+          <in>CYGWIN_NT-6.0.mk</in>
+          <in>CYGWIN_NT-6.0.sh</in>
+          <in>CYGWIN_NT-6.1-WOW64.mk</in>
+          <in>CYGWIN_NT-6.1-WOW64.sh</in>
+          <in>Darwin-8.11.0.mk</in>
+          <in>Darwin-9.8.0.mk</in>
+          <in>Darwin.mk</in>
+          <in>FreeBSD.mk</in>
+          <in>FreeBSD.sh</in>
+          <in>Linux.mk</in>
+          <in>NetBSD.mk</in>
+          <in>OpenSSL.mk</in>
+          <in>SunOS-5.10.mk</in>
+          <in>SunOS-5.11.mk</in>
+          <in>SunOS.mk</in>
+          <in>SunOS.sh</in>
+          <in>pickygcc.mk</in>
+        </df>
+        <df name="contrib">
+          <in>getaddrinfo-1.6.3.tar.gz</in>
+        </df>
+        <df name="exttests">
+          <df name="staged.5000000">
+            <df name="index">
+              <in>1</in>
+              <in>maxnodeid</in>
+              <in>stable</in>
+            </df>
+            <in>cached-keys.out</in>
+            <in>ccnx_repository_keystore</in>
+            <in>repoFile1</in>
+            <in>repoPolicy</in>
+          </df>
+          <df name="STATUS">
+            <in>test_alone</in>
+            <in>test_btree_next_leaf</in>
+            <in>test_btree_prev_leaf</in>
+            <in>test_final_teardown</in>
+            <in>test_finished</in>
+            <in>test_happy_face</in>
+            <in>test_late</in>
+            <in>test_long_example</in>
+            <in>test_repo_performance</in>
+            <in>test_single_ccnd</in>
+            <in>test_single_ccnd_teardown</in>
+            <in>test_single_done</in>
+            <in>test_sync_basic</in>
+            <in>test_sync_read</in>
+            <in>test_sync_repo2</in>
+            <in>test_twohop_ccnd</in>
+            <in>test_twohop_ccnd_teardown</in>
+          </df>
+          <df name="stubs">
+            <in>jot</in>
+            <in>pkill</in>
+          </df>
+          <df name="testrepo2">
+            <df name="index">
+              <in>1</in>
+              <in>maxnodeid</in>
+              <in>stable</in>
+            </df>
+            <in>ccnx_repository_keystore</in>
+            <in>repoFile1</in>
+            <in>repoPolicy</in>
+          </df>
+          <df name="testrepoA">
+            <df name="index">
+              <in>1</in>
+              <in>maxnodeid</in>
+              <in>stable</in>
+            </df>
+            <in>ccnx_repository_keystore</in>
+            <in>repoFile1</in>
+            <in>repoPolicy</in>
+          </df>
+          <in>FAILING</in>
+          <in>Makefile</in>
+          <in>SKIPPED</in>
+          <in>SyncNames.txt</in>
+          <in>TRP-env.out</in>
+          <in>ccnd0.out</in>
+          <in>ccnd1-capped-100.out</in>
+          <in>ccnd1-capped-1750.out</in>
+          <in>ccnd1.out</in>
+          <in>ccnd2.out</in>
+          <in>ccnd3-capped-100.out</in>
+          <in>ccnd3.out</in>
+          <in>ccnr-repo-create.out</in>
+          <in>ccnr.1.err</in>
+          <in>ccnr.1.log</in>
+          <in>ccnr.2.err</in>
+          <in>ccnr.2.log</in>
+          <in>ccnr1.out</in>
+          <in>ccnrA.out</in>
+          <in>ccnrm.out</in>
+          <in>dir.mk</in>
+          <in>functions</in>
+          <in>ignore</in>
+          <in>make_clean.sh</in>
+          <in>order.txt</in>
+          <in>planned-tests.out</in>
+          <in>post-repo2-fetch.out</in>
+          <in>preamble</in>
+          <in>preserve</in>
+          <in>settings</in>
+          <in>startwrite.out</in>
+          <in>stats1.txt</in>
+          <in>stats2.txt</in>
+          <in>syncbasic.err</in>
+          <in>syncbasic.out</in>
+          <in>syncread.err</in>
+          <in>syncread.out</in>
+          <in>test_alone</in>
+          <in>test_btree_next_leaf</in>
+          <in>test_btree_prev_leaf</in>
+          <in>test_check</in>
+          <in>test_final_teardown</in>
+          <in>test_finished</in>
+          <in>test_happy_face</in>
+          <in>test_late</in>
+          <in>test_long_example</in>
+          <in>test_repo_performance</in>
+          <in>test_single_ccnd</in>
+          <in>test_single_ccnd_teardown</in>
+          <in>test_single_done</in>
+          <in>test_sync_basic</in>
+          <in>test_sync_read</in>
+          <in>test_sync_repo2</in>
+          <in>test_twohop_ccnd</in>
+          <in>test_twohop_ccnd_teardown</in>
+          <in>testdriver</in>
+          <in>testdriver.sh</in>
+          <in>twohop-status-0.html</in>
+          <in>twohop-status-1.html</in>
+          <in>twohop-status-2.html</in>
+          <in>twohop-status-3.html</in>
+          <in>unordered.out</in>
+        </df>
+        <df name="include">
+          <df name="ccn">
+            <in>bloom.h</in>
+            <in>btree.h</in>
+            <in>btree_content.h</in>
+            <in>ccn.h</in>
+            <in>ccn_private.h</in>
+            <in>ccnd.h</in>
+            <in>charbuf.h</in>
+            <in>coding.h</in>
+            <in>digest.h</in>
+            <in>extend_dict.h</in>
+            <in>face_mgmt.h</in>
+            <in>fetch.h</in>
+            <in>hashtb.h</in>
+            <in>header.h</in>
+            <in>indexbuf.h</in>
+            <in>keystore.h</in>
+            <in>matrix.h</in>
+            <in>merklepathasn1.h</in>
+            <in>random.h</in>
+            <in>reg_mgmt.h</in>
+            <in>schedule.h</in>
+            <in>seqwriter.h</in>
+            <in>signing.h</in>
+            <in>sockaddrutil.h</in>
+            <in>sockcreate.h</in>
+            <in>sync.h</in>
+            <in>uri.h</in>
+          </df>
+        </df>
+        <df name="lib">
+          <in>Android.mk</in>
+          <in>Makefile</in>
+          <in>basicparsetest</in>
+          <in>basicparsetest.c</in>
+          <in>ccn_bloom.c</in>
+          <in>ccn_btree.c</in>
+          <in>ccn_btree_content.c</in>
+          <in>ccn_btree_store.c</in>
+          <in>ccn_buf_decoder.c</in>
+          <in>ccn_buf_encoder.c</in>
+          <in>ccn_bulkdata.c</in>
+          <in>ccn_charbuf.c</in>
+          <in>ccn_client.c</in>
+          <in>ccn_coding.c</in>
+          <in>ccn_digest.c</in>
+          <in>ccn_dtag_table.c</in>
+          <in>ccn_extend_dict.c</in>
+          <in>ccn_face_mgmt.c</in>
+          <in>ccn_fetch.c</in>
+          <in>ccn_header.c</in>
+          <in>ccn_indexbuf.c</in>
+          <in>ccn_initkeystore.sh</in>
+          <in>ccn_interest.c</in>
+          <in>ccn_keystore.c</in>
+          <in>ccn_match.c</in>
+          <in>ccn_merkle_path_asn1.c</in>
+          <in>ccn_name_util.c</in>
+          <in>ccn_reg_mgmt.c</in>
+          <in>ccn_schedule.c</in>
+          <in>ccn_seqwriter.c</in>
+          <in>ccn_setup_sockaddr_un.c</in>
+          <in>ccn_signing.c</in>
+          <in>ccn_sockaddrutil.c</in>
+          <in>ccn_sockcreate.c</in>
+          <in>ccn_sync.c</in>
+          <in>ccn_traverse.c</in>
+          <in>ccn_uri.c</in>
+          <in>ccn_verifysig.c</in>
+          <in>ccn_versioning.c</in>
+          <in>ccnbtreetest</in>
+          <in>ccnbtreetest.c</in>
+          <in>dir.mk</in>
+          <in>encodedecodetest</in>
+          <in>encodedecodetest.c</in>
+          <in>gen_dtag_table</in>
+          <in>gen_enum_dtag</in>
+          <in>hashtb.c</in>
+          <in>hashtbtest</in>
+          <in>hashtbtest.c</in>
+          <in>roundtripper</in>
+          <in>signbenchtest</in>
+          <in>signbenchtest.c</in>
+          <in>skel_decode_test</in>
+          <in>skel_decode_test.c</in>
+          <in>testcoverage</in>
+        </df>
+        <df name="libexec">
+          <in>Makefile</in>
+          <in>ccnd.conf.sample</in>
+          <in>ccndc.c</in>
+          <in>dir.mk</in>
+          <in>udplink.c</in>
+        </df>
+        <df name="sync">
+          <in>Android.mk</in>
+          <in>IndexSorter.c</in>
+          <in>IndexSorter.h</in>
+          <in>Makefile</in>
+          <in>SyncActions.c</in>
+          <in>SyncActions.h</in>
+          <in>SyncBase.c</in>
+          <in>SyncBase.h</in>
+          <in>SyncHashCache.c</in>
+          <in>SyncHashCache.h</in>
+          <in>SyncMacros.h</in>
+          <in>SyncNode.c</in>
+          <in>SyncNode.h</in>
+          <in>SyncPrivate.h</in>
+          <in>SyncRoot.c</in>
+          <in>SyncRoot.h</in>
+          <in>SyncSetup.txt</in>
+          <in>SyncTest</in>
+          <in>SyncTest.c</in>
+          <in>SyncTreeWorker.c</in>
+          <in>SyncTreeWorker.h</in>
+          <in>SyncUtil.c</in>
+          <in>SyncUtil.h</in>
+          <in>dir.mk</in>
+        </df>
+        <df name="tests">
+          <df name="log">
+          </df>
+          <df name="STATUS">
+            <in>test_alone</in>
+            <in>test_answered_interest_suppression</in>
+            <in>test_ccndid</in>
+            <in>test_ccnls_meta</in>
+            <in>test_child_selector</in>
+            <in>test_coders</in>
+            <in>test_destroyface</in>
+            <in>test_final_teardown</in>
+            <in>test_finished</in>
+            <in>test_happy_face</in>
+            <in>test_interest_suppression</in>
+            <in>test_key_fetch</in>
+            <in>test_late</in>
+            <in>test_long_consumer</in>
+            <in>test_long_consumer2</in>
+            <in>test_long_producer</in>
+            <in>test_new_provider</in>
+            <in>test_newface</in>
+            <in>test_prefixreg</in>
+            <in>test_scope2</in>
+            <in>test_selfreg</in>
+            <in>test_short_stuff</in>
+            <in>test_single_ccnd</in>
+            <in>test_single_ccnd_teardown</in>
+            <in>test_spur_traffic</in>
+            <in>test_stale</in>
+            <in>test_twohop_ccnd</in>
+            <in>test_twohop_ccnd_teardown</in>
+            <in>test_unreg</in>
+          </df>
+          <df name="stubs">
+            <in>jot</in>
+            <in>pkill</in>
+          </df>
+          <in>FAILING</in>
+          <in>Makefile</in>
+          <in>SKIPPED</in>
+          <in>ccnd1.out</in>
+          <in>ccnd2.out</in>
+          <in>ccnd3.out</in>
+          <in>ccnd4.out</in>
+          <in>ccnd5.out</in>
+          <in>destroyface-post.html</in>
+          <in>destroyface-pre.html</in>
+          <in>destroyface-request.ccnb</in>
+          <in>destroyface-response.ccnb</in>
+          <in>destroyface.ccnb</in>
+          <in>digest.out</in>
+          <in>dir.mk</in>
+          <in>extract_test_deps</in>
+          <in>functions</in>
+          <in>heartbeat.ccnb</in>
+          <in>int-supp-ccnd0-status-A.out</in>
+          <in>int-supp-ccnd0-status-B.out</in>
+          <in>int-supp-ccnd4-status-A.out</in>
+          <in>int-supp-ccnd4-status-B.out</in>
+          <in>newface-request.ccnb</in>
+          <in>newface-response.ccnb</in>
+          <in>newface.ccnb</in>
+          <in>preamble</in>
+          <in>prefixreg-post.html</in>
+          <in>prefixreg-pre.html</in>
+          <in>prefixreg-request.ccnb</in>
+          <in>prefixreg-response.ccnb</in>
+          <in>prefixreg.ccnb</in>
+          <in>selfreg-post.html</in>
+          <in>selfreg-pre.html</in>
+          <in>selfreg-request.ccnb</in>
+          <in>selfreg-response.ccnb</in>
+          <in>selfreg.ccnb</in>
+          <in>settings</in>
+          <in>test_alone</in>
+          <in>test_answered_interest_suppression</in>
+          <in>test_ccndid</in>
+          <in>test_ccnls_meta</in>
+          <in>test_child_selector</in>
+          <in>test_coders</in>
+          <in>test_destroyface</in>
+          <in>test_final_teardown</in>
+          <in>test_finished</in>
+          <in>test_happy_face</in>
+          <in>test_interest_suppression</in>
+          <in>test_key_fetch</in>
+          <in>test_late</in>
+          <in>test_long_consumer</in>
+          <in>test_long_consumer2</in>
+          <in>test_long_producer</in>
+          <in>test_new_provider</in>
+          <in>test_newface</in>
+          <in>test_prefixreg</in>
+          <in>test_scope2</in>
+          <in>test_selfreg</in>
+          <in>test_short_stuff</in>
+          <in>test_single_ccnd</in>
+          <in>test_single_ccnd_teardown</in>
+          <in>test_spur_traffic</in>
+          <in>test_stale</in>
+          <in>test_twohop_ccnd</in>
+          <in>test_twohop_ccnd_teardown</in>
+          <in>test_unreg</in>
+          <in>testdriver</in>
+          <in>testdriver.sh</in>
+          <in>twohop-status-0.html</in>
+          <in>twohop-status-1.html</in>
+          <in>twohop-status-2.html</in>
+          <in>twohop-status-3.html</in>
+          <in>unanswered.ccnb</in>
+          <in>unreg-post.html</in>
+          <in>unreg-pre.html</in>
+          <in>unreg-request.ccnb</in>
+          <in>unreg-response.ccnb</in>
+          <in>unreg.ccnb</in>
+        </df>
+        <df name="util">
+          <in>Makefile</in>
+          <in>ccndlogging</in>
+          <in>ccndlogging.sh</in>
+          <in>ccndstart</in>
+          <in>ccndstart.sh</in>
+          <in>ccndstatus</in>
+          <in>ccndstatus.sh</in>
+          <in>ccndstop</in>
+          <in>ccndstop.sh</in>
+          <in>ccnget</in>
+          <in>ccnget.sh</in>
+          <in>ccnput</in>
+          <in>ccnput.sh</in>
+          <in>ccntestloop</in>
+          <in>ccntestloop-trampoline</in>
+          <in>ccntestloop.sh</in>
+          <in>dbrief</in>
+          <in>dir.mk</in>
+          <in>gitwrap</in>
+          <in>shebang</in>
+        </df>
+      </df>
+      <df name="doc">
+        <df name="android">
+          <df name="html">
+          </df>
+        </df>
+        <df name="ccode">
+          <df name="html">
+          </df>
+          <df name="man">
+            <df name="man3">
+            </df>
+          </df>
+        </df>
+        <df name="javacode">
+          <df name="html">
+          </df>
+        </df>
+        <df name="manpages">
+        </df>
+        <df name="technical">
+        </df>
+      </df>
+      <df name="experiments">
+        <df name="multicast">
+        </df>
+      </df>
+      <df name="include">
+        <df name="ccn">
+        </df>
+      </df>
+      <df name="javasrc">
+        <df name="build">
+        </df>
+        <df name="examples">
+        </df>
+        <df name="lib">
+        </df>
+        <df name="src">
+          <df name="org">
+            <df name="ccnx">
+              <df name="ccn">
+                <df name="config">
+                </df>
+                <df name="impl">
+                  <df name="encoding">
+                  </df>
+                  <df name="repo">
+                  </df>
+                  <df name="security">
+                    <df name="crypto">
+                      <df name="gingerbreadfix">
+                      </df>
+                      <df name="jce">
+                      </df>
+                      <df name="util">
+                      </df>
+                    </df>
+                    <df name="keys">
+                    </df>
+                  </df>
+                  <df name="support">
+                  </df>
+                </df>
+                <df name="io">
+                  <df name="content">
+                  </df>
+                  <df name="net">
+                  </df>
+                </df>
+                <df name="profiles">
+                  <df name="ccnd">
+                  </df>
+                  <df name="context">
+                  </df>
+                  <df name="metadata">
+                  </df>
+                  <df name="nameenum">
+                  </df>
+                  <df name="namespace">
+                  </df>
+                  <df name="repo">
+                  </df>
+                  <df name="search">
+                  </df>
+                  <df name="security">
+                    <df name="access">
+                      <df name="group">
+                      </df>
+                    </df>
+                  </df>
+                  <df name="sync">
+                  </df>
+                  <df name="versioning">
+                  </df>
+                </df>
+                <df name="protocol">
+                </df>
+                <df name="test">
+                  <df name="endtoend">
+                  </df>
+                  <df name="impl">
+                    <df name="encoding">
+                    </df>
+                    <df name="security">
+                      <df name="keys">
+                      </df>
+                    </df>
+                    <df name="support">
+                    </df>
+                  </df>
+                  <df name="io">
+                    <df name="content">
+                    </df>
+                  </df>
+                  <df name="profiles">
+                    <df name="ccnd">
+                    </df>
+                    <df name="context">
+                    </df>
+                    <df name="metadata">
+                    </df>
+                    <df name="nameenum">
+                    </df>
+                    <df name="search">
+                    </df>
+                    <df name="security">
+                      <df name="access">
+                        <df name="group">
+                        </df>
+                      </df>
+                    </df>
+                    <df name="versioning">
+                    </df>
+                  </df>
+                  <df name="protocol">
+                  </df>
+                  <df name="repo">
+                  </df>
+                  <df name="security">
+                    <df name="crypto">
+                    </df>
+                    <df name="keys">
+                    </df>
+                  </df>
+                </df>
+                <df name="utils">
+                  <df name="explorer">
+                  </df>
+                </df>
+              </df>
+            </df>
+          </df>
+        </df>
+        <df name="tools">
+        </df>
+      </df>
+      <df name="lib">
+      </df>
+      <df name="schema">
+        <df name="validation">
+        </df>
+      </df>
+    </df>
+    <logicalFolder name="ExternalFiles"
+                   displayName="Important Files"
+                   projectFiles="false"
+                   kind="IMPORTANT_FILES_FOLDER">
+      <itemPath>Makefile</itemPath>
+      <itemPath>configure</itemPath>
+    </logicalFolder>
+  </logicalFolder>
+  <sourceFolderFilter>^(nbproject)$</sourceFolderFilter>
+  <sourceRootList>
+    <Elem>.</Elem>
+  </sourceRootList>
+  <projectmakefile>Makefile</projectmakefile>
+  <confs>
+    <conf name="Default" type="0">
+      <toolsSet>
+        <remote-sources-mode>LOCAL_SOURCES</remote-sources-mode>
+        <compilerSet>default</compilerSet>
+      </toolsSet>
+      <makefileType>
+        <makeTool>
+          <buildCommandWorkingDir>.</buildCommandWorkingDir>
+          <buildCommand>${MAKE} -f Makefile</buildCommand>
+          <cleanCommand>${MAKE} -f Makefile clean</cleanCommand>
+          <executablePath></executablePath>
+        </makeTool>
+      </makefileType>
+      <item path="android/CCNx-Android-Services/jni/controller/ctl_ccnd.c"
+            ex="true"
+            tool="0"
+            flavor="0">
+      </item>
+      <item path="android/CCNx-Android-Services/jni/controller/ctl_ccnr.c"
+            ex="true"
+            tool="0"
+            flavor="0">
+      </item>
+      <item path="android/CCNx-Android-Services/jni/csrc/ccnd/android_main.c"
+            ex="true"
+            tool="0"
+            flavor="0">
+      </item>
+      <item path="android/CCNx-Android-Services/jni/csrc/ccnd/ccnd.c"
+            ex="true"
+            tool="0"
+            flavor="0">
+      </item>
+      <item path="android/CCNx-Android-Services/jni/csrc/ccnd/ccnd_internal_client.c"
+            ex="true"
+            tool="0"
+            flavor="0">
+      </item>
+      <item path="android/CCNx-Android-Services/jni/csrc/ccnd/ccnd_main.c"
+            ex="true"
+            tool="0"
+            flavor="0">
+      </item>
+      <item path="android/CCNx-Android-Services/jni/csrc/ccnd/ccnd_msg.c"
+            ex="true"
+            tool="0"
+            flavor="0">
+      </item>
+      <item path="android/CCNx-Android-Services/jni/csrc/ccnd/ccnd_private.h"
+            ex="true"
+            tool="3"
+            flavor="0">
+      </item>
+      <item path="android/CCNx-Android-Services/jni/csrc/ccnd/ccnd_stats.c"
+            ex="true"
+            tool="0"
+            flavor="0">
+      </item>
+      <item path="android/CCNx-Android-Services/jni/csrc/ccnd/ccndsmoketest.c"
+            ex="true"
+            tool="0"
+            flavor="0">
+      </item>
+      <item path="android/CCNx-Android-Services/jni/csrc/ccnr/android_main.c"
+            ex="true"
+            tool="0"
+            flavor="0">
+      </item>
+      <item path="android/CCNx-Android-Services/jni/csrc/ccnr/ccnr_dispatch.c"
+            ex="true"
+            tool="0"
+            flavor="0">
+      </item>
+      <item path="android/CCNx-Android-Services/jni/csrc/ccnr/ccnr_dispatch.h"
+            ex="true"
+            tool="3"
+            flavor="0">
+      </item>
+      <item path="android/CCNx-Android-Services/jni/csrc/ccnr/ccnr_forwarding.c"
+            ex="true"
+            tool="0"
+            flavor="0">
+      </item>
+      <item path="android/CCNx-Android-Services/jni/csrc/ccnr/ccnr_forwarding.h"
+            ex="true"
+            tool="3"
+            flavor="0">
+      </item>
+      <item path="android/CCNx-Android-Services/jni/csrc/ccnr/ccnr_init.c"
+            ex="true"
+            tool="0"
+            flavor="0">
+      </item>
+      <item path="android/CCNx-Android-Services/jni/csrc/ccnr/ccnr_init.h"
+            ex="true"
+            tool="3"
+            flavor="0">
+      </item>
+      <item path="android/CCNx-Android-Services/jni/csrc/ccnr/ccnr_internal_client.c"
+            ex="true"
+            tool="0"
+            flavor="0">
+      </item>
+      <item path="android/CCNx-Android-Services/jni/csrc/ccnr/ccnr_internal_client.h"
+            ex="true"
+            tool="3"
+            flavor="0">
+      </item>
+      <item path="android/CCNx-Android-Services/jni/csrc/ccnr/ccnr_io.c"
+            ex="true"
+            tool="0"
+            flavor="0">
+      </item>
+      <item path="android/CCNx-Android-Services/jni/csrc/ccnr/ccnr_io.h"
+            ex="true"
+            tool="3"
+            flavor="0">
+      </item>
+      <item path="android/CCNx-Android-Services/jni/csrc/ccnr/ccnr_link.c"
+            ex="true"
+            tool="0"
+            flavor="0">
+      </item>
+      <item path="android/CCNx-Android-Services/jni/csrc/ccnr/ccnr_link.h"
+            ex="true"
+            tool="3"
+            flavor="0">
+      </item>
+      <item path="android/CCNx-Android-Services/jni/csrc/ccnr/ccnr_main.c"
+            ex="true"
+            tool="0"
+            flavor="0">
+      </item>
+      <item path="android/CCNx-Android-Services/jni/csrc/ccnr/ccnr_match.c"
+            ex="true"
+            tool="0"
+            flavor="0">
+      </item>
+      <item path="android/CCNx-Android-Services/jni/csrc/ccnr/ccnr_match.h"
+            ex="true"
+            tool="3"
+            flavor="0">
+      </item>
+      <item path="android/CCNx-Android-Services/jni/csrc/ccnr/ccnr_msg.c"
+            ex="true"
+            tool="0"
+            flavor="0">
+      </item>
+      <item path="android/CCNx-Android-Services/jni/csrc/ccnr/ccnr_msg.h"
+            ex="true"
+            tool="3"
+            flavor="0">
+      </item>
+      <item path="android/CCNx-Android-Services/jni/csrc/ccnr/ccnr_net.c"
+            ex="true"
+            tool="0"
+            flavor="0">
+      </item>
+      <item path="android/CCNx-Android-Services/jni/csrc/ccnr/ccnr_net.h"
+            ex="true"
+            tool="3"
+            flavor="0">
+      </item>
+      <item path="android/CCNx-Android-Services/jni/csrc/ccnr/ccnr_private.h"
+            ex="true"
+            tool="3"
+            flavor="0">
+      </item>
+      <item path="android/CCNx-Android-Services/jni/csrc/ccnr/ccnr_proto.c"
+            ex="true"
+            tool="0"
+            flavor="0">
+      </item>
+      <item path="android/CCNx-Android-Services/jni/csrc/ccnr/ccnr_proto.h"
+            ex="true"
+            tool="3"
+            flavor="0">
+      </item>
+      <item path="android/CCNx-Android-Services/jni/csrc/ccnr/ccnr_sendq.c"
+            ex="true"
+            tool="0"
+            flavor="0">
+      </item>
+      <item path="android/CCNx-Android-Services/jni/csrc/ccnr/ccnr_sendq.h"
+            ex="true"
+            tool="3"
+            flavor="0">
+      </item>
+      <item path="android/CCNx-Android-Services/jni/csrc/ccnr/ccnr_stats.c"
+            ex="true"
+            tool="0"
+            flavor="0">
+      </item>
+      <item path="android/CCNx-Android-Services/jni/csrc/ccnr/ccnr_stats.h"
+            ex="true"
+            tool="3"
+            flavor="0">
+      </item>
+      <item path="android/CCNx-Android-Services/jni/csrc/ccnr/ccnr_store.c"
+            ex="true"
+            tool="0"
+            flavor="0">
+      </item>
+      <item path="android/CCNx-Android-Services/jni/csrc/ccnr/ccnr_store.h"
+            ex="true"
+            tool="3"
+            flavor="0">
+      </item>
+      <item path="android/CCNx-Android-Services/jni/csrc/ccnr/ccnr_sync.c"
+            ex="true"
+            tool="0"
+            flavor="0">
+      </item>
+      <item path="android/CCNx-Android-Services/jni/csrc/ccnr/ccnr_sync.h"
+            ex="true"
+            tool="3"
+            flavor="0">
+      </item>
+      <item path="android/CCNx-Android-Services/jni/csrc/ccnr/ccnr_util.c"
+            ex="true"
+            tool="0"
+            flavor="0">
+      </item>
+      <item path="android/CCNx-Android-Services/jni/csrc/ccnr/ccnr_util.h"
+            ex="true"
+            tool="3"
+            flavor="0">
+      </item>
+      <item path="android/CCNx-Android-Services/jni/csrc/cmd/ccn_ccnbtoxml.c"
+            ex="true"
+            tool="0"
+            flavor="0">
+      </item>
+      <item path="android/CCNx-Android-Services/jni/csrc/cmd/ccn_fetch_test.c"
+            ex="true"
+            tool="0"
+            flavor="0">
+      </item>
+      <item path="android/CCNx-Android-Services/jni/csrc/cmd/ccn_splitccnb.c"
+            ex="true"
+            tool="0"
+            flavor="0">
+      </item>
+      <item path="android/CCNx-Android-Services/jni/csrc/cmd/ccn_xmltoccnb.c"
+            ex="true"
+            tool="0"
+            flavor="0">
+      </item>
+      <item path="android/CCNx-Android-Services/jni/csrc/cmd/ccnbasicconfig.c"
+            ex="true"
+            tool="0"
+            flavor="0">
+      </item>
+      <item path="android/CCNx-Android-Services/jni/csrc/cmd/ccnbuzz.c"
+            ex="true"
+            tool="0"
+            flavor="0">
+      </item>
+      <item path="android/CCNx-Android-Services/jni/csrc/cmd/ccnbx.c"
+            ex="true"
+            tool="0"
+            flavor="0">
+      </item>
+      <item path="android/CCNx-Android-Services/jni/csrc/cmd/ccncat.c"
+            ex="true"
+            tool="0"
+            flavor="0">
+      </item>
+      <item path="android/CCNx-Android-Services/jni/csrc/cmd/ccncatchunks.c"
+            ex="true"
+            tool="0"
+            flavor="0">
+      </item>
+      <item path="android/CCNx-Android-Services/jni/csrc/cmd/ccncatchunks2.c"
+            ex="true"
+            tool="0"
+            flavor="0">
+      </item>
+      <item path="android/CCNx-Android-Services/jni/csrc/cmd/ccndumpnames.c"
+            ex="true"
+            tool="0"
+            flavor="0">
+      </item>
+      <item path="android/CCNx-Android-Services/jni/csrc/cmd/ccndumppcap.c"
+            ex="true"
+            tool="0"
+            flavor="0">
+      </item>
+      <item path="android/CCNx-Android-Services/jni/csrc/cmd/ccnfilewatch.c"
+            ex="true"
+            tool="0"
+            flavor="0">
+      </item>
+      <item path="android/CCNx-Android-Services/jni/csrc/cmd/ccnhexdumpdata.c"
+            ex="true"
+            tool="0"
+            flavor="0">
+      </item>
+      <item path="android/CCNx-Android-Services/jni/csrc/cmd/ccninitkeystore.c"
+            ex="true"
+            tool="0"
+            flavor="0">
+      </item>
+      <item path="android/CCNx-Android-Services/jni/csrc/cmd/ccnlibtest.c"
+            ex="true"
+            tool="0"
+            flavor="0">
+      </item>
+      <item path="android/CCNx-Android-Services/jni/csrc/cmd/ccnls.c"
+            ex="true"
+            tool="0"
+            flavor="0">
+      </item>
+      <item path="android/CCNx-Android-Services/jni/csrc/cmd/ccnnamelist.c"
+            ex="true"
+            tool="0"
+            flavor="0">
+      </item>
+      <item path="android/CCNx-Android-Services/jni/csrc/cmd/ccnpeek.c"
+            ex="true"
+            tool="0"
+            flavor="0">
+      </item>
+      <item path="android/CCNx-Android-Services/jni/csrc/cmd/ccnpoke.c"
+            ex="true"
+            tool="0"
+            flavor="0">
+      </item>
+      <item path="android/CCNx-Android-Services/jni/csrc/cmd/ccnrm.c"
+            ex="true"
+            tool="0"
+            flavor="0">
+      </item>
+      <item path="android/CCNx-Android-Services/jni/csrc/cmd/ccnsendchunks.c"
+            ex="true"
+            tool="0"
+            flavor="0">
+      </item>
+      <item path="android/CCNx-Android-Services/jni/csrc/cmd/ccnseqwriter.c"
+            ex="true"
+            tool="0"
+            flavor="0">
+      </item>
+      <item path="android/CCNx-Android-Services/jni/csrc/cmd/ccnsimplecat.c"
+            ex="true"
+            tool="0"
+            flavor="0">
+      </item>
+      <item path="android/CCNx-Android-Services/jni/csrc/cmd/ccnslurp.c"
+            ex="true"
+            tool="0"
+            flavor="0">
+      </item>
+      <item path="android/CCNx-Android-Services/jni/csrc/cmd/ccnsyncslice.c"
+            ex="true"
+            tool="0"
+            flavor="0">
+      </item>
+      <item path="android/CCNx-Android-Services/jni/csrc/cmd/ccnsyncwatch.c"
+            ex="true"
+            tool="0"
+            flavor="0">
+      </item>
+      <item path="android/CCNx-Android-Services/jni/csrc/cmd/ccntimefromdatetime.c"
+            ex="true"
+            tool="0"
+            flavor="0">
+      </item>
+      <item path="android/CCNx-Android-Services/jni/csrc/cmd/dataresponsetest.c"
+            ex="true"
+            tool="0"
+            flavor="0">
+      </item>
+      <item path="android/CCNx-Android-Services/jni/csrc/include/ccn/bloom.h"
+            ex="true"
+            tool="3"
+            flavor="0">
+      </item>
+      <item path="android/CCNx-Android-Services/jni/csrc/include/ccn/btree.h"
+            ex="true"
+            tool="3"
+            flavor="0">
+      </item>
+      <item path="android/CCNx-Android-Services/jni/csrc/include/ccn/btree_content.h"
+            ex="true"
+            tool="3"
+            flavor="0">
+      </item>
+      <item path="android/CCNx-Android-Services/jni/csrc/include/ccn/ccn.h"
+            ex="true"
+            tool="3"
+            flavor="0">
+      </item>
+      <item path="android/CCNx-Android-Services/jni/csrc/include/ccn/ccn_private.h"
+            ex="true"
+            tool="3"
+            flavor="0">
+      </item>
+      <item path="android/CCNx-Android-Services/jni/csrc/include/ccn/ccnd.h"
+            ex="true"
+            tool="3"
+            flavor="0">
+      </item>
+      <item path="android/CCNx-Android-Services/jni/csrc/include/ccn/charbuf.h"
+            ex="true"
+            tool="3"
+            flavor="0">
+      </item>
+      <item path="android/CCNx-Android-Services/jni/csrc/include/ccn/coding.h"
+            ex="true"
+            tool="3"
+            flavor="0">
+      </item>
+      <item path="android/CCNx-Android-Services/jni/csrc/include/ccn/digest.h"
+            ex="true"
+            tool="3"
+            flavor="0">
+      </item>
+      <item path="android/CCNx-Android-Services/jni/csrc/include/ccn/extend_dict.h"
+            ex="true"
+            tool="3"
+            flavor="0">
+      </item>
+      <item path="android/CCNx-Android-Services/jni/csrc/include/ccn/face_mgmt.h"
+            ex="true"
+            tool="3"
+            flavor="0">
+      </item>
+      <item path="android/CCNx-Android-Services/jni/csrc/include/ccn/fetch.h"
+            ex="true"
+            tool="3"
+            flavor="0">
+      </item>
+      <item path="android/CCNx-Android-Services/jni/csrc/include/ccn/hashtb.h"
+            ex="true"
+            tool="3"
+            flavor="0">
+      </item>
+      <item path="android/CCNx-Android-Services/jni/csrc/include/ccn/header.h"
+            ex="true"
+            tool="3"
+            flavor="0">
+      </item>
+      <item path="android/CCNx-Android-Services/jni/csrc/include/ccn/indexbuf.h"
+            ex="true"
+            tool="3"
+            flavor="0">
+      </item>
+      <item path="android/CCNx-Android-Services/jni/csrc/include/ccn/keystore.h"
+            ex="true"
+            tool="3"
+            flavor="0">
+      </item>
+      <item path="android/CCNx-Android-Services/jni/csrc/include/ccn/matrix.h"
+            ex="true"
+            tool="3"
+            flavor="0">
+      </item>
+      <item path="android/CCNx-Android-Services/jni/csrc/include/ccn/merklepathasn1.h"
+            ex="true"
+            tool="3"
+            flavor="0">
+      </item>
+      <item path="android/CCNx-Android-Services/jni/csrc/include/ccn/random.h"
+            ex="true"
+            tool="3"
+            flavor="0">
+      </item>
+      <item path="android/CCNx-Android-Services/jni/csrc/include/ccn/reg_mgmt.h"
+            ex="true"
+            tool="3"
+            flavor="0">
+      </item>
+      <item path="android/CCNx-Android-Services/jni/csrc/include/ccn/schedule.h"
+            ex="true"
+            tool="3"
+            flavor="0">
+      </item>
+      <item path="android/CCNx-Android-Services/jni/csrc/include/ccn/seqwriter.h"
+            ex="true"
+            tool="3"
+            flavor="0">
+      </item>
+      <item path="android/CCNx-Android-Services/jni/csrc/include/ccn/signing.h"
+            ex="true"
+            tool="3"
+            flavor="0">
+      </item>
+      <item path="android/CCNx-Android-Services/jni/csrc/include/ccn/sockaddrutil.h"
+            ex="true"
+            tool="3"
+            flavor="0">
+      </item>
+      <item path="android/CCNx-Android-Services/jni/csrc/include/ccn/sockcreate.h"
+            ex="true"
+            tool="3"
+            flavor="0">
+      </item>
+      <item path="android/CCNx-Android-Services/jni/csrc/include/ccn/sync.h"
+            ex="true"
+            tool="3"
+            flavor="0">
+      </item>
+      <item path="android/CCNx-Android-Services/jni/csrc/include/ccn/uri.h"
+            ex="true"
+            tool="3"
+            flavor="0">
+      </item>
+      <item path="android/CCNx-Android-Services/jni/csrc/lib/basicparsetest.c"
+            ex="true"
+            tool="0"
+            flavor="0">
+      </item>
+      <item path="android/CCNx-Android-Services/jni/csrc/lib/ccn_bloom.c"
+            ex="true"
+            tool="0"
+            flavor="0">
+      </item>
+      <item path="android/CCNx-Android-Services/jni/csrc/lib/ccn_btree.c"
+            ex="true"
+            tool="0"
+            flavor="0">
+      </item>
+      <item path="android/CCNx-Android-Services/jni/csrc/lib/ccn_btree_content.c"
+            ex="true"
+            tool="0"
+            flavor="0">
+      </item>
+      <item path="android/CCNx-Android-Services/jni/csrc/lib/ccn_btree_store.c"
+            ex="true"
+            tool="0"
+            flavor="0">
+      </item>
+      <item path="android/CCNx-Android-Services/jni/csrc/lib/ccn_buf_decoder.c"
+            ex="true"
+            tool="0"
+            flavor="0">
+      </item>
+      <item path="android/CCNx-Android-Services/jni/csrc/lib/ccn_buf_encoder.c"
+            ex="true"
+            tool="0"
+            flavor="0">
+      </item>
+      <item path="android/CCNx-Android-Services/jni/csrc/lib/ccn_bulkdata.c"
+            ex="true"
+            tool="0"
+            flavor="0">
+      </item>
+      <item path="android/CCNx-Android-Services/jni/csrc/lib/ccn_charbuf.c"
+            ex="true"
+            tool="0"
+            flavor="0">
+      </item>
+      <item path="android/CCNx-Android-Services/jni/csrc/lib/ccn_client.c"
+            ex="true"
+            tool="0"
+            flavor="0">
+      </item>
+      <item path="android/CCNx-Android-Services/jni/csrc/lib/ccn_coding.c"
+            ex="true"
+            tool="0"
+            flavor="0">
+      </item>
+      <item path="android/CCNx-Android-Services/jni/csrc/lib/ccn_digest.c"
+            ex="true"
+            tool="0"
+            flavor="0">
+      </item>
+      <item path="android/CCNx-Android-Services/jni/csrc/lib/ccn_dtag_table.c"
+            ex="true"
+            tool="0"
+            flavor="0">
+      </item>
+      <item path="android/CCNx-Android-Services/jni/csrc/lib/ccn_extend_dict.c"
+            ex="true"
+            tool="0"
+            flavor="0">
+      </item>
+      <item path="android/CCNx-Android-Services/jni/csrc/lib/ccn_face_mgmt.c"
+            ex="true"
+            tool="0"
+            flavor="0">
+      </item>
+      <item path="android/CCNx-Android-Services/jni/csrc/lib/ccn_fetch.c"
+            ex="true"
+            tool="0"
+            flavor="0">
+      </item>
+      <item path="android/CCNx-Android-Services/jni/csrc/lib/ccn_header.c"
+            ex="true"
+            tool="0"
+            flavor="0">
+      </item>
+      <item path="android/CCNx-Android-Services/jni/csrc/lib/ccn_indexbuf.c"
+            ex="true"
+            tool="0"
+            flavor="0">
+      </item>
+      <item path="android/CCNx-Android-Services/jni/csrc/lib/ccn_interest.c"
+            ex="true"
+            tool="0"
+            flavor="0">
+      </item>
+      <item path="android/CCNx-Android-Services/jni/csrc/lib/ccn_keystore.c"
+            ex="true"
+            tool="0"
+            flavor="0">
+      </item>
+      <item path="android/CCNx-Android-Services/jni/csrc/lib/ccn_match.c"
+            ex="true"
+            tool="0"
+            flavor="0">
+      </item>
+      <item path="android/CCNx-Android-Services/jni/csrc/lib/ccn_merkle_path_asn1.c"
+            ex="true"
+            tool="0"
+            flavor="0">
+      </item>
+      <item path="android/CCNx-Android-Services/jni/csrc/lib/ccn_name_util.c"
+            ex="true"
+            tool="0"
+            flavor="0">
+      </item>
+      <item path="android/CCNx-Android-Services/jni/csrc/lib/ccn_reg_mgmt.c"
+            ex="true"
+            tool="0"
+            flavor="0">
+      </item>
+      <item path="android/CCNx-Android-Services/jni/csrc/lib/ccn_schedule.c"
+            ex="true"
+            tool="0"
+            flavor="0">
+      </item>
+      <item path="android/CCNx-Android-Services/jni/csrc/lib/ccn_seqwriter.c"
+            ex="true"
+            tool="0"
+            flavor="0">
+      </item>
+      <item path="android/CCNx-Android-Services/jni/csrc/lib/ccn_setup_sockaddr_un.c"
+            ex="true"
+            tool="0"
+            flavor="0">
+      </item>
+      <item path="android/CCNx-Android-Services/jni/csrc/lib/ccn_signing.c"
+            ex="true"
+            tool="0"
+            flavor="0">
+      </item>
+      <item path="android/CCNx-Android-Services/jni/csrc/lib/ccn_sockaddrutil.c"
+            ex="true"
+            tool="0"
+            flavor="0">
+      </item>
+      <item path="android/CCNx-Android-Services/jni/csrc/lib/ccn_sockcreate.c"
+            ex="true"
+            tool="0"
+            flavor="0">
+      </item>
+      <item path="android/CCNx-Android-Services/jni/csrc/lib/ccn_sync.c"
+            ex="true"
+            tool="0"
+            flavor="0">
+      </item>
+      <item path="android/CCNx-Android-Services/jni/csrc/lib/ccn_traverse.c"
+            ex="true"
+            tool="0"
+            flavor="0">
+      </item>
+      <item path="android/CCNx-Android-Services/jni/csrc/lib/ccn_uri.c"
+            ex="true"
+            tool="0"
+            flavor="0">
+      </item>
+      <item path="android/CCNx-Android-Services/jni/csrc/lib/ccn_verifysig.c"
+            ex="true"
+            tool="0"
+            flavor="0">
+      </item>
+      <item path="android/CCNx-Android-Services/jni/csrc/lib/ccn_versioning.c"
+            ex="true"
+            tool="0"
+            flavor="0">
+      </item>
+      <item path="android/CCNx-Android-Services/jni/csrc/lib/ccnbtreetest.c"
+            ex="true"
+            tool="0"
+            flavor="0">
+      </item>
+      <item path="android/CCNx-Android-Services/jni/csrc/lib/encodedecodetest.c"
+            ex="true"
+            tool="0"
+            flavor="0">
+      </item>
+      <item path="android/CCNx-Android-Services/jni/csrc/lib/hashtb.c"
+            ex="true"
+            tool="0"
+            flavor="0">
+      </item>
+      <item path="android/CCNx-Android-Services/jni/csrc/lib/hashtbtest.c"
+            ex="true"
+            tool="0"
+            flavor="0">
+      </item>
+      <item path="android/CCNx-Android-Services/jni/csrc/lib/signbenchtest.c"
+            ex="true"
+            tool="0"
+            flavor="0">
+      </item>
+      <item path="android/CCNx-Android-Services/jni/csrc/lib/skel_decode_test.c"
+            ex="true"
+            tool="0"
+            flavor="0">
+      </item>
+      <item path="android/CCNx-Android-Services/jni/csrc/libexec/ccndc.c"
+            ex="true"
+            tool="0"
+            flavor="0">
+      </item>
+      <item path="android/CCNx-Android-Services/jni/csrc/libexec/udplink.c"
+            ex="true"
+            tool="0"
+            flavor="0">
+      </item>
+      <item path="android/CCNx-Android-Services/jni/csrc/sync/IndexSorter.c"
+            ex="true"
+            tool="0"
+            flavor="0">
+      </item>
+      <item path="android/CCNx-Android-Services/jni/csrc/sync/IndexSorter.h"
+            ex="true"
+            tool="3"
+            flavor="0">
+      </item>
+      <item path="android/CCNx-Android-Services/jni/csrc/sync/SyncActions.c"
+            ex="true"
+            tool="0"
+            flavor="0">
+      </item>
+      <item path="android/CCNx-Android-Services/jni/csrc/sync/SyncActions.h"
+            ex="true"
+            tool="3"
+            flavor="0">
+      </item>
+      <item path="android/CCNx-Android-Services/jni/csrc/sync/SyncBase.c"
+            ex="true"
+            tool="0"
+            flavor="0">
+      </item>
+      <item path="android/CCNx-Android-Services/jni/csrc/sync/SyncBase.h"
+            ex="true"
+            tool="3"
+            flavor="0">
+      </item>
+      <item path="android/CCNx-Android-Services/jni/csrc/sync/SyncHashCache.c"
+            ex="true"
+            tool="0"
+            flavor="0">
+      </item>
+      <item path="android/CCNx-Android-Services/jni/csrc/sync/SyncHashCache.h"
+            ex="true"
+            tool="3"
+            flavor="0">
+      </item>
+      <item path="android/CCNx-Android-Services/jni/csrc/sync/SyncMacros.h"
+            ex="true"
+            tool="3"
+            flavor="0">
+      </item>
+      <item path="android/CCNx-Android-Services/jni/csrc/sync/SyncNode.c"
+            ex="true"
+            tool="0"
+            flavor="0">
+      </item>
+      <item path="android/CCNx-Android-Services/jni/csrc/sync/SyncNode.h"
+            ex="true"
+            tool="3"
+            flavor="0">
+      </item>
+      <item path="android/CCNx-Android-Services/jni/csrc/sync/SyncPrivate.h"
+            ex="true"
+            tool="3"
+            flavor="0">
+      </item>
+      <item path="android/CCNx-Android-Services/jni/csrc/sync/SyncRoot.c"
+            ex="true"
+            tool="0"
+            flavor="0">
+      </item>
+      <item path="android/CCNx-Android-Services/jni/csrc/sync/SyncRoot.h"
+            ex="true"
+            tool="3"
+            flavor="0">
+      </item>
+      <item path="android/CCNx-Android-Services/jni/csrc/sync/SyncTest.c"
+            ex="true"
+            tool="0"
+            flavor="0">
+      </item>
+      <item path="android/CCNx-Android-Services/jni/csrc/sync/SyncTreeWorker.c"
+            ex="true"
+            tool="0"
+            flavor="0">
+      </item>
+      <item path="android/CCNx-Android-Services/jni/csrc/sync/SyncTreeWorker.h"
+            ex="true"
+            tool="3"
+            flavor="0">
+      </item>
+      <item path="android/CCNx-Android-Services/jni/csrc/sync/SyncUtil.c"
+            ex="true"
+            tool="0"
+            flavor="0">
+      </item>
+      <item path="android/CCNx-Android-Services/jni/csrc/sync/SyncUtil.h"
+            ex="true"
+            tool="3"
+            flavor="0">
+      </item>
+      <item path="apps/ccnChat/build/org/ccnx/ccn/apps/ccnchat/CCNChat$1.class"
+            ex="true"
+            tool="3"
+            flavor="0">
+      </item>
+      <item path="apps/ccnChat/build/org/ccnx/ccn/apps/ccnchat/CCNChat.class"
+            ex="true"
+            tool="3"
+            flavor="0">
+      </item>
+      <item path="apps/ccnChat/build/org/ccnx/ccn/apps/ccnchat/CCNChatNet$CCNChatCallback.class"
+            ex="true"
+            tool="3"
+            flavor="0">
+      </item>
+      <item path="apps/ccnChat/build/org/ccnx/ccn/apps/ccnchat/CCNChatNet.class"
+            ex="true"
+            tool="3"
+            flavor="0">
+      </item>
+      <item path="apps/ccnChat/build/org/ccnx/ccn/apps/ccnchat/CCNChatText$1.class"
+            ex="true"
+            tool="3"
+            flavor="0">
+      </item>
+      <item path="apps/ccnChat/build/org/ccnx/ccn/apps/ccnchat/CCNChatText$Mode.class"
+            ex="true"
+            tool="3"
+            flavor="0">
+      </item>
+      <item path="apps/ccnChat/build/org/ccnx/ccn/apps/ccnchat/CCNChatText.class"
+            ex="true"
+            tool="3"
+            flavor="0">
+      </item>
+      <item path="apps/vlc/ccn.c" ex="true" tool="0" flavor="0">
+      </item>
+      <item path="apps/wireshark/ccn/moduleinfo.h" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="apps/wireshark/ccn/packet-ccn.c" ex="true" tool="0" flavor="0">
+      </item>
+      <item path="csrc/ccnd/Android.mk" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/ccnd/Makefile" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/ccnd/README" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/ccnd/android_main.c" ex="true" tool="0" flavor="0">
+      </item>
+      <item path="csrc/ccnd/anything.out" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/ccnd/anything.ref" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/ccnd/ccnd" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/ccnd/ccnd-init-keystore-helper" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/ccnd/ccnd-init-keystore-helper.sh"
+            ex="true"
+            tool="3"
+            flavor="0">
+      </item>
+      <item path="csrc/ccnd/ccnd_built.sh" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/ccnd/ccnd_built.sh.sample" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/ccnd/ccndbloomstats" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/ccnd/ccndsmoketest" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/ccnd/contentobjecthash.out" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/ccnd/contentobjecthash.ref" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/ccnd/dir.mk" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/ccnd/fortunes.ccnb" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/ccnd/genfortunes" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/ccnd/minsuffix.ccnb" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/ccnd/minsuffix.out" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/ccnd/minsuffix.ref" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/ccnd/testbasics" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/ccnr/Android.mk" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/ccnr/Makefile" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/ccnr/android_main.c" ex="true" tool="0" flavor="0">
+      </item>
+      <item path="csrc/ccnr/ccnr" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/ccnr/crib.txt" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/ccnr/dir.mk" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/cmd/Makefile" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/cmd/ccn_ccnbtoxml" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/cmd/ccn_fetch_test" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/cmd/ccn_splitccnb" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/cmd/ccn_xmltoccnb" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/cmd/ccnbasicconfig" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/cmd/ccnbuzz" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/cmd/ccnbx" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/cmd/ccncat" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/cmd/ccncatchunks" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/cmd/ccncatchunks2" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/cmd/ccndumpnames" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/cmd/ccndumppcap" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/cmd/ccnfilewatch" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/cmd/ccnhexdumpdata" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/cmd/ccninitkeystore" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/cmd/ccnlibtest" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/cmd/ccnls" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/cmd/ccnnamelist" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/cmd/ccnpeek" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/cmd/ccnpoke" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/cmd/ccnrm" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/cmd/ccnsendchunks" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/cmd/ccnseqwriter" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/cmd/ccnsimplecat" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/cmd/ccnslurp" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/cmd/ccnsyncslice" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/cmd/ccnsyncwatch" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/cmd/ccntimefromdatetime.c" ex="true" tool="0" flavor="0">
+      </item>
+      <item path="csrc/cmd/dataresponsetest" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/cmd/dir.mk" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/conf/CYGWIN_NT-5.1.mk" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/conf/CYGWIN_NT-5.1.sh" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/conf/CYGWIN_NT-6.0.mk" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/conf/CYGWIN_NT-6.0.sh" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/conf/CYGWIN_NT-6.1-WOW64.mk" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/conf/CYGWIN_NT-6.1-WOW64.sh" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/conf/Darwin-8.11.0.mk" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/conf/Darwin-9.8.0.mk" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/conf/Darwin.mk" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/conf/FreeBSD.mk" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/conf/FreeBSD.sh" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/conf/Linux.mk" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/conf/NetBSD.mk" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/conf/OpenSSL.mk" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/conf/SunOS-5.10.mk" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/conf/SunOS-5.11.mk" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/conf/SunOS.mk" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/conf/SunOS.sh" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/conf/pickygcc.mk" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/contrib/getaddrinfo-1.6.3.tar.gz"
+            ex="true"
+            tool="3"
+            flavor="0">
+      </item>
+      <item path="csrc/exttests/FAILING" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/exttests/Makefile" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/exttests/SKIPPED" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/exttests/STATUS/test_alone" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/exttests/STATUS/test_btree_next_leaf"
+            ex="true"
+            tool="3"
+            flavor="0">
+      </item>
+      <item path="csrc/exttests/STATUS/test_btree_prev_leaf"
+            ex="true"
+            tool="3"
+            flavor="0">
+      </item>
+      <item path="csrc/exttests/STATUS/test_final_teardown"
+            ex="true"
+            tool="3"
+            flavor="0">
+      </item>
+      <item path="csrc/exttests/STATUS/test_finished" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/exttests/STATUS/test_happy_face" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/exttests/STATUS/test_late" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/exttests/STATUS/test_long_example"
+            ex="true"
+            tool="3"
+            flavor="0">
+      </item>
+      <item path="csrc/exttests/STATUS/test_repo_performance"
+            ex="true"
+            tool="3"
+            flavor="0">
+      </item>
+      <item path="csrc/exttests/STATUS/test_single_ccnd"
+            ex="true"
+            tool="3"
+            flavor="0">
+      </item>
+      <item path="csrc/exttests/STATUS/test_single_ccnd_teardown"
+            ex="true"
+            tool="3"
+            flavor="0">
+      </item>
+      <item path="csrc/exttests/STATUS/test_single_done"
+            ex="true"
+            tool="3"
+            flavor="0">
+      </item>
+      <item path="csrc/exttests/STATUS/test_sync_basic" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/exttests/STATUS/test_sync_read" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/exttests/STATUS/test_sync_repo2" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/exttests/STATUS/test_twohop_ccnd"
+            ex="true"
+            tool="3"
+            flavor="0">
+      </item>
+      <item path="csrc/exttests/STATUS/test_twohop_ccnd_teardown"
+            ex="true"
+            tool="3"
+            flavor="0">
+      </item>
+      <item path="csrc/exttests/SyncNames.txt" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/exttests/TRP-env.out" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/exttests/ccnd0.out" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/exttests/ccnd1-capped-100.out" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/exttests/ccnd1-capped-1750.out" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/exttests/ccnd1.out" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/exttests/ccnd2.out" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/exttests/ccnd3-capped-100.out" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/exttests/ccnd3.out" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/exttests/ccnr-repo-create.out" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/exttests/ccnr.1.err" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/exttests/ccnr.1.log" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/exttests/ccnr.2.err" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/exttests/ccnr.2.log" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/exttests/ccnr1.out" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/exttests/ccnrA.out" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/exttests/ccnrm.out" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/exttests/dir.mk" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/exttests/functions" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/exttests/ignore" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/exttests/make_clean.sh" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/exttests/order.txt" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/exttests/planned-tests.out" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/exttests/post-repo2-fetch.out" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/exttests/preamble" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/exttests/preserve" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/exttests/settings" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/exttests/staged.5000000/cached-keys.out"
+            ex="true"
+            tool="3"
+            flavor="0">
+      </item>
+      <item path="csrc/exttests/staged.5000000/ccnx_repository_keystore"
+            ex="true"
+            tool="3"
+            flavor="0">
+      </item>
+      <item path="csrc/exttests/staged.5000000/index/1" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/exttests/staged.5000000/index/maxnodeid"
+            ex="true"
+            tool="3"
+            flavor="0">
+      </item>
+      <item path="csrc/exttests/staged.5000000/index/stable"
+            ex="true"
+            tool="3"
+            flavor="0">
+      </item>
+      <item path="csrc/exttests/staged.5000000/repoFile1"
+            ex="true"
+            tool="3"
+            flavor="0">
+      </item>
+      <item path="csrc/exttests/staged.5000000/repoPolicy"
+            ex="true"
+            tool="3"
+            flavor="0">
+      </item>
+      <item path="csrc/exttests/startwrite.out" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/exttests/stats1.txt" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/exttests/stats2.txt" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/exttests/stubs/jot" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/exttests/stubs/pkill" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/exttests/syncbasic.err" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/exttests/syncbasic.out" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/exttests/syncread.err" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/exttests/syncread.out" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/exttests/test_alone" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/exttests/test_btree_next_leaf" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/exttests/test_btree_prev_leaf" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/exttests/test_check" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/exttests/test_final_teardown" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/exttests/test_finished" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/exttests/test_happy_face" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/exttests/test_late" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/exttests/test_long_example" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/exttests/test_repo_performance" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/exttests/test_single_ccnd" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/exttests/test_single_ccnd_teardown"
+            ex="true"
+            tool="3"
+            flavor="0">
+      </item>
+      <item path="csrc/exttests/test_single_done" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/exttests/test_sync_basic" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/exttests/test_sync_read" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/exttests/test_sync_repo2" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/exttests/test_twohop_ccnd" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/exttests/test_twohop_ccnd_teardown"
+            ex="true"
+            tool="3"
+            flavor="0">
+      </item>
+      <item path="csrc/exttests/testdriver" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/exttests/testdriver.sh" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/exttests/testrepo2/ccnx_repository_keystore"
+            ex="true"
+            tool="3"
+            flavor="0">
+      </item>
+      <item path="csrc/exttests/testrepo2/index/1" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/exttests/testrepo2/index/maxnodeid"
+            ex="true"
+            tool="3"
+            flavor="0">
+      </item>
+      <item path="csrc/exttests/testrepo2/index/stable" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/exttests/testrepo2/repoFile1" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/exttests/testrepo2/repoPolicy" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/exttests/testrepoA/ccnx_repository_keystore"
+            ex="true"
+            tool="3"
+            flavor="0">
+      </item>
+      <item path="csrc/exttests/testrepoA/index/1" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/exttests/testrepoA/index/maxnodeid"
+            ex="true"
+            tool="3"
+            flavor="0">
+      </item>
+      <item path="csrc/exttests/testrepoA/index/stable" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/exttests/testrepoA/repoFile1" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/exttests/testrepoA/repoPolicy" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/exttests/twohop-status-0.html" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/exttests/twohop-status-1.html" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/exttests/twohop-status-2.html" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/exttests/twohop-status-3.html" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/exttests/unordered.out" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/include/ccn/matrix.h" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/lib/Android.mk" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/lib/Makefile" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/lib/basicparsetest" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/lib/ccn_initkeystore.sh" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/lib/ccn_sync.c" ex="false" tool="0" flavor="0">
+        <cTool>
+          <incDir>
+            <pElem>csrc</pElem>
+          </incDir>
+        </cTool>
+      </item>
+      <item path="csrc/lib/ccn_verifysig.c" ex="true" tool="0" flavor="0">
+      </item>
+      <item path="csrc/lib/ccnbtreetest" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/lib/ccnbtreetest.c" ex="false" tool="0" flavor="0">
+        <cTool>
+          <preprocessorList>
+            <Elem>ccnbtreetest_main=main</Elem>
+          </preprocessorList>
+        </cTool>
+      </item>
+      <item path="csrc/lib/dir.mk" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/lib/encodedecodetest" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/lib/gen_dtag_table" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/lib/gen_enum_dtag" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/lib/hashtbtest" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/lib/roundtripper" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/lib/signbenchtest" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/lib/skel_decode_test" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/lib/testcoverage" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/libexec/Makefile" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/libexec/ccnd.conf.sample" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/libexec/dir.mk" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/sync/Android.mk" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/sync/Makefile" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/sync/SyncSetup.txt" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/sync/SyncTest" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/sync/dir.mk" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/tests/FAILING" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/tests/Makefile" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/tests/SKIPPED" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/tests/STATUS/test_alone" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/tests/STATUS/test_answered_interest_suppression"
+            ex="true"
+            tool="3"
+            flavor="0">
+      </item>
+      <item path="csrc/tests/STATUS/test_ccndid" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/tests/STATUS/test_ccnls_meta" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/tests/STATUS/test_child_selector"
+            ex="true"
+            tool="3"
+            flavor="0">
+      </item>
+      <item path="csrc/tests/STATUS/test_coders" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/tests/STATUS/test_destroyface" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/tests/STATUS/test_final_teardown"
+            ex="true"
+            tool="3"
+            flavor="0">
+      </item>
+      <item path="csrc/tests/STATUS/test_finished" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/tests/STATUS/test_happy_face" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/tests/STATUS/test_interest_suppression"
+            ex="true"
+            tool="3"
+            flavor="0">
+      </item>
+      <item path="csrc/tests/STATUS/test_key_fetch" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/tests/STATUS/test_late" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/tests/STATUS/test_long_consumer" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/tests/STATUS/test_long_consumer2"
+            ex="true"
+            tool="3"
+            flavor="0">
+      </item>
+      <item path="csrc/tests/STATUS/test_long_producer" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/tests/STATUS/test_new_provider" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/tests/STATUS/test_newface" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/tests/STATUS/test_prefixreg" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/tests/STATUS/test_scope2" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/tests/STATUS/test_selfreg" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/tests/STATUS/test_short_stuff" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/tests/STATUS/test_single_ccnd" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/tests/STATUS/test_single_ccnd_teardown"
+            ex="true"
+            tool="3"
+            flavor="0">
+      </item>
+      <item path="csrc/tests/STATUS/test_spur_traffic" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/tests/STATUS/test_stale" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/tests/STATUS/test_twohop_ccnd" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/tests/STATUS/test_twohop_ccnd_teardown"
+            ex="true"
+            tool="3"
+            flavor="0">
+      </item>
+      <item path="csrc/tests/STATUS/test_unreg" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/tests/ccnd1.out" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/tests/ccnd2.out" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/tests/ccnd3.out" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/tests/ccnd4.out" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/tests/ccnd5.out" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/tests/destroyface-post.html" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/tests/destroyface-pre.html" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/tests/destroyface-request.ccnb" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/tests/destroyface-response.ccnb" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/tests/destroyface.ccnb" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/tests/digest.out" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/tests/dir.mk" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/tests/extract_test_deps" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/tests/functions" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/tests/heartbeat.ccnb" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/tests/int-supp-ccnd0-status-A.out"
+            ex="true"
+            tool="3"
+            flavor="0">
+      </item>
+      <item path="csrc/tests/int-supp-ccnd0-status-B.out"
+            ex="true"
+            tool="3"
+            flavor="0">
+      </item>
+      <item path="csrc/tests/int-supp-ccnd4-status-A.out"
+            ex="true"
+            tool="3"
+            flavor="0">
+      </item>
+      <item path="csrc/tests/int-supp-ccnd4-status-B.out"
+            ex="true"
+            tool="3"
+            flavor="0">
+      </item>
+      <item path="csrc/tests/newface-request.ccnb" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/tests/newface-response.ccnb" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/tests/newface.ccnb" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/tests/preamble" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/tests/prefixreg-post.html" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/tests/prefixreg-pre.html" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/tests/prefixreg-request.ccnb" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/tests/prefixreg-response.ccnb" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/tests/prefixreg.ccnb" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/tests/selfreg-post.html" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/tests/selfreg-pre.html" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/tests/selfreg-request.ccnb" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/tests/selfreg-response.ccnb" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/tests/selfreg.ccnb" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/tests/settings" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/tests/stubs/jot" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/tests/stubs/pkill" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/tests/test_alone" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/tests/test_answered_interest_suppression"
+            ex="true"
+            tool="3"
+            flavor="0">
+      </item>
+      <item path="csrc/tests/test_ccndid" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/tests/test_ccnls_meta" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/tests/test_child_selector" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/tests/test_coders" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/tests/test_destroyface" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/tests/test_final_teardown" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/tests/test_finished" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/tests/test_happy_face" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/tests/test_interest_suppression" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/tests/test_key_fetch" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/tests/test_late" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/tests/test_long_consumer" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/tests/test_long_consumer2" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/tests/test_long_producer" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/tests/test_new_provider" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/tests/test_newface" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/tests/test_prefixreg" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/tests/test_scope2" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/tests/test_selfreg" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/tests/test_short_stuff" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/tests/test_single_ccnd" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/tests/test_single_ccnd_teardown" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/tests/test_spur_traffic" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/tests/test_stale" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/tests/test_twohop_ccnd" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/tests/test_twohop_ccnd_teardown" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/tests/test_unreg" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/tests/testdriver" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/tests/testdriver.sh" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/tests/twohop-status-0.html" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/tests/twohop-status-1.html" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/tests/twohop-status-2.html" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/tests/twohop-status-3.html" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/tests/unanswered.ccnb" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/tests/unreg-post.html" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/tests/unreg-pre.html" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/tests/unreg-request.ccnb" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/tests/unreg-response.ccnb" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/tests/unreg.ccnb" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/util/Makefile" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/util/ccndlogging" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/util/ccndlogging.sh" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/util/ccndstart" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/util/ccndstart.sh" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/util/ccndstatus" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/util/ccndstatus.sh" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/util/ccndstop" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/util/ccndstop.sh" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/util/ccnget" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/util/ccnget.sh" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/util/ccnput" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/util/ccnput.sh" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/util/ccntestloop" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/util/ccntestloop-trampoline" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/util/ccntestloop.sh" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/util/dbrief" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/util/dir.mk" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/util/gitwrap" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="csrc/util/shebang" ex="true" tool="3" flavor="0">
+      </item>
+      <folder path="ccnx-0.6.0/apps">
+        <cTool>
+          <incDir>
+            <pElem>apps/include</pElem>
+          </incDir>
+          <preprocessorList>
+            <Elem>_REENTRANT</Elem>
+          </preprocessorList>
+        </cTool>
+      </folder>
+      <folder path="ccnx-0.6.0/csrc">
+        <cTool>
+          <incDir>
+            <pElem>csrc/include</pElem>
+          </incDir>
+        </cTool>
+      </folder>
+      <folder path="ccnx-0.6.0/csrc/ccnd">
+        <cTool>
+          <preprocessorList>
+            <Elem>_REENTRANT</Elem>
+          </preprocessorList>
+        </cTool>
+      </folder>
+      <folder path="ccnx-0.6.0/csrc/ccnr">
+        <cTool>
+          <incDir>
+            <pElem>csrc</pElem>
+          </incDir>
+        </cTool>
+      </folder>
+      <folder path="ccnx-0.6.0/csrc/cmd">
+        <cTool>
+          <preprocessorList>
+            <Elem>_REENTRANT</Elem>
+          </preprocessorList>
+        </cTool>
+      </folder>
+      <folder path="ccnx-0.6.0/csrc/lib">
+        <cTool>
+          <preprocessorList>
+            <Elem>_REENTRANT</Elem>
+          </preprocessorList>
+        </cTool>
+      </folder>
+      <folder path="ccnx-0.6.0/csrc/libexec">
+        <cTool>
+          <preprocessorList>
+            <Elem>_REENTRANT</Elem>
+          </preprocessorList>
+        </cTool>
+      </folder>
+      <folder path="ccnx-0.6.0/csrc/sync">
+        <cTool>
+          <incDir>
+            <pElem>csrc</pElem>
+          </incDir>
+        </cTool>
+      </folder>
+    </conf>
+  </confs>
+</configurationDescriptor>

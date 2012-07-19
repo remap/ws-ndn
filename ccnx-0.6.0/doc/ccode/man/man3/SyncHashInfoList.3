@@ -1,0 +1,53 @@
+.TH "SyncHashInfoList" 3 "22 Apr 2012" "Version 0.6.0" "Content-Centric Networking in C" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+SyncHashInfoList \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "struct \fBSyncHashInfoList\fP * \fBnext\fP"
+.br
+.ti -1c
+.RI "struct \fBSyncHashCacheEntry\fP * \fBce\fP"
+.br
+.ti -1c
+.RI "int64_t \fBlastSeen\fP"
+.br
+.ti -1c
+.RI "int64_t \fBlastReplied\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 68 of file SyncPrivate.h.
+.SH "Field Documentation"
+.PP 
+.SS "struct \fBSyncHashCacheEntry\fP* \fBSyncHashInfoList::ce\fP"
+.PP
+Definition at line 70 of file SyncPrivate.h.
+.PP
+Referenced by abortCompare(), chooseRemoteHash(), exclusionsFromHashList(), HeartbeatAction(), noteHash(), noteRemoteHash(), and scanRemoteSeen().
+.SS "int64_t \fBSyncHashInfoList::lastReplied\fP"
+.PP
+Definition at line 72 of file SyncPrivate.h.
+.PP
+Referenced by noteHash(), and UpdateAction().
+.SS "int64_t \fBSyncHashInfoList::lastSeen\fP"
+.PP
+Definition at line 71 of file SyncPrivate.h.
+.PP
+Referenced by chooseRemoteHash(), noteHash(), and noteRemoteHash().
+.SS "struct \fBSyncHashInfoList\fP* \fBSyncHashInfoList::next\fP"
+.PP
+Definition at line 69 of file SyncPrivate.h.
+.PP
+Referenced by abortCompare(), chooseRemoteHash(), exclusionsFromHashList(), noteHash(), noteRemoteHash(), scanRemoteSeen(), and SyncRemRoot().
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Content-Centric Networking in C from the source code.

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <code-assistance-data xmlns="http://www.netbeans.org/ns/make-project-private/1">
+        <code-model-enabled>true</code-model-enabled>
+    </code-assistance-data>
+    <data xmlns="http://www.netbeans.org/ns/make-project-private/1">
+        <activeConfTypeElem>0</activeConfTypeElem>
+        <activeConfIndexElem>0</activeConfIndexElem>
+    </data>
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/1"/>
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/1">
+        <file>file:/home/n-mol/Downloads/ccnx-0.6.0/csrc/ccnd/ccnd_stats.c</file>
+        <file>file:/home/n-mol/Downloads/ccnx-0.6.0/csrc/ccnd/ccnd_private.h</file>
+        <file>file:/home/n-mol/Downloads/ccnx-0.6.0/csrc/ccnd/ccnd.c</file>
+        <file>file:/home/n-mol/Downloads/ccnx-0.6.0/csrc/include/ccn/charbuf.h</file>
+        <file>file:/home/n-mol/Downloads/ccnx-0.6.0/csrc/lib/ccn_client.c</file>
+        <file>file:/home/n-mol/Downloads/ccnx-0.6.0/csrc/include/ccn/ccn.h</file>
+        <file>file:/home/n-mol/Downloads/ccnx-0.6.0/csrc/lib/ccn_buf_decoder.c</file>
+        <file>file:/home/n-mol/Downloads/ccnx-0.6.0/csrc/include/ccn/coding.h</file>
+        <file>file:/home/n-mol/Downloads/ccnx-0.6.0/csrc/ccnd/ccnd_msg.c</file>
+    </open-files>
+</project-private>

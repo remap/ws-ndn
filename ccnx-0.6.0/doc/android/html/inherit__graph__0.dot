@@ -1,0 +1,8 @@
+digraph G
+{
+  bgcolor="transparent";
+  edge [fontname="FreeSans",fontsize="7",labelfontname="FreeSans",labelfontsize="7"];
+  node [fontname="FreeSans",fontsize="7",shape=record];
+  rankdir=LR;
+  Node1 [label="ccnr_meter",height=0.2,width=0.4,color="black",URL="$structccnr__meter.html",tooltip="Provide a way to monitor rates."];
+}

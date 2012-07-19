@@ -1,0 +1,13 @@
+GET / HTTP/1.1
+Host: localhost:9695
+User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:13.0) Gecko/20100101 Firefox/13.0.1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Language: en-us,en;q=0.5
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+X-DNT-OVersion: 2.2.0.515
+X-DNT-Cohort: 5
+X-DNT-Version: 2.2.1.611 FF ffamo 6659
+DNT: 1
+Cache-Control: max-age=0
+

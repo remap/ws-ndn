@@ -1,0 +1,125 @@
+.TH "lib/ccn_charbuf.c" 3 "22 Apr 2012" "Version 0.6.0" "Content-Centric Networking in C" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+lib/ccn_charbuf.c \- 
+.PP
+Support expandable buffer for counted sequences of arbitrary bytes.  
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "struct \fBccn_charbuf\fP * \fBccn_charbuf_create\fP (void)"
+.br
+.ti -1c
+.RI "struct \fBccn_charbuf\fP * \fBccn_charbuf_create_n\fP (size_t n)"
+.br
+.ti -1c
+.RI "void \fBccn_charbuf_destroy\fP (struct \fBccn_charbuf\fP **cbp)"
+.br
+.ti -1c
+.RI "unsigned char * \fBccn_charbuf_reserve\fP (struct \fBccn_charbuf\fP *c, size_t n)"
+.br
+.ti -1c
+.RI "void \fBccn_charbuf_reset\fP (struct \fBccn_charbuf\fP *c)"
+.br
+.ti -1c
+.RI "int \fBccn_charbuf_append\fP (struct \fBccn_charbuf\fP *c, const void *p, size_t n)"
+.br
+.ti -1c
+.RI "int \fBccn_charbuf_append_value\fP (struct \fBccn_charbuf\fP *c, unsigned val, unsigned n)"
+.br
+.ti -1c
+.RI "int \fBccn_charbuf_append_charbuf\fP (struct \fBccn_charbuf\fP *c, const struct \fBccn_charbuf\fP *in)"
+.br
+.ti -1c
+.RI "int \fBccn_charbuf_append_string\fP (struct \fBccn_charbuf\fP *c, const char *s)"
+.br
+.ti -1c
+.RI "int \fBccn_charbuf_putf\fP (struct \fBccn_charbuf\fP *c, const char *fmt,...)"
+.br
+.ti -1c
+.RI "int \fBccn_charbuf_append_datetime\fP (struct \fBccn_charbuf\fP *c, time_t secs, int nsecs)"
+.br
+.ti -1c
+.RI "char * \fBccn_charbuf_as_string\fP (struct \fBccn_charbuf\fP *c)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Support expandable buffer for counted sequences of arbitrary bytes. 
+
+Part of the CCNx C Library.
+.PP
+Copyright (C) 2008, 2009 Palo Alto Research Center, Inc.
+.PP
+This library is free software; you can redistribute it and/or modify it under the terms of the GNU Lesser General Public License version 2.1 as published by the Free Software Foundation. This library is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more details. You should have received a copy of the GNU Lesser General Public License along with this library; if not, write to the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA. 
+.PP
+Definition in file \fBccn_charbuf.c\fP.
+.SH "Function Documentation"
+.PP 
+.SS "int ccn_charbuf_append (struct \fBccn_charbuf\fP * c, const void * p, size_t n)"
+.PP
+Definition at line 108 of file ccn_charbuf.c.
+.PP
+Referenced by add_to_pool(), answer_passive(), append_bf_all(), append_future_vcomp(), ccn_append_link_name(), ccn_append_uri_component(), ccn_btree_key_append(), ccn_charbuf_append_charbuf(), ccn_charbuf_append_closer(), ccn_charbuf_append_datetime(), ccn_charbuf_append_string(), ccn_charbuf_append_tt(), ccn_charbuf_duplicate(), ccn_chk_signing_params(), ccn_construct_interest(), ccn_decoder_decode(), ccn_encode_Signature(), ccn_face_instance_parse(), ccn_flatname_append_component(), ccn_forwarding_entry_parse(), ccn_get_public_key(), ccn_header_parse(), ccn_initiate_key_fetch(), ccn_load_private_key(), ccn_name_append(), ccn_name_append_components(), ccn_name_next_sibling(), ccn_parse_tagged_string(), ccn_put(), ccn_resolve_version(), ccn_seqw_create(), ccn_seqw_write(), ccn_sign_content(), ccn_signed_info_create(), ccn_stuff_interest(), ccn_uri_append(), ccn_uri_append_percentescaped(), ccnb_append_forwarding_entry(), ccnb_append_tagged_blob(), ccnd_answer_req(), ccnd_send(), ccnr_answer_req(), ccnr_init_repo_keystore(), do_character_data(), example_btree_small(), express_bulkdata_interest(), express_my_interest(), find_first_match_candidate(), formatStats(), handle_ccndid_response(), handle_simple_incoming_content(), incoming_content(), load_policy(), local_scope(), main(), make_template(), prefix_face_list_item_create(), process_incoming_content(), propagate_interest(), r_io_record_fd(), r_io_send(), r_link_stuff_and_send(), r_proto_bulk_import(), r_proto_initiate_key_fetch(), r_proto_policy_update(), r_proto_start_write(), r_proto_start_write_checked(), r_store_content_read(), r_store_find_first_match_candidate(), r_sync_enumerate(), r_sync_lookup(), resolve_templ(), sequenced_name(), seqw_next_cob(), slice_parse(), stuff_and_send(), stuff_link_check(), SyncHashEnter(), SyncInterestArrived(), SyncLongHashToBuf(), test_btree_chknode(), test_btree_compare(), test_btree_key_fetch(), test_btree_searchnode(), and test_flatname().
+.SS "int ccn_charbuf_append_charbuf (struct \fBccn_charbuf\fP * c, const struct \fBccn_charbuf\fP * in)"
+.PP
+Definition at line 135 of file ccn_charbuf.c.
+.PP
+Referenced by AddUpdateName(), append_slice(), appendName(), bts_open(), ccn_btree_io_from_directory(), ccn_encode_ContentObject(), ccn_fetch_open(), ccn_get_header(), ccn_seqw_get_name(), ccn_signed_info_create(), ccnb_append_Link(), ccnd_init_service_ccnb(), ccnr_init_policy_cob(), ccnr_init_policy_link_cob(), ccnr_init_service_ccnb(), ccns_close(), ccns_delete_slice(), ccns_open(), ccns_read_slice(), ccns_send_root_advise_interest(), ccns_slice_add_clause(), ccns_slice_set_topo_prefix(), ccns_write_slice(), CompareAction(), copyFilter(), load_policy(), localStore(), putFile(), r_proto_append_repo_info(), r_proto_begin_enumeration(), r_proto_continue_enumeration(), r_proto_start_write_checked(), sendSlice(), sequenced_name(), SyncCopyName(), SyncGenInterest(), SyncNameAccumCanon(), SyncNameForLocalNode(), SyncNodeMaintainMinMax(), SyncRootAppendSlice(), SyncSendRootAdviseInterest(), SyncStartCompareAction(), SyncStartContentFetch(), SyncStartNodeFetch(), and write_slice().
+.SS "int ccn_charbuf_append_datetime (struct \fBccn_charbuf\fP * c, time_t secs, int nsecs)"
+.PP
+Definition at line 178 of file ccn_charbuf.c.
+.SS "int ccn_charbuf_append_string (struct \fBccn_charbuf\fP * c, const char * s)"
+.PP
+Definition at line 141 of file ccn_charbuf.c.
+.PP
+Referenced by ccn_btree_io_from_directory(), ccn_charbuf_append_sockaddr(), ccn_encode_Signature(), ccn_uri_append(), ccnb_append_Link(), ccnb_append_number(), ccnd_init_service_ccnb(), ccnr_init_policy_link_cob(), ccnr_init_repo_keystore(), ccnr_init_service_ccnb(), incoming_interest(), main(), and r_proto_bulk_import().
+.SS "int ccn_charbuf_append_value (struct \fBccn_charbuf\fP * c, unsigned val, unsigned n)"
+.PP
+Definition at line 119 of file ccn_charbuf.c.
+.PP
+Referenced by ccn_append_link_stuff(), ccn_charbuf_append_escaped(), ccn_decoder_decode(), ccn_extend_dict(), ccn_flatname_append_component(), ccn_name_chop(), ccn_name_next_sibling(), ccn_parse_tagged_string(), ccn_signed_info_create(), ccnb_append_timestamp_blob(), ccnd_init_service_ccnb(), ccnd_listen_on(), ccnd_parse_uri_list(), ccnr_init_policy_link_cob(), ccnr_init_repo_keystore(), ccnr_init_service_ccnb(), main(), r_init_parse_config(), and r_net_listen_on().
+.SS "char* ccn_charbuf_as_string (struct \fBccn_charbuf\fP * c)"
+.PP
+Definition at line 204 of file ccn_charbuf.c.
+.PP
+Referenced by bts_open(), bts_remove_lockfile(), ccn_btree_check(), ccn_btree_io_from_directory(), ccn_chk_signing_params(), ccn_extend_dict(), ccnd_debug_ccnb(), ccnd_init_internal_keystore(), ccnd_listen_on(), ccnd_reg_ccnx_ccndid(), ccnd_reg_prefix(), ccnd_reg_uri_list(), ccnr_debug_ccnb(), ccnr_debug_content(), ccnr_init_repo_keystore(), ccnr_msg(), ccns_msg(), collect_faces_html(), collect_faces_xml(), CompareAction(), existingRootOp(), getFile(), incoming_content(), incoming_interest(), load_policy(), main(), merge_files(), noteErr(), pe_next_usec(), printTreeInner(), process_data(), process_prefix_face_list_item(), putFile(), putFileList(), r_init_map_and_process_file(), r_init_parse_config(), r_init_read_config(), r_io_open_repo_data_file(), r_net_listen_on(), r_proto_bulk_import(), r_proto_policy_update(), r_store_content_next(), r_store_init(), r_store_read_stable_point(), r_store_write_stable_point(), r_sync_enumerate(), sendSlice(), storeHandler(), sync_cb(), SyncNoteUri(), SyncNoteUriBase(), SyncNotifyContent(), SyncRegisterInterests(), SyncRootLookupName(), test_btree_io(), test_directory_creation(), test_flatname(), test_insert_content(), testReader(), and UpdateAction().
+.SS "struct \fBccn_charbuf\fP* ccn_charbuf_create (void)\fC [read]\fP"
+.PP
+Definition at line 28 of file ccn_charbuf.c.
+.PP
+Referenced by add_to_pool(), age_forwarding(), appendName(), bts_open(), ccn_btree_check(), ccn_btree_getnode(), ccn_btree_io_from_directory(), ccn_btree_next_leaf(), ccn_btree_split(), ccn_charbuf_duplicate(), ccn_chk_signing_params(), ccn_create(), ccn_decoder_create(), ccn_decoder_decode(), ccn_encode_ContentObject(), ccn_encoder_create(), ccn_extend_dict(), ccn_face_instance_parse(), ccn_fetch_open(), ccn_forwarding_entry_parse(), ccn_get_header(), ccn_header_parse(), ccn_initiate_ccndid_fetch(), ccn_initiate_key_fetch(), ccn_initiate_prefix_reg(), ccn_load_default_key(), ccn_load_private_key(), ccn_name_from_uri(), ccn_name_next_sibling(), ccn_process_input(), ccn_put(), ccn_resolve_version(), ccn_seqw_create(), ccn_sign_content(), ccn_uri_append_flatname(), ccnbx(), ccnd_answer_req(), ccnd_debug_ccnb(), ccnd_init_internal_keystore(), ccnd_init_service_ccnb(), ccnd_listen_on(), ccnd_msg(), ccnd_parse_uri_list(), ccnd_reg_ccnx_ccndid(), ccnd_reg_prefix(), ccnd_reg_uri(), ccnd_send(), ccnd_start_notice(), ccnd_stats_http_set_debug(), ccnd_uri_listen(), ccnr_answer_req(), ccnr_debug_ccnb(), ccnr_debug_content(), ccnr_init_policy_cob(), ccnr_init_policy_link_cob(), ccnr_init_repo_keystore(), ccnr_init_service_ccnb(), ccnr_msg(), ccnr_parsed_policy_create(), ccnr_stats_http_set_debug(), ccnr_uri_listen(), ccns_msg(), ccns_read_slice(), ccns_send_root_advise_interest(), ccns_slice_name(), ccns_write_slice(), charbuf_obtain(), collect_faces_html(), collect_faces_xml(), collect_forwarding_html(), collect_forwarding_xml(), collect_stats_html(), collect_stats_xml(), CompareAction(), constructCommandPrefix(), copyFilter(), create_passive_templ(), do_face_action(), encode_message(), exclusionsFromHashList(), existingRootOp(), express_bulkdata_interest(), express_my_interest(), fetchStablePoint(), find_first_match_candidate(), genTestRootRepos(), genTestRootRouting(), get_ccndid(), getFile(), handle_key(), incoming_content(), incoming_interest(), init_all_chars_percent_encoded(), initialize_global_data(), load_policy(), local_scope_rm_template(), localStore(), main(), make_connection(), make_data_template(), make_template(), merge_files(), NewDeltas(), NewElem(), next_child_at_level(), noteErr(), parseAndAccumName(), pe_next_usec(), post_face_notice(), prefix_face_list_item_create(), printTree(), process_command_tokens(), process_fd(), process_incoming_content(), process_input(), process_prefix_face_list_item(), putFile(), putFileList(), r_dispatch_process_input(), r_init_parse_config(), r_init_read_config(), r_io_open_repo_data_file(), r_io_record_fd(), r_io_send(), r_match_match_interests(), r_net_listen_on(), r_proto_append_repo_info(), r_proto_begin_enumeration(), r_proto_bulk_import(), r_proto_continue_enumeration(), r_proto_expect_content(), r_proto_initiate_key_fetch(), r_proto_mktemplate(), r_proto_policy_complete(), r_proto_policy_update(), r_proto_start_write(), r_proto_start_write_checked(), r_proto_uri_listen(), r_store_content_matches_interest_prefix(), r_store_content_read(), r_store_find_first_match_candidate(), r_store_init(), r_store_look(), r_store_lookup(), r_store_lookup_ccnb(), r_store_next_child_at_level(), r_store_read_stable_point(), r_store_set_flatname(), r_store_write_stable_point(), r_sync_enumerate(), r_sync_enumerate_action(), r_util_charbuf_obtain(), register_unregister_prefix(), resolve_templ(), sendSlice(), sequenced_name(), seqw_next_cob(), slice_parse(), storeHandler(), storeStablePoint(), stuff_link_check(), sync_cb(), SyncAddRoot(), SyncAppendRandomName(), SyncCacheEntryFetch(), SyncCopyName(), SyncExtractName(), SyncGenInterest(), SyncHandleSlice(), SyncHashEnter(), SyncInterestArrived(), SyncLongHashToBuf(), SyncNameAccumCanon(), SyncNameForIndexbuf(), SyncNameForLocalNode(), SyncNewBase(), SyncNodeMaintainMinMax(), SyncResetComposite(), SyncRootLookupName(), SyncSendRootAdviseInterest(), SyncSignBuf(), SyncStartCompareAction(), SyncStartContentFetch(), SyncStartNodeFetch(), SyncTreeGenerateNames(), SyncUriForName(), test_btree_chknode(), test_btree_compare(), test_btree_inserts_from_stdin(), test_btree_io(), test_btree_key_fetch(), test_btree_searchnode(), test_directory_creation(), test_flatname(), test_insert_content(), testEncodeDecode(), testGenComposite(), testhelp_count_matches(), testReadBuilder(), testReader(), testRootBasic(), testRootCoding(), testRootLookup(), UpdateAction(), and write_slice().
+.SS "struct \fBccn_charbuf\fP* ccn_charbuf_create_n (size_t n)\fC [read]\fP"
+.PP
+Definition at line 36 of file ccn_charbuf.c.
+.PP
+Referenced by ccns_delete_slice(), ccns_read_slice(), ccns_slice_add_clause(), ccns_slice_create(), ccns_slice_name(), handle_ccndid_response(), main(), make_scope1_template(), and write_slice().
+.SS "void ccn_charbuf_destroy (struct \fBccn_charbuf\fP ** cbp)"
+.PP
+Definition at line 56 of file ccn_charbuf.c.
+.PP
+Referenced by AddUpdateName(), age_forwarding(), appendName(), ask_more(), bts_destroy(), bts_open(), ccn_btree_check(), ccn_btree_io_from_directory(), ccn_btree_next_leaf(), ccn_btree_split(), ccn_check_pub_arrival(), ccn_chk_signing_params(), ccn_decoder_decode(), ccn_decoder_destroy(), ccn_destroy(), ccn_destroy_interest(), ccn_disconnect(), ccn_encode_ContentObject(), ccn_encoder_destroy(), ccn_extend_dict(), ccn_face_instance_destroy(), ccn_face_instance_parse(), ccn_fetch_close(), ccn_fetch_open(), ccn_forwarding_entry_destroy(), ccn_forwarding_entry_parse(), ccn_get_header(), ccn_header_destroy(), ccn_initiate_ccndid_fetch(), ccn_initiate_key_fetch(), ccn_initiate_prefix_reg(), ccn_load_default_key(), ccn_load_private_key(), ccn_name_from_uri(), ccn_name_next_sibling(), ccn_resolve_version(), ccn_seqw_create(), ccn_seqw_write(), ccn_sign_content(), ccn_uri_append_flatname(), ccnbx(), ccnd_answer_req(), ccnd_debug_ccnb(), ccnd_destroy(), ccnd_init_internal_keystore(), ccnd_init_service_ccnb(), ccnd_internal_client_stop(), ccnd_listen_on(), ccnd_msg(), ccnd_parse_uri_list(), ccnd_reg_ccnx_ccndid(), ccnd_reg_prefix(), ccnd_reg_uri(), ccnd_start_notice(), ccnd_stats_handle_http_connection(), ccnd_stats_http_set_debug(), ccnd_uri_listen(), ccnr_answer_req(), ccnr_debug_ccnb(), ccnr_debug_content(), ccnr_direct_client_stop(), ccnr_init_policy_cob(), ccnr_init_policy_link_cob(), ccnr_init_repo_keystore(), ccnr_init_service_ccnb(), ccnr_internal_client_stop(), ccnr_msg(), ccnr_parsed_policy_destroy(), ccnr_stats_handle_http_connection(), ccnr_stats_http_set_debug(), ccnr_uri_listen(), ccns_delete_slice(), ccns_msg(), ccns_read_slice(), ccns_root_advise_response(), ccns_send_root_advise_interest(), ccns_slice_add_clause(), ccns_slice_create(), ccns_slice_destroy(), ccns_slice_name(), ccns_write_slice(), charbuf_release(), cleanup_se(), collect_faces_html(), collect_faces_xml(), collect_forwarding_html(), collect_forwarding_xml(), CompareAction(), constructCommandPrefix(), destroyActionData(), destroyCompareData(), do_deferred_write(), do_face_action(), encode_message(), existingRootOp(), express_bulkdata_interest(), express_my_interest(), fetchStablePoint(), fill_holes(), finalize_node(), find_first_match_candidate(), FreeDeltas(), genTestRootRepos(), genTestRootRouting(), get_ccndid(), getFile(), handle_key(), handle_send_error(), incoming_content(), init_all_chars_percent_encoded(), load_policy(), localFreeEntry(), localStore(), main(), MakeNodeFromNames(), merge_files(), NeedSegment(), NewElem(), next_child_at_level(), noteErr(), outgoing_content(), parseAndAccumName(), pe_next_usec(), post_face_notice(), prefix_face_list_destroy(), prefix_face_list_item_create(), printTree(), process_fd(), process_internal_client_buffer(), process_prefix_face_list_item(), putFile(), putFileList(), r_dispatch_process_internal_client_buffer(), r_init_create(), r_init_destroy(), r_init_parse_config(), r_init_read_config(), r_io_open_repo_data_file(), r_io_record_fd(), r_io_shutdown_client_fd(), r_link_do_deferred_write(), r_match_match_interests(), r_net_listen_on(), r_proto_answer_req(), r_proto_append_repo_info(), r_proto_begin_enumeration(), r_proto_bulk_import(), r_proto_continue_enumeration(), r_proto_expect_content(), r_proto_initiate_key_fetch(), r_proto_policy_update(), r_proto_start_write(), r_proto_start_write_checked(), r_proto_uri_listen(), r_store_content_matches_interest_prefix(), r_store_content_read(), r_store_content_trim(), r_store_find_first_match_candidate(), r_store_forget_content(), r_store_init(), r_store_lookup(), r_store_lookup_ccnb(), r_store_next_child_at_level(), r_store_read_stable_point(), r_store_set_flatname(), r_store_write_stable_point(), r_sync_enumerate(), r_sync_enumerate_action(), r_util_charbuf_release(), reap_enumerations(), register_unregister_prefix(), resolve_templ(), sendSlice(), sequenced_name(), seqw_incoming_interest(), seqw_next_cob(), shutdown_client_fd(), slice_parse(), sortNames(), storeHandler(), storeStablePoint(), stuff_link_check(), sync_cb(), SyncAppendRandomName(), SyncCacheEntryFetch(), SyncCacheEntryStore(), SyncExtractName(), SyncFreeBase(), SyncFreeComposite(), SyncFreeNameAccumAndNames(), SyncGenInterest(), SyncHandleSlice(), SyncInterestArrived(), SyncLocalRepoFetch(), SyncLocalRepoStore(), SyncNameForIndexbuf(), SyncNameForLocalNode(), SyncNoteUri(), SyncNoteUriBase(), SyncNotifyContent(), SyncRegisterInterests(), SyncRemRoot(), SyncResetComposite(), SyncRootAdviseResponse(), SyncRootDecodeAndAdd(), SyncRootLookupName(), SyncSendRootAdviseInterest(), SyncSignBuf(), SyncStartContentFetch(), SyncStartHeartbeat(), SyncStartNodeFetch(), SyncStartSliceEnum(), SyncTreeGenerateNames(), test_btree_chknode(), test_btree_compare(), test_btree_io(), test_btree_key_fetch(), test_btree_searchnode(), test_directory_creation(), test_flatname(), test_insert_content(), testEncodeDecode(), testGenComposite(), testhelp_count_matches(), testReadBuilder(), testReader(), testRootCoding(), UpdateAction(), and write_slice().
+.SS "int ccn_charbuf_putf (struct \fBccn_charbuf\fP * c, const char * fmt,  ...)"
+.PP
+Definition at line 147 of file ccn_charbuf.c.
+.PP
+Referenced by bts_open(), bts_remove_lockfile(), ccn_btree_io_from_directory(), ccn_charbuf_append_escaped(), ccn_chk_signing_params(), ccn_decimal_seqfunc(), ccn_uri_append_percentescaped(), ccnd_debug_ccnb(), ccnd_init_internal_keystore(), ccnd_msg(), ccnd_reg_prefix(), ccnd_stats_http_set_debug(), ccnr_debug_ccnb(), ccnr_debug_content(), ccnr_init_repo_keystore(), ccnr_msg(), ccnr_stats_http_set_debug(), ccns_msg(), collect_face_meter_html(), collect_faces_html(), collect_faces_xml(), collect_forwarding_html(), collect_forwarding_xml(), collect_meter_xml(), collect_stats_html(), collect_stats_xml(), incoming_content(), init_all_chars_percent_encoded(), load_policy(), main(), merge_files(), noteErr(), pe_next_usec(), post_face_notice(), r_init_read_config(), r_io_open_repo_data_file(), r_proto_bulk_import(), r_proto_policy_update(), r_store_init(), r_store_read_stable_point(), r_store_write_stable_point(), r_sync_enumerate(), sequenced_name(), test_btree_io(), and test_directory_creation().
+.SS "unsigned char* ccn_charbuf_reserve (struct \fBccn_charbuf\fP * c, size_t n)"
+.PP
+Definition at line 71 of file ccn_charbuf.c.
+.PP
+Referenced by append_bloom_element(), bts_read(), ccn_append_pubkey_blob(), ccn_binary_seqfunc(), ccn_btree_init_node(), ccn_btree_insert_entry(), ccn_charbuf_append(), ccn_charbuf_append_escaped(), ccn_charbuf_append_sockaddr(), ccn_charbuf_append_value(), ccn_charbuf_as_string(), ccn_charbuf_putf(), ccn_decoder_decode(), ccn_encoder_create(), ccn_name_append(), ccn_name_append_components(), ccn_name_from_uri(), ccn_process_input(), ccnb_append_timestamp_blob(), ccnb_tagged_putf(), ccnbx(), ccnd_append_plain_nonce(), ccnr_msg(), ccns_msg(), finish_openudata(), getFile(), load_policy(), main(), noteErr(), process_fd(), process_input(), r_dispatch_process_input(), r_init_read_config(), r_io_open_repo_data_file(), r_store_content_read(), r_store_read_stable_point(), sendSlice(), storeHandler(), stuff_and_send(), SyncAddRoot(), SyncAppendRandomBytes(), SyncParseComposite(), test_basic_btree_insert_entry(), test_btree_inserts_from_stdin(), and test_flatname().
+.SS "void ccn_charbuf_reset (struct \fBccn_charbuf\fP * c)"
+.PP
+Definition at line 99 of file ccn_charbuf.c.
+.PP
+Referenced by ccn_extend_dict(), ccn_get_header(), ccns_close(), ccns_open(), ccns_slice_set_topo_prefix(), ccns_write_slice(), CompareAction(), extractBuf(), handle_ccndid_response(), main(), printTreeInner(), slice_parse(), SyncAppendRandomName(), SyncNodeMaintainMinMax(), testGenComposite(), testReader(), and testRootLookup().
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Content-Centric Networking in C from the source code.
