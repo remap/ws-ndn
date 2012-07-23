@@ -137,6 +137,7 @@ ccnd_handle_http_websocket_connection_handshake(struct ccnd_handle *h, struct fa
     int len;
     char handshake[800],key[80];
     char *handshake_part2, *handshake_part3,*magic,*final;
+    char message[360];char frame[131];
     unsigned char hash[20];
     if (face->inbuf->length < 4)
         return(-1);
@@ -167,18 +168,15 @@ ccnd_handle_http_websocket_connection_handshake(struct ccnd_handle *h, struct fa
     strcat(handshake,handshake_part3);
     printf("Response Header :\n%s", handshake);
     
-    /*face->flags |= CCN_FACE_PERMANENT;             // Not sure if this could be used
-    if ((face->flags & CCN_FACE_PERMANENT) != 0)
-         printf("CCN_FACE_PERMANENT bit set !\n");*/
-    //face->flags &= ~CCN_FACE_UNDECIDED; 
     ccnd_send(h, face, handshake, strlen(handshake));
-    face->flags &= ~CCN_FACE_UNDECIDED; 
+    //ccn_charbuf_destroy(&face->outbuf);
+    //face->flags &= ~CCN_FACE_UNDECIDED; 
     if ((face->flags & CCN_FACE_UNDECIDED) == 0){
          printf("CCN_FACE_UNDECIDED bit cleared !\n");
     }     
+        
     //if ((face->flags & CCN_FACE_CLOSING) == 0)
     //     printf("CCN_FACE_CLOSING bit not set !\n");
-    //face->flags |=(CCN_FACE_NOSEND | CCN_FACE_CLOSING);    
     return (0); 	
  }
    
@@ -212,20 +210,22 @@ ccnd_handle_http_websocket_connection_data(struct ccnd_handle *h, struct face *f
         rbuf[j] = face->inbuf->buf[i];
     }
 
-     in=rbuf;
-     assert(in[0] == '\x81');
-     packet_length = ((unsigned char) in[1]) & 0x7f;
-     printf("\nPacket length : %d\n", packet_length);
-     mask[0] = in[2];
-     mask[1] = in[3];
-     mask[2] = in[4];
-     mask[3] = in[5];
-     if(packet_length <= 126)
-     {                      
-	/* Unmask the payload. */
+    in=rbuf;
+    assert(in[0] == '\x81');
+    packet_length = ((unsigned char) in[1]) & 0x7f;
+    //printf("\nPacket length : %d\n", packet_length);
+    mask[0] = in[2];
+    mask[1] = in[3];
+    mask[2] = in[4];
+    mask[3] = in[5];
+    if(packet_length <= 126)
+    {                      
+        /* Unmask the payload. */
 	for (i = 0; i < packet_length; i++)
 		in[6 + i] ^= mask[i % 4];
-	rc = asprintf(&buffr, "%.*s", packet_length, in + 6); 
+	
+        
+        rc = asprintf(&buffr, "%.*s", packet_length, in + 6); 
      }
      else if(packet_length == 127)
      {            
@@ -234,12 +234,11 @@ ccnd_handle_http_websocket_connection_data(struct ccnd_handle *h, struct face *f
   		 in[8 + i] ^= mask[i % 4];
 	rc = asprintf(&buffr, "%.*s", packet_length, in + 8);
      }
-	
      printf("Here is the message from client :\n%s\n",buffr);     // Not getting executed after this point
-     fflush(stdout);
+    
      strcpy(message,"Hello Client (from server)");                
      
-     printf("Message :%s",message);                           // Does not get printed to stdout
+     printf("Message from server : %s\n",message);                           
      /* Framing data to be sent to client */
      frame[0] = '\x81';
      frame[1] = 128 + strlen(message);
@@ -248,14 +247,9 @@ ccnd_handle_http_websocket_connection_data(struct ccnd_handle *h, struct face *f
      frame[4] = '\x00';
      frame[5] = '\x00';
      snprintf(frame+6, 124, "%s", message);
-     printf("Message :%s",message);
-     ccnd_send(h, face, message, strlen(message));
-     printf("Message sent to client !");
-     face->flags &= ~CCN_FACE_UNDECIDED; 
-     //if ((face->flags & CCN_FACE_UNDECIDED) == 0)
-       //  printf("CCN_FACE_UNDECIDED bit cleared %s\n", message);
-     //face->flags |= (CCN_FACE_NOSEND | CCN_FACE_CLOSING);
-     
+     ccnd_send(h, face, frame, 6+strlen(message));
+     printf("Message sent to client !\n");
+     face->flags |= ( CCN_FACE_NOSEND | CCN_FACE_CLOSING);     
      return (0);
 }
 

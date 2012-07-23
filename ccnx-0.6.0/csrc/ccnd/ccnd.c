@@ -4503,6 +4503,7 @@ process_input(struct ccnd_handle *h, int fd)
              ch != NULL )) {                                    
              printf("Accepting data !\n");
             ccnd_handle_http_websocket_connection_data(h, face);
+            printf("Data sent !\n");
             return;
         } 
         
@@ -4647,7 +4648,7 @@ ccnd_send(struct ccnd_handle *h,
           const void *data, size_t size)
 {
     ssize_t res;
-   
+    
     if ((face->flags & CCN_FACE_NOSEND) != 0)
         return;
     face->surplus++;
@@ -4806,7 +4807,7 @@ ccnd_run(struct ccnd_handle *h)
             if (h->fds[i].revents != 0) {
                 res--;
                 if (h->fds[i].revents & (POLLERR | POLLNVAL | POLLHUP)) {
-                    if (h->fds[i].revents & (POLLIN))
+                    if (h->fds[i].revents & (POLLIN)) 
                         process_input(h, h->fds[i].fd);
                     else
                         shutdown_client_fd(h, h->fds[i].fd);
@@ -4814,8 +4815,9 @@ ccnd_run(struct ccnd_handle *h)
                 }
                 if (h->fds[i].revents & (POLLOUT))
                     do_deferred_write(h, h->fds[i].fd);
-                else if (h->fds[i].revents & (POLLIN))
+                else if (h->fds[i].revents & (POLLIN)) 
                     process_input(h, h->fds[i].fd);
+                        
             }
         }
     }
