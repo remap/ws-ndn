@@ -1,0 +1,188 @@
+--- ccnd_stats.c	2012-04-15 19:48:49.000000000 -0700
++++ ccnd_stats_modified.c	2012-07-23 17:07:15.000000000 -0700
+@@ -40,7 +40,15 @@
+ #include <ccn/sockaddrutil.h>
+ #include <ccn/hashtb.h>
+ #include <ccn/uri.h>
+-
++//
++#include <sys/types.h> 
++#include <netinet/in.h>
++#include <openssl/sha.h>
++#include <openssl/hmac.h>
++#include <openssl/evp.h>
++#include <openssl/bio.h>
++#include <openssl/buffer.h>
++//
+ #include "ccnd_private.h"
+ 
+ #define CRLF "\r\n"
+@@ -91,7 +99,158 @@
+     send_http_response(h, face, "text/html", response);
+     ccn_charbuf_destroy(&response);
+ }
++//
++
++char *base64(const unsigned char *input, int length)
++{
++BIO *bmem, *b64;
++BUF_MEM *bptr;
++char *buff;
++b64 = BIO_new(BIO_f_base64());
++bmem = BIO_new(BIO_s_mem());
++b64 = BIO_push(b64, bmem);
++BIO_write(b64, input, length);
++BIO_flush(b64);
++BIO_get_mem_ptr(b64, &bptr);
++
++buff = (char *)malloc(bptr->length);
++memcpy(buff, bptr->data, bptr->length-1);
++buff[bptr->length-1] = 0;
++
++BIO_free_all(b64);
++
++return buff;
++};
++
++
++///////Added
++
++
++/*Function to establish web socket by making http handshake */
++
++int
++ccnd_handle_http_websocket_connection_handshake(struct ccnd_handle *h, struct face *face)
++{
++    int i,j,n;
++    char rbuf[656];
++    int len;
++    char handshake[800],key[80];
++    char *handshake_part2, *handshake_part3,*magic,*final;
++    char message[360];char frame[131];
++    unsigned char hash[20];
++    if (face->inbuf->length < 4)
++        return(-1);
++    if ((face->flags & CCN_FACE_NOSEND) != 0) {
++        ccnd_destroy_face(h, face->faceid);
++        printf(" face killed");
++        return(-1);
++    }
++    n = sizeof(rbuf) - 1;
++    if (face->inbuf->length < n)
++        n = face->inbuf->length;
++    for (i = 0; i < n; i++) {
++        rbuf[i] = face->inbuf->buf[i];
++    }
++    rbuf[i]='\0';
++    printf("\nHTTP Request Header :\n%s",rbuf);
++    /* Preparing http request response to establish web socket */
++    for(i=359,j=0;i<383;i++,j++)
++    key[j]=rbuf[i];                           // Extracting WebSocket-Key 
++    key[j]='\0';
++    magic=(char *)"258EAFA5-E914-47DA-95CA-C5AB0DC85B11";
++    strcat(key,magic);                          //Appending magic key to WebSocket-Key   
++    SHA1(key,strlen(key),hash);                     //String hashing by SHA 1
++    handshake_part2= base64(hash, sizeof(hash));        // Encoding the SHA-1 hash by Base64
++    strcpy(handshake, "HTTP/1.1 101 Web Socket Protocol Handshake\r\nUpgrade: Websocket\r\nConnection: Upgrade\r\nSec-WebSocket-Accept: ");
++    strcat(handshake,handshake_part2);
++    handshake_part3="\r\nWebSocket-Origin: http://localhost:9695\r\nWebSocket-Location: ws://localhost:9695/\r\n\r\n";
++    strcat(handshake,handshake_part3);
++    printf("Response Header :\n%s", handshake);
++    
++    ccnd_send(h, face, handshake, strlen(handshake));
++    /*face->flags &= ~CCN_FACE_UNDECIDED; 
++    if ((face->flags & CCN_FACE_UNDECIDED) == 0){
++         printf("CCN_FACE_UNDECIDED bit cleared !\n");
++    } */    
++    return (0); 	
++ }
++   
++/*Function to handle data transmission on established web socket*/
++
++int
++ccnd_handle_http_websocket_connection_data(struct ccnd_handle *h, struct face *face)
++{
++    int n;
++    char rbuf[656];
++    
++    /* For masking and unmasking data sent or recieved*/
++    char *in, *buffr;
++    unsigned int i,j;
++    unsigned char mask[4];
++    unsigned int packet_length = 0;
++    int rc;
++    char frame[131];
++    char message[360];
++    
++    if (face->inbuf->length < 4)
++        return(-1);
++    if ((face->flags & CCN_FACE_NOSEND) != 0) {
++        ccnd_destroy_face(h, face->faceid);
++        return(-1);
++    }
++    n = sizeof(rbuf) - 1;
++    if (face->inbuf->length < n)
++        n = face->inbuf->length;
++    for (i = 534,j=0; i < n; i++,j++) {
++        rbuf[j] = face->inbuf->buf[i];
++    }
++
++    in=rbuf;
++    assert(in[0] == '\x81');
++    packet_length = ((unsigned char) in[1]) & 0x7f;
++    //printf("\nPacket length : %d\n", packet_length);
++    mask[0] = in[2];
++    mask[1] = in[3];
++    mask[2] = in[4];
++    mask[3] = in[5];
++    if(packet_length <= 126)
++    {                      
++        /* Unmask the payload. */
++	for (i = 0; i < packet_length; i++)
++		in[6 + i] ^= mask[i % 4];
++	
++        
++        rc = asprintf(&buffr, "%.*s", packet_length, in + 6); 
++     }
++     else if(packet_length == 127)
++     {            
++	/* Unmask the payload. */
++        for (i = 0; i < packet_length; i++)
++  		 in[8 + i] ^= mask[i % 4];
++	rc = asprintf(&buffr, "%.*s", packet_length, in + 8);
++     }
++     printf("Here is the message from client :\n%s\n",buffr);     // Not getting executed after this point
++    
++     strcpy(message,"Hello Client (from server)");                
++     
++     printf("Message from server : %s\n",message);                           
++     /* Framing data to be sent to client */
++     frame[0] = '\x81';
++     frame[1] = 128 + strlen(message);
++     frame[2] = '\x00';
++     frame[3] = '\x00';
++     frame[4] = '\x00';
++     frame[5] = '\x00';
++     snprintf(frame+6, 124, "%s", message);
++     ccnd_send(h, face, frame, 6+strlen(message));
++     printf("Message sent to client !\n");
++     face->flags |= ( CCN_FACE_NOSEND | CCN_FACE_CLOSING);     
++     return (0);
++}
+ 
++
++//////    
++    
+ int
+ ccnd_stats_handle_http_connection(struct ccnd_handle *h, struct face *face)
+ {
+@@ -118,8 +277,7 @@
+     rbuf[i] = 0;
+     if (nspace < 2 && i < sizeof(rbuf) - 1)
+         return(-1);
+-    if (0 == strcmp(rbuf, "GET / ") ||
+-        0 == strcmp(rbuf, "GET /? ")) {
++    if (0 == strcmp(rbuf, "GET / ") ||  0 == strcmp(rbuf, "GET /? ")) {
+         response = collect_stats_html(h);
+         send_http_response(h, face, "text/html", response);
+     }

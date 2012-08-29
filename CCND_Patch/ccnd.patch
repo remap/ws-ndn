@@ -1,0 +1,71 @@
+--- ccnd.c	2012-04-15 19:48:49.000000000 -0700
++++ ccnd_modified.c	2012-07-23 17:08:26.000000000 -0700
+@@ -4427,6 +4427,7 @@
+ static void
+ process_input(struct ccnd_handle *h, int fd)
+ {
++    char *ch = NULL;
+     struct face *face = NULL;
+     struct face *source = NULL;
+     ssize_t res;
+@@ -4484,7 +4485,31 @@
+         }
+         face->inbuf->length += res;
+         msgstart = 0;
+-        if (((face->flags & CCN_FACE_UNDECIDED) != 0 &&
++        
++        //Modified
++        
++        /* Establishing Web Socket Connection by HTTP Handshake*/
++        ch=strstr (face->inbuf->buf, "WebSocket");
++        if (((face->flags & CCN_FACE_UNDECIDED) != 0 &&         
++             face->inbuf->length >= 200 &&
++             face->inbuf->length <=534 &&   
++             ch != NULL)) {                                    
++             ccnd_handle_http_websocket_connection_handshake(h, face);
++             return;
++        }
++        /*Transmitting data once Web Socket Connection is established*/
++       if (((face->flags & CCN_FACE_UNDECIDED) != 0 &&         
++             face->inbuf->length > 534 &&
++             ch != NULL )) {                                    
++            printf("Accepting data !\n");
++            ccnd_handle_http_websocket_connection_data(h, face);
++            printf("Data sent !\n");
++            return;
++        } 
++        
++        //
++        
++        if (((face->flags & CCN_FACE_UNDECIDED) != 0 &&        
+              face->inbuf->length >= 6 &&
+              0 == memcmp(face->inbuf->buf, "GET ", 4))) {
+             ccnd_stats_handle_http_connection(h, face);
+@@ -4623,6 +4648,7 @@
+           const void *data, size_t size)
+ {
+     ssize_t res;
++    
+     if ((face->flags & CCN_FACE_NOSEND) != 0)
+         return;
+     face->surplus++;
+@@ -4781,7 +4807,7 @@
+             if (h->fds[i].revents != 0) {
+                 res--;
+                 if (h->fds[i].revents & (POLLERR | POLLNVAL | POLLHUP)) {
+-                    if (h->fds[i].revents & (POLLIN))
++                    if (h->fds[i].revents & (POLLIN)) 
+                         process_input(h, h->fds[i].fd);
+                     else
+                         shutdown_client_fd(h, h->fds[i].fd);
+@@ -4789,8 +4815,9 @@
+                 }
+                 if (h->fds[i].revents & (POLLOUT))
+                     do_deferred_write(h, h->fds[i].fd);
+-                else if (h->fds[i].revents & (POLLIN))
++                else if (h->fds[i].revents & (POLLIN)) 
+                     process_input(h, h->fds[i].fd);
++                        
+             }
+         }
+     }

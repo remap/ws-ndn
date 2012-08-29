@@ -1,0 +1,14 @@
+--- ccnd_private.h	2012-04-15 19:48:49.000000000 -0700
++++ ccnd_private_modified.h	2012-07-12 16:46:06.000000000 -0700
+@@ -436,6 +436,11 @@
+ 
+ /* Consider a separate header for these */
+ int ccnd_stats_handle_http_connection(struct ccnd_handle *, struct face *);
++//
++int
++ccnd_handle_http_websoket_connection_handshake(struct ccnd_handle *h, struct face *face);
++int ccnd_stats_handle_http_websocket_connection_data(struct ccnd_handle *, struct face *);
++//
+ void ccnd_msg(struct ccnd_handle *, const char *, ...);
+ void ccnd_debug_ccnb(struct ccnd_handle *h,
+                      int lineno,
